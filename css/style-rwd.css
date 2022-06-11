@@ -1,0 +1,306 @@
+@charset "UTF-8";
+
+@media screen and (max-width: 800px) {
+  /*===================
+    共通 common
+  ===================*/
+    html {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+    .wrapper {
+      /* padding: 0 16px; */
+    }
+
+    .fadeIn p {
+      width: 100%;
+      -webkit-transform: translate(-30%, -30%);
+            transform: translate(-30%, -30%);
+    }
+
+    .section-title::after {
+      width: 50px;
+      height: 1.75px;
+      bottom: -15px;
+    }
+    .section-title .en {
+      font-size: 2.5rem;
+    }
+    .section-title .jp {
+      font-size: 1rem;
+    }
+
+    /*=====================
+      ヘッダー header
+    =====================*/
+    #header {
+      width:100%;
+    }
+    .title-logo span {
+      font-size: 1.2rem;
+    }
+    /* ----------------------------------------------- ハンバーガ―メニュー */
+    .drawer_hidden {
+      display: none;  /* チェックボックスを非表示 */
+    }
+    /* アイコン設置スペース */
+    .drawer_open {
+      display: flex;
+      height: 50px;
+      width: 50px;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 100;  /* 重なり順を一番上にする */
+      cursor: pointer;
+      background-color: #87CEEB;
+      border-radius: 7%;
+    }
+    /* アイコン */
+    .drawer_open span,
+    .drawer_open span:before,
+    .drawer_open span:after {
+      content: '';
+      display: block;
+      height: 3px;
+      width: 25px;
+      border-radius: 3px;
+      background: #fff;
+      transition: 0.5s;
+      position: absolute;
+    }
+    .drawer_open span:before {  /* 三本線の一番上の棒の位置調整 */
+      bottom: 8px;
+    }
+    .drawer_open span:after {  /* 三本線の一番下の棒の位置調整 */
+      top: 8px;
+    }
+    #drawer_input:checked ~ .drawer_open span {  /* アイコンがクリックされたら真ん中の線を透明にする */
+      background: rgba(255, 255, 255, 0);
+    }
+    #drawer_input:checked ~ .drawer_open span::before {  /* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+      bottom: 0;
+      transform: rotate(45deg);
+    }
+    #drawer_input:checked ~ .drawer_open span::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+    /* ----------------------------------------------- ナビメニュー */
+    .nav-content {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 100%; /* メニューを画面の外に飛ばす */
+      z-index: 99;
+      background: rgba(135, 206, 235, 0.95);
+      transition: .5s;
+    }
+    .nav-list {
+      flex-direction: column;
+      text-align: center;
+      font-size: 1.25rem;
+      margin: 0;
+    }
+    .nav-list li {
+      margin: 25px;
+      /* background-color: #fff; */
+      display: block;
+    }
+    .nav-list > li:nth-child(1) {
+      margin-top: 60px;
+    }
+    /* アイコンがクリックされたらメニューを表示 */
+    #drawer_input:checked ~ .nav-content {
+      left: 0;  /* メニューを画面に入れる */
+    }
+    /* ----------------------------------------------- メイン背景画像 */
+    #home {
+      background-image: url(../img/main-img_sp2.png);
+    }
+    /* ----------------------------------------------- メインテキスト */
+    .home-content {
+      top: 40%;
+    }
+    .home-content img {
+    }
+    .home-content p {
+      font-size: 2rem;
+    }
+    /* ----------------------------------------------- スクロールダウン促すアニメーション SP版 */
+    .scrolldown3{
+      position:absolute;
+      bottom:1%;
+      right:50%;
+      animation: arrowmove 1s ease-in-out infinite;
+    }
+    @keyframes arrowmove{
+      0%{bottom:1%;}
+      50%{bottom:3%;}
+      100%{bottom:1%;}
+    }
+    /*Scrollテキストの描写*/
+    .scrolldown3 span{
+      position: absolute;
+      left:-20px;
+      bottom:10px;
+      color: #eee;
+      font-size: 1.25rem;
+      letter-spacing: 0.1em;
+      /*縦書き設定*/
+      -ms-writing-mode: tb-rl;
+      -webkit-writing-mode: vertical-rl;
+      writing-mode: vertical-rl;
+    }
+    /* 矢印の描写 */
+    .scrolldown3:before {
+      content: "";
+      position: absolute;
+      bottom: 15px;
+      right: -16px;
+      width: 2px;
+      height: 20px;
+      background: #eee;
+      transform: skewX(-31deg);
+    }
+    .scrolldown3:after{
+      content:"";
+      position: absolute;
+      bottom: 15px;
+      right: -10px;
+      width: 2px;
+      height: 55px;
+      background:#eee;
+    }
+    .scrolldown3 img {
+      display: none;
+    }
+
+  /*====================
+    メイン main
+  ====================*/
+    /* ----------------------------------------------- aboutセクション */
+    .about-wrap {
+      flex-direction: column
+    }
+    .profile-img {
+      height: 200px;
+      width: 200px;
+    }
+
+    /* ----------------------------------------------- skillsセクション */
+    .icons {
+      display: flex;
+    }
+    .icons-wrap {
+      flex-wrap: wrap;
+      /* flex-direction: column; */
+    }
+    .skill-icon {
+      padding: 15px;
+      width: 33%;
+      text-align: center;
+    }
+    .skill-icon img {
+      width: 80%;
+    }
+    .skill-icon .text-contents {
+      display: none;
+    }
+
+    /* ----------------------------------------------- serviceセクション */
+    .service-list {
+      flex-direction: column;
+      /* margin: 0 auto; */
+    }
+    .service-item {
+      margin: 20px 0;
+    }
+    /* ----------------------------------------------- worksセクション */
+    .works-item-list-1 {
+      flex-direction: column;
+      margin: 0 8%;
+    }
+    .works-item > p {
+      right: -20px;
+    }
+
+    /* ----------------------------------------------- contact */
+    /* モーダル閉じるボタン位置 */
+    .fa-times {
+      top: 2%;
+      right: 5%;
+    }
+    /* お問い合わせフォーム */
+    .Form {
+      margin-top: 10px;
+    }
+    .Form-Item {
+      padding-left: 14px;
+      padding-right: 14px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .Form-Item-Label {
+      max-width: inherit;
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+    }
+    .Form-Item-Label.isMsg {
+      margin-top: 0;
+    }
+    .Form-Item-Label-Required {
+      border-radius: 4px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      width: 32px;
+      font-size: 10px;
+    }
+    .Form-Item-Input {
+      margin-left: 0;
+      margin-top: 18px;
+      height: 40px;
+      flex: inherit;
+      font-size: 15px;
+    }
+    .Form-Item-Textarea {
+      margin-top: 18px;
+      margin-left: 0;
+      height: 200px;
+      flex: inherit;
+      font-size: 15px;
+    }
+    .Form-Btn {
+      margin-top: 24px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      width: 160px;
+      font-size: 16px;
+    }
+
+  /*========================
+    フッター footer
+  ========================*/
+    #page-top a {
+      width: 50px;
+      height: 80px;
+      margin-bottom: 5px;
+      opacity: 0.8;
+    }
+    #page-top.floatAnime a {
+      width: 60px;
+      height: 90px;
+    }
+    #page-top span{
+      right: 0px;
+      font-size: .7rem;
+    }
+
+}
