@@ -11,38 +11,15 @@ $('#page-link a[href*="#"]').click(function () {
 });
 
 
-// =============== ハンバーガーメニュー クリック時形変化のアクション ===============
+// =============== ハンバーガーメニュー, リンク先に飛ぶと同時にハンバーガーメニューを消す ===============
 $(function () {
-	$('.Toggle').click(function () {
-		$(this).toggleClass('active');
-		$('.menu').toggleClass('open');
-	});
+  // idがpage-linkの中のa要素がクリックされた時
+  $('#page-link a').on('click', function () {
+    // drawer_inputのチェックをオフにする
+    $("#drawer_input").prop("checked", false);
+  });
 });
 
-// =============== aboutセクション 浮き出る表示のアクション ===============
-$(window).scroll(function () {
-	const windowHeight = $(window).height();
-	const scroll = $(window).scrollTop();
-
-	$('.js-img').each(function () {
-		const targetPosition = $(this).offset().top;
-		if (scroll > targetPosition - windowHeight + 100) {
-			$(this).addClass("is-fadein");
-		}
-	});
-	$('.js-author').each(function () {
-		const targetPosition = $(this).offset().top;
-		if (scroll > targetPosition - windowHeight + 100) {
-			$(this).addClass("is-fadein");
-		}
-	});
-	$('.js-cont').each(function () {
-		const targetPosition = $(this).offset().top;
-		if (scroll > targetPosition - windowHeight + 100) {
-			$(this).addClass("is-fadein");
-		}
-	});
-});
 
 // ================ スキルアイコン ホバー時に表示されるアクション ===============
 $('.icon-hover').hover(
@@ -172,7 +149,7 @@ $(window).scroll(function () {
 	PageTopAnime();  /* スクロールした際の動きの関数を呼ぶ*/
 });
 // ページが読み込まれたらすぐに動かしたい場合の記述
-// $(window).on('load', function () {
-//   PageTopAnime();  /* スクロールした際の動きの関数を呼ぶ*/
-// });
+$(window).on('load', function () {
+  PageTopAnime();  /* スクロールした際の動きの関数を呼ぶ*/
+});
 
