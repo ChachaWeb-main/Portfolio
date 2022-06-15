@@ -8,7 +8,7 @@
       margin: 0;
       padding: 0;
     }
-
+ta
     li {
       list-style: none;
     }
@@ -23,15 +23,15 @@
     }
 
     .section-title::after {
-      width: 50px;
+      width: 40px;
       height: 1.75px;
-      bottom: -15px;
+      bottom: -10px;
     }
     .section-title .en {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
     .section-title .jp {
-      font-size: 1rem;
+      font-size: 0.75rem;
     }
 
     /*=====================
@@ -127,9 +127,6 @@
     .home-content {
       top: 40%;
     }
-    .home-content img {
-    
-    }
     .home-content p {
       font-size: 2rem;
     }
@@ -222,6 +219,55 @@
     .service-item {
       margin: 20px 0;
     }
+    .modal {
+      padding: 0 0 20px 0;
+    }
+    @media screen and (max-width: 376px) {
+      .section-title .en {
+        font-size: 1.5em;
+      }
+      .section-title .jp {
+        font-size: 0.5em;
+      }
+    }
+    /*  料金一覧 */
+    .price-table table tr {
+      border-bottom: none;
+    }
+    .price-table table th {
+      display: block;
+      width: 100%;
+      padding: 8px 0;
+    }
+    @media screen and (max-width: 520px) {
+      .price-table table th {
+        font-size: 1em;
+      }
+    }
+    .price-table table th:after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 48%;
+      border: 10px solid transparent;
+      border-top: 10px solid #52c2d0;
+      z-index: 1;
+    }
+    .price-table table td {
+      display: block;
+      width: 100%;
+      font-size: 0.95em;
+      padding: 15px 0 7px 0;
+    }
+    /* モーダル閉じるボタン位置 */
+  .fa-times {
+    top: 10px;
+    right:  15px;
+  }
+  .size {
+    font-size: 2em;;
+  }
+
     /* ----------------------------------------------- worksセクション */
     .works-item-list-1 {
       flex-direction: column;
@@ -232,59 +278,7 @@
     }
 
     /* ----------------------------------------------- contact */
-    /* モーダル閉じるボタン位置 */
-    .fa-times {
-      top: 2%;
-      right: 5%;
-    }
-    /* お問い合わせフォーム */
-    .Form {
-      margin-top: 10px;
-    }
-    .Form-Item {
-      padding-left: 14px;
-      padding-right: 14px;
-      padding-top: 16px;
-      padding-bottom: 16px;
-      flex-wrap: wrap;
-    }
-    .Form-Item-Label {
-      max-width: inherit;
-      display: flex;
-      align-items: center;
-      font-size: 15px;
-    }
-    .Form-Item-Label.isMsg {
-      margin-top: 0;
-    }
-    .Form-Item-Label-Required {
-      border-radius: 4px;
-      padding-top: 4px;
-      padding-bottom: 4px;
-      width: 32px;
-      font-size: 10px;
-    }
-    .Form-Item-Input {
-      margin-left: 0;
-      margin-top: 18px;
-      height: 40px;
-      flex: inherit;
-      font-size: 15px;
-    }
-    .Form-Item-Textarea {
-      margin-top: 18px;
-      margin-left: 0;
-      height: 200px;
-      flex: inherit;
-      font-size: 15px;
-    }
-    .Form-Btn {
-      margin-top: 24px;
-      padding-top: 8px;
-      padding-bottom: 8px;
-      width: 160px;
-      font-size: 16px;
-    }
+    
 
   /*========================
     フッター footer

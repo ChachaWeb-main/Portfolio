@@ -22,14 +22,25 @@ $(function () {
 
 
 // ================ スキルアイコン ホバー時に表示されるアクション ===============
-$('.icon-hover').hover(
-	function () {  // 子要素の「.text-contents」の要素を取得し、text-activeクラスをつける
-		$(this).find('.text-contents').addClass('text-active');
-	},
-	function () {  // 子要素の「.text-contents」の要素を取得し、text-activeクラスを外す
-		$(this).find('.text-contents').removeClass('text-active');
-	}
-);
+// $('.icon-hover').hover(
+// 	function () {  // 子要素の「.text-contents」の要素を取得し、text-activeクラスをつける
+// 		$(this).find('skill-name').addClass('text-active');
+// 	},
+// 	function () {  // 子要素の「.text-contents」の要素を取得し、text-activeクラスを外す
+// 		$(this).find('skill-name').removeClass('text-active');
+// 	}
+// );
+
+
+// =============== price 料金一覧 モーダル表示 ==============
+$(function () {
+  $('.show-modal').click(function () {
+    $('#price-modal').fadeIn();
+  });
+  $('.close-modal').click(function () {
+    $('#price-modal').fadeOut();
+  });
+});
 
 
 // =============== wroksセクション カルーセル 自動スライド ===============
@@ -106,15 +117,6 @@ $(function () {
 });
 
 
-// =============== お問い合わせフォーム モーダル表示 ==============
-$(function () {
-	$('.contact-show').click(function () {
-		$('#contact-modal').fadeIn();
-	});
-	$('.close-modal').click(function () {
-		$('#contact-modal').fadeOut();
-	});
-});
 
 
 // =============== ページトップリンク アクション ===============

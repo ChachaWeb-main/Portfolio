@@ -30,6 +30,7 @@ aboutFadeInDisplay ();
 $(window).scroll(function () {
   aboutFadeInDisplay ();
 });
+// 関数化
 function aboutFadeInDisplay () {
   const windowHeight = $(window).height();
   const scroll = $(window).scrollTop();

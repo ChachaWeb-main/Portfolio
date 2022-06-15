@@ -16,6 +16,7 @@
   width: 100%;
 }
 
+
 /*================
   common
 ================*/
@@ -69,13 +70,23 @@ li {
 .section-title .en {
   font-family: "Lobster", cursive;
   font-size: 2.5rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  text-shadow:
+    0 1px rgb(220, 217, 217),
+    0 2px rgb(220, 217, 217),
+    0 3px rgb(220, 217, 217),
+    0 4px rgb(220, 217, 217),
+    0 5px rgb(220, 217, 217),
+    0 6px rgb(220, 217, 217),
+    0 7px rgb(220, 217, 217),
+    0 8px rgb(220, 217, 217),
+    0 9px rgb(220, 217, 217),
+    0 10px rgb(220, 217, 217),
+    0 10px 6px #000000;
 }
 .section-title .jp {
   font-size: 1rem;
 }
-/* header・footerを除く横幅 */
-
 /* ----------------------------------------------- jQuery - 下からふわっとfadeIn */
 .under-fadein {
   opacity: 0;
@@ -89,6 +100,7 @@ li {
   transform: translateX(0);
 }
 
+
 /*=======================
   ヘッダー header
 =======================*/
@@ -101,6 +113,7 @@ li {
   margin: 0 auto;
   padding: 0 3%;
   background-color: rgb(250, 250, 250);
+  box-shadow: 0 1px 8px 3px rgb(0, 0, 0, 10%);
   z-index: 99;
 }
 .header-wrap {
@@ -148,7 +161,6 @@ li {
   .lang-link a {
     color: #fff;
   }
-  
   /* ----------------------------------------------- メイン背景画像 */
   .big-bg {
     background-size: cover;  /* 画像の縦横比率を保ったまま画面いっぱいに広げる */
@@ -166,13 +178,10 @@ li {
     top: 30%;
     left: 20%;
   }
-  .home-content img {
-    margin-left: 25%;
-    margin-bottom: 20px;
-  }
   .home-content p {
     color: white;
     font-size: 3rem;
+    text-shadow: 4px 5px 1px rgb(61 70 70);
   }
   /* ----------------------------------------------- スクロールダウン促すアニメーション PC版 */
   @media screen and (min-width: 800px) {
@@ -234,6 +243,7 @@ li {
 ======================*/
 /* header・footerを除く横幅を固定 */
 #main-wrap {
+  border: solid 5px blue;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -315,11 +325,11 @@ li {
     cursor: pointer;
     position: relative;
   }
-  .text-contents {
+  .skill-name {
     margin: 5% auto;
     width: 35%;
     /* display: none; */
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     color: #432;
     font-family: "Lobster", cursive;
     background-color: #ccf1ff;
@@ -328,7 +338,7 @@ li {
     text-align: center;
     position: relative;
   }
-  .text-contents::before {
+  .skill-name::before {
     content: "";
     position: absolute;
     top: -30px;
@@ -380,11 +390,97 @@ li {
     display: block;
     font-size: 1.35rem;
     text-align: center;
+    cursor: pointer;
+  }
+  /* --------------- price 料金一覧 */
+  .mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    display: none;
+  }
+  .modal {
+    position: absolute;
+    top: 5%;
+    bottom: 5%;
+    left: 10%;
+    right: 10%;
+    margin: 0 auto;
+    background-color: #f1f3f5;
+    /* margin: 2%; */
+    padding: 20px 0 40px 0;
+    border-radius: 10px;
+    /* width: 720px; */
+    height: auto;
+  }
+  /* 料金一覧 */
+  .price-table {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .price-table table {
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 3px rgba(128, 128, 128, 0.8);
+  }
+  .price-table table tr {
+    border-bottom: solid 3px white;
+  }
+  .price-table table tr:last-child {
+    border-bottom: none;
+  }
+  .price-table table th {
+    position: relative;
+    text-align: left;
+    width: 70%;
+    background-color: #52c2d0;
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 25px 0;
+  }
+  .price-table table th:after {
+    display: block;
+    content: "";
+    width: 0;
+    height: 1px;
+    position: absolute;
+    top: calc(50% - 20px);
+    right: -10px;
+    border-left: 20px solid #52c2d0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+  }
+  .price-table table td {
+    width: 30%;
+    text-align: center;
+    background-color: #eee;
+    font-size: 1.35rem;
+    /* padding: 20px 0; */
+  }
+  p.price-cont {
+    text-align: center;
+  }
+  /* モーダル閉じるボタン位置 */
+  .fa-times {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    /* color: rgba(128, 128, 128, 0.8); */
+    cursor: pointer;
+  }
+  .size {
+    font-size: 3em;;
+    color: #87CEEB;
   }
   
-
-
-/* ----------------------------------------------- worksセクション */
+  
+  
+  /* ----------------------------------------------- worksセクション */
   #works {
     background-color: rgb(250, 250, 250);
   }
@@ -395,7 +491,7 @@ li {
   /* --------------- 制作物カルーセル */
     .carousel {
       /* display: inline-block;    */
-      width: 600px;
+      width: 500px;
       height: calc(600px * 0.5625);
       margin: 0 auto;
       position: relative;
@@ -504,8 +600,8 @@ li {
     }
     /* ページネーションボタン */
     .pagination {
-      width: 120px;
-      margin: 5% auto 0;
+      width: 130px;
+      margin: 3% auto 0;
       display: flex;
       justify-content: space-around;
     }
@@ -519,43 +615,46 @@ li {
     .pagination-circle.target {  /* jsでtargetクラスがついたら背景色を変える */
       background-color: rgb(64, 175, 238);
     }
-    /* --------------- 制作物一覧 */
-    .works-item-list-1, .works-item-list-2, .works-item-list-3, .works-item-list-4 {
-      /* ---------- セレクタ範囲 ---------- */
-      outline: 3px solid yellow;
-      background-color: rgba(249, 123, 199, 0.6);
-      /* ---------------------------------- */
-      display: flex;
-      justify-content: space-between;
-      margin: 0 15%;
-      padding: 0 20px;
-      text-align: center;
-    }
-    .works-item {
-      position: relative;
-      z-index: 10;
-    }
-    .works-item-img {
-      width: 500px;
-    }
-    .works-item > p {
-      position: absolute;
-      top: 75%;
-      right: -20px;
-      /* top: 240px; */
-      /* right: -35px; */
-      background-color:rgba(135, 206, 235, 0.8);
-      color: #fff;
-      z-index: 11;
-      padding: 5px 10px;
-      border-radius: 5px;
-    }
+  /* --------------- 制作物一覧 */
+  .works-item-list-1, .works-item-list-2, .works-item-list-3, .works-item-list-4 {
+    /* ---------- セレクタ範囲 ---------- */
+    outline: 3px solid yellow;
+    background-color: rgba(249, 123, 199, 0.6);
+    /* ---------------------------------- */
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5%;
+    padding: 20px;
+    text-align: center;
+  }
+  .works-item {
+    position: relative;
+    margin-top: 10%;
+    z-index: 10;
+  }
+  .works-item-img {
+    width: 600px;
+  }
+  .works-item-skill {
+    position: absolute;
+    /* top: 75%; */
+    right: -20px;
+    top: 30px;
+    /* right: -35px; */
+    background-color:rgba(135, 206, 235, 0.8);
+    color: #fff;
+    z-index: 11;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .works-item-title {
+    text-align: center;
+    color: #432;
+  }
 
 /* ----------------------------------------------- contact */
   #contact {
     background-color: #ccf1ff;
-  }
-  .contact-wrap {
     border: solid 5px red;
     text-align: center;
   }
@@ -598,135 +697,159 @@ li {
     transform-origin: 0% 50%;
     transform: scaleX(1);
   }
-  /* お問い合わせフォーム モーダル表示 */
-  .mask {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
+  
+  /* お問い合わせフォーム全体範囲 */
+  .contact-wrap {
+    max-width: 900px;
+    margin: 0  auto;
+  }
+  .contact-wrap form {
+    width: 100%;
+  }
+  .contact-wrap form .contact-table {
+    width: 100%;
+  }
+  .contact-wrap form .contact-table tr {
+    position: relative;
+  }
+  .contact-wrap form .contact-table tr:first-child td:before {
+    content: "";
+    position: absolute;
+    width: 100%;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 100;
-    display: none;
+    top: 0;
+    height: 1px;
+    border-bottom: solid 2px rgba(28, 46, 83, 0.5);
   }
-  .modal {
-    position: absolute;
-    top: 5%;
-    bottom: 10%;
-    left: 5%;
-    right: 5%;
-    margin: 0 auto;
-    background-color: #e6ecf0;
-    /* margin: 2%; */
-    padding: 20px 0 40px;
-    border-radius: 10px;
-    /* width: 720px; */
-    height: auto;
+  /* 入力項目 */
+  .contact-wrap form .contact-table tr th {
+    width: 30%;
+    font-weight: normal;
+    padding: 1em .5em;
+    background-color: #1c2e53;
+    color: #fff;
+    border-radius: 5px;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
   }
-  /* モーダル閉じるボタン位置 */
-  .fa-times {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    color: rgba(128, 128, 128, 0.46);
-    cursor: pointer;
+  th span {
+    padding: 2% 3%;
+    color: #fff;
+    margin-left: 15px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
   }
-  /* お問い合わせフォーム */
-  .Form {
-    /* margin-top: 10px; */
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 720px;
-  }
-  .Form-Item {
-    padding-top: 24px;
-    padding-bottom: 24px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
-  .Form-Item-Label {
-    width: 100%;
-    max-width: 248px;
-    letter-spacing: 0.05em;
-    font-weight: bold;
-    font-size: 18px;
-  }
-  .Form-Item-Label.isMsg {
-    margin-top: 8px;
-    margin-bottom: auto;
-  }
-  .Form-Item-Label-Required {
-    border-radius: 6px;
-    margin-right: 8px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    width: 48px;
-    display: inline-block;
-    text-align: center;
+  /* spanのrequiredクラスのみ */
+  th span.required {
     background: red;
-    color: #fff;
-    font-size: 14px;
   }
-  .Form-Item-Label-Any {
-    border-radius: 6px;
-    margin-right: 8px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    width: 48px;
-    display: inline-block;
-    text-align: center;
+  /* spanのanyクラスのみ */
+  th span.any {
     background: gray;
-    color: #fff;
-    font-size: 14px;
   }
-  .Form-Item-Input {
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    margin-left: 40px;
-    padding-left: 1em;
-    padding-right: 1em;
-    height: 48px;
-    flex: 1;
+  /* ボックスの下枠 */
+  .contact-wrap form .contact-table tr th:after {
+    content: "";
+    position: absolute;
     width: 100%;
-    max-width: 410px;
-    background: #eaedf2;
-    font-size: 18px;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    border-bottom: solid 2px #fff;
   }
-  .Form-Item-Textarea {
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    margin-left: 40px;
-    padding-left: 1em;
-    padding-right: 1em;
-    height: 250px;
-    flex: 1;
+  /* テキスト入力 */
+  .contact-wrap form .contact-table tr td {
+    position: relative;
+    padding: 1em .5em;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .contact-wrap form .contact-table tr td:after {
+    content: "";
+    position: absolute;
     width: 100%;
-    max-width: 410px;
-    background: #eaedf2;
-    font-size: 18px;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    border-bottom: solid 2px rgba(28, 46, 83, 0.5);
   }
-  .Form-Btn {
+  .contact-wrap form .contact-table tr .box_br {
+    display: block;
+  }
+  .contact-wrap form .contact-table tr select, .contact-wrap form .contact-table tr textarea, .contact-wrap form .contact-table tr .wide {
+    width: 100%;
+    height: 3em;
+    padding: .5em;
+    border: solid 2px rgba(28, 46, 83, 0.8);  /* テキスト入力枠線 */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .contact-wrap form .contact-table tr textarea {
+    height: 10em;
+  }
+  /* プライバシーポリシー */
+  .box_check {
+    text-align: center;
+    margin: 1em auto;
+  }
+  .box_check label {
+    display: inline-block;
+  }
+  .box_check label span {
+    margin-left: .3em;
+  }
+  /* 送信ボタン */
+  .btn {
+    text-align: center;
+  }
+  .btn input {
+    display: inline-block;
+    background: #eee;
+    padding: .5em 4em;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  .btn input:hover {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+    opacity: 0.7;
+  }
+  
+  .submit-btn {
+    display: block;
     border-radius: 6px;
     margin: 0 auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 5px;
     width: 150px;
-    display: block;
-    letter-spacing: 0.5em;
-    background: #00BFFF;
+    background: #00bfff;
     color: #fff;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.15em;
+    text-align: center;
+    letter-spacing: 0.5em;
+    border: none;
+    cursor: pointer;
     box-shadow: 0px 5px #2c86aa;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
   }
-  /* クリックの動き */
-  .Form-Btn:active {
+  .submit-btn:active {
     position: relative;
     top: 5px;
     box-shadow: none;
   }
-
 
 /*=======================
   フッター footer
