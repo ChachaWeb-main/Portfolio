@@ -51,7 +51,7 @@ li {
   list-style: none;
 }
 .section-title {
-  margin: 30px 0;
+  margin: 50px 0;
   text-align: center;
   position: relative;
 }
@@ -85,7 +85,7 @@ li {
     0 10px 6px #000000;
 }
 .section-title .jp {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 /* ----------------------------------------------- jQuery - 下からふわっとfadeIn */
 .under-fadein {
@@ -94,7 +94,7 @@ li {
   transform: translateY(100px);
   transition: opacity 2s, visibility 2s, transform 1s;
 }
-.is-fadein {  /* フェードイン時に入るクラス */
+.add-fadein {  /* フェードイン時に入るクラス */
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
@@ -244,14 +244,20 @@ li {
 /* header・footerを除く横幅を固定 */
 #main-wrap {
   border: solid 5px blue;
-  max-width: 1400px;
+  /* max-width: 1300px; */
   margin: 0 auto;
+  background-color: #ccf1ff;
+  z-index: 0;
 }
 
 /* ----------------------------------------------- aboutセクション */
-  #about {
-    margin: 0 auto;
+  .about-container {
     background-color: #ccf1ff;
+  }
+  #about {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-top: 20px;
   }
   .about-wrap {
     border: solid 5px red;
@@ -261,7 +267,6 @@ li {
     /* margin: 0 3%; */
   }
   .about-img {
-    border: solid 2px blue;
     margin-left: auto;  /* プロフ写真のみ右寄せ */
     margin-right: 10%;
     
@@ -272,55 +277,35 @@ li {
     width: 350px;
   }
   .about-cont {
-    border: solid 2px greenyellow;
     width: 48%;
     padding: 2%;
   }
   /* jQuery - fadeIn */
-  .js-img {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(120px);
-    transition: opacity 1.5s, visibility 1.5s, transform 0.5s;
-    /* transition: opacity 2s, visibility 2s, transform .5s; */
-  }
-  .js-author {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(120px);
-    transition: opacity .5s, visibility .5s, transform 1s;
-    /* transition: opacity 4s, visibility 2s, transform .5s; */
-  }
-  .js-cont {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(120px);
-    transition: opacity .5s, visibility .5s, transform 2s;
-    /* transition: opacity 6s, visibility 2s, transform .5s; */
-  }
-  .is-fadein {  /* フェードイン時に入るクラス */
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-  }
+  
 
 /* ----------------------------------------------- skillsセクション */
+  .skills-container {
+    background-color: #fff;
+    -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
+    clip-path: polygon(0 120px, 100% 0%, 100% 100%, 0 100%);
+  }
   #skills {
-    background-color: rgb(250, 250, 250);
     max-width: 1300px;
-    margin: 0 auto; 
-    /* height: 550px; */
+    margin: 0 auto;
+    padding-top: 20px;
   }
   .icons-wrap {
     border: solid 5px red;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 1300px;
+    margin: 0 auto;
   }
   .skill-icon {
     padding-top: 30px;
     margin-bottom: 30px;
-    width: 350px;
+    width: 330px;
     text-align: center;
     cursor: pointer;
     position: relative;
@@ -329,8 +314,9 @@ li {
     margin: 5% auto;
     width: 35%;
     /* display: none; */
-    font-size: 1.15rem;
     color: #432;
+    font-size: 1.3rem;
+    font-weight: bold;
     font-family: "Lobster", cursive;
     background-color: #ccf1ff;
     padding: 10px 0;
@@ -341,11 +327,11 @@ li {
   .skill-name::before {
     content: "";
     position: absolute;
-    top: -30px;
+    top: -27px;
     left: 50%;
-    margin-left: -15px;
+    margin-left: -12px;
     border: 12px solid transparent;
-    border-bottom: 18px solid #ccf1ff;
+    border-bottom: 15px solid red;
   }
   /* jQuery - hover時に表示される */
   .text-active {
@@ -353,9 +339,14 @@ li {
   }
 
 
-  /* ----------------------------------------------- serviceセクション */
-  #service {
+/* ----------------------------------------------- serviceセクション */
+  .service-container {
     background-color: #ccf1ff;
+  }
+  #service {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-top: 20px;
   }
   .service-wrap {
     border: solid 5px red;
@@ -385,11 +376,13 @@ li {
   .service-content {
     font-size: 1rem;
   }
-  .service-price span {
-    background-color: rgb(221, 153, 153);
-    display: block;
-    font-size: 1.35rem;
+  .price-btn {
     text-align: center;
+    margin: 0 auto;
+  }
+  .price-btn > a {
+    background-color: rgb(221, 153, 153);
+    font-size: 1.35rem;
     cursor: pointer;
   }
   /* --------------- price 料金一覧 */
@@ -450,7 +443,7 @@ li {
     height: 1px;
     position: absolute;
     top: calc(50% - 20px);
-    right: -10px;
+    right: -20px;
     border-left: 20px solid #52c2d0;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
@@ -479,14 +472,21 @@ li {
   }
   
   
-  
-  /* ----------------------------------------------- worksセクション */
+/* ----------------------------------------------- worksセクション */
+  .works-container {
+    background-color: #fff;
+    -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 120px, 100% 100%, 0 100%);
+  }
   #works {
-    background-color: rgb(250, 250, 250);
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-top: 20px;
   }
   .works-wrap {
     border: solid 5px red;
     overflow: hidden;  /* カルーセルはみ出し部分を隠す */
+    margin-top: 50px;
   }
   /* --------------- 制作物カルーセル */
     .carousel {
@@ -501,13 +501,13 @@ li {
       height: 100%;
       display: flex;
       position: absolute;
-      
     }
     .carousel-list {
       width: 600px;
       height: calc(600px * 0.5625);
       margin-right: 30px;
       overflow: hidden;
+      box-shadow: 3px 3px 3px 3px #BBBBBB;
     }
     .carousel-img {
       width: 100%;
@@ -554,18 +554,18 @@ li {
       align-items: center;
     }
     .arrow-btn {
-      width: 48px;
-      height: 48px;
+      width: 50px;
+      height: 50px;
       background-color: rgba(143, 217, 244, 0.8);
       border-radius: 50%;
       transition: .2s;
     }
     .arrow-btn:focus {
-      box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.8);
+      box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.7);
     }
     .arrow-btn:hover {
-      background-color: rgb(51, 155, 216);
-      box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.8);
+      background-color: rgb(14, 144, 219);
+      box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.6);
     }
     /* スライド送りボタン（デザイン） */
     /* 左 */
@@ -591,8 +591,8 @@ li {
       content: "";
       width: 15px;
       height: 15px;
-      border-top: 2px solid #fefefe;
-      border-left: 2px solid #fefefe;
+      border-top: solid 3px #fefefe;
+      border-left: solid 3px #fefefe;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -601,7 +601,7 @@ li {
     /* ページネーションボタン */
     .pagination {
       width: 130px;
-      margin: 3% auto 0;
+      margin: 5% auto 0;
       display: flex;
       justify-content: space-around;
     }
@@ -623,13 +623,12 @@ li {
     /* ---------------------------------- */
     display: flex;
     justify-content: space-between;
-    margin: 0 5%;
     padding: 20px;
     text-align: center;
   }
   .works-item {
     position: relative;
-    margin-top: 10%;
+    margin-top: 5%;
     z-index: 10;
   }
   .works-item-img {
@@ -653,10 +652,17 @@ li {
   }
 
 /* ----------------------------------------------- contact */
-  #contact {
+  .contact-container {
     background-color: #ccf1ff;
-    border: solid 5px red;
+    /* -webkit-clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 25%, 100% 100%, 0 100%); */
+  }
+  #contact {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-top: 50px;
     text-align: center;
+    border: solid 5px red;
   }
   /* 問い合わせボタンのカスタマイズ */
   .contact-btn {
@@ -666,7 +672,7 @@ li {
     font-size: 1.10rem;
     font-weight: bold;
     background: transparent;
-    padding: 13px 25px;
+    padding: 10px 25px;
     margin-top: 40px;
     border: 3px solid #333;
     border-radius: 8px;
@@ -688,12 +694,12 @@ li {
     transform: scaleX(0);
     transition: transform ease .5s;
   }
-  .contact-btn:hover {
+  .contact-btn:hover, .price-btn:hover {
     color: #333;
     border-color: transparent;
     transition-delay: .5s;  /* 色の変化を遅らせる */
   }
-  .contact-btn:hover::before {
+  .contact-btn:hover::before, .price-btn:hover::before {
     transform-origin: 0% 50%;
     transform: scaleX(1);
   }

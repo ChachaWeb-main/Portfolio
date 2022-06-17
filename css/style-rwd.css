@@ -8,20 +8,17 @@
       margin: 0;
       padding: 0;
     }
-ta
     li {
       list-style: none;
     }
     .wrapper {
       /* padding: 0 16px; */
     }
-
     .fadeIn p {
       width: 100%;
       -webkit-transform: translate(-30%, -30%);
             transform: translate(-30%, -30%);
     }
-
     .section-title::after {
       width: 40px;
       height: 1.75px;
@@ -34,9 +31,10 @@ ta
       font-size: 0.75rem;
     }
 
-    /*=====================
-      ヘッダー header
-    =====================*/
+
+  /*=====================
+    ヘッダー header
+  =====================*/
     #header {
       width:100%;
     }
@@ -98,7 +96,7 @@ ta
       top: 0;
       left: 100%; /* メニューを画面の外に飛ばす */
       z-index: 99;
-      background: rgba(135, 206, 235, 0.95);
+      background: rgba(135, 206, 235);
       transition: .5s;
     }
     .nav-list {
@@ -108,12 +106,11 @@ ta
       margin: 0;
     }
     .nav-list li {
-      margin: 25px;
-      /* background-color: #fff; */
+      margin: 8% 30%;
       display: block;
     }
     .nav-list > li:nth-child(1) {
-      margin-top: 60px;
+      margin-top: 100px;
     }
     /* アイコンがクリックされたらメニューを表示 */
     #drawer_input:checked ~ .nav-content {
@@ -179,6 +176,7 @@ ta
       display: none;
     }
 
+
   /*====================
     メイン main
   ====================*/
@@ -186,29 +184,33 @@ ta
     .about-wrap {
       flex-direction: column
     }
-    .profile-img {
-      height: 200px;
-      width: 200px;
+    .about-img {
+      margin: 0 auto;
+    }
+    .about-img img {
+      width: 280px;
+      height: 250px;
+    }
+    .about-cont {
+      width: 80%;
+      padding-top: 30px;
     }
 
     /* ----------------------------------------------- skillsセクション */
-    .icons {
-      display: flex;
-    }
-    .icons-wrap {
-      flex-wrap: wrap;
-      /* flex-direction: column; */
-    }
     .skill-icon {
       padding: 15px;
-      width: 33%;
       text-align: center;
     }
-    .skill-icon img {
-      width: 80%;
+    .skill-icon img.html-icon, .skill-icon img.css-icon {
+      height: 95px;
+      width: 95px;
     }
-    .skill-icon .text-contents {
-      display: none;
+    .skill-name {
+      width: 50%;
+      font-size: 1.2em;
+    }
+    .skill-name::before {
+      top: -23px;
     }
 
     /* ----------------------------------------------- serviceセクション */
@@ -247,7 +249,7 @@ ta
     .price-table table th:after {
       content: "";
       position: absolute;
-      top: 100%;
+      top: 98%;
       left: 48%;
       border: 10px solid transparent;
       border-top: 10px solid #52c2d0;
@@ -257,7 +259,7 @@ ta
       display: block;
       width: 100%;
       font-size: 0.95em;
-      padding: 15px 0 7px 0;
+      padding: 15px 0 8px 0;
     }
     /* モーダル閉じるボタン位置 */
   .fa-times {
@@ -269,7 +271,7 @@ ta
   }
 
     /* ----------------------------------------------- worksセクション */
-    .works-item-list-1 {
+    .works-item-list-1, .works-item-list-2, .works-item-list-3, .works-item-list-4, .works-item-list-5 {
       flex-direction: column;
       margin: 0 8%;
     }
@@ -278,7 +280,32 @@ ta
     }
 
     /* ----------------------------------------------- contact */
-    
+    th, td {
+      display: block;
+    }
+    .contact-wrap form .contact-table tr th {
+      width: 45%;
+      margin: 0 auto;
+    }
+    .contact-wrap form .contact-table tr td {
+      width: 80%;
+      margin: 0 auto;
+    }
+    @media screen and (min-width: 375px) {
+      .contact-wrap form .contact-table tr th {
+        width: 55%;
+      }
+      .contact-wrap form .contact-table tr td {
+        width: 90%;
+      }
+    }
+    th span {
+      padding: 4px 5px;
+    }
+    .contact-wrap form .contact-table tr:first-child td:before, .contact-wrap form .contact-table tr td:after {
+      border: none;
+    }
+
 
   /*========================
     フッター footer
