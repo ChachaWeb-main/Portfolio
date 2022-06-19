@@ -51,7 +51,7 @@ li {
   list-style: none;
 }
 .section-title {
-  margin: 50px 0;
+  margin: 50px 0 80px 0;
   text-align: center;
   position: relative;
 }
@@ -250,9 +250,16 @@ li {
   z-index: 0;
 }
 
+.container-aboutToSkills {
+  background: linear-gradient(-6deg, #fff, #fff 800px, #ccf1ff 800px);
+}
+.container-serviceToWorks {
+  background: linear-gradient(8deg, #d6dcdb, #d6dcdb 800px, #ccf1ff 800px);
+}
+
 /* ----------------------------------------------- aboutセクション */
   .about-container {
-    background-color: #ccf1ff;
+    /* background-color: #ccf1ff; */
   }
   #about {
     max-width: 1300px;
@@ -285,9 +292,9 @@ li {
 
 /* ----------------------------------------------- skillsセクション */
   .skills-container {
-    background-color: #fff;
+    /* background-color: #fff;
     -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
-    clip-path: polygon(0 120px, 100% 0%, 100% 100%, 0 100%);
+    clip-path: polygon(0 120px, 100% 0%, 100% 100%, 0 100%); */
   }
   #skills {
     max-width: 1300px;
@@ -341,7 +348,7 @@ li {
 
 /* ----------------------------------------------- serviceセクション */
   .service-container {
-    background-color: #ccf1ff;
+    /* background-color: #ccf1ff; */
   }
   #service {
     max-width: 1300px;
@@ -653,9 +660,7 @@ li {
 
 /* ----------------------------------------------- contact */
   .contact-container {
-    background-color: #ccf1ff;
-    /* -webkit-clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
-    clip-path: polygon(0 0, 100% 25%, 100% 100%, 0 100%); */
+    background-color: #fff;
   }
   #contact {
     max-width: 1300px;

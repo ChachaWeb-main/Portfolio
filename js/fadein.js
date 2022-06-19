@@ -11,9 +11,6 @@ $(function() {
 });
 
 // ============== 各セクション ふわっと下から
-// リロード時、スクロール前でもアクション実行されるように
-fadeInDisplay();
-
 function fadeInDisplay() {
   const windowHeight = $(window).height();
   const scroll = $(window).scrollTop();
@@ -25,6 +22,8 @@ function fadeInDisplay() {
   });
 }
 
+// リロード時、スクロール前でもアクション実行されるように
+fadeInDisplay();
 
 $(window).scroll(function () {
   fadeInDisplay();
