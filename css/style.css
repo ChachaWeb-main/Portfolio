@@ -16,7 +16,6 @@
   width: 100%;
 }
 
-
 /*================
   common
 ================*/
@@ -28,18 +27,12 @@
 }
 html {
   font-size: 100%;
-  /* scroll-behavior: smooth;  スムーススクロール */
 }
 body {
   font-family: 'Noto Sans JP', sans-serif;
   color: #432;
   /* background-color: #ccf1ff; */
   /* padding-top: 55px;  ヘッダー固定した時に後ろに要素が隠れないように */
-}
-@font-face {  /* google fontsの読み込みを高速化 */
-  src: url("../resources/fonts/NotoSansJP-Regular.woff") format("woff");
-  font-family: 'Noto Sans JP';
-  font-style: normal;
 }
 img {
   max-width: 100%;
@@ -51,7 +44,7 @@ li {
   list-style: none;
 }
 .section-title {
-  margin: 50px 0 80px 0;
+  margin: 50px 0 60px 0;
   text-align: center;
   position: relative;
 }
@@ -59,18 +52,19 @@ li {
   content: "";
   background-color: #333;
   width: 50px;
-  height: 2px;
+  height: 3px;
   display: block;
   position: absolute;
-  bottom: -13px;
+  bottom: 10px;
   left: 0;
-  right: 0;
+  right: 50px;
   margin: 0 auto;
 }
 .section-title .en {
   font-family: "Lobster", cursive;
-  font-size: 2.5rem;
+  font-size: 3rem;
   letter-spacing: 0.15em;
+  margin-bottom: 5px;
   text-shadow:
     0 1px rgb(220, 217, 217),
     0 2px rgb(220, 217, 217),
@@ -86,6 +80,7 @@ li {
 }
 .section-title .jp {
   font-size: 1.2rem;
+  padding-left: 150px;
 }
 /* ----------------------------------------------- jQuery - 下からふわっとfadeIn */
 .under-fadein {
@@ -111,7 +106,7 @@ li {
   align-items: center;
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 3%;
+  padding: 0 5%;
   background-color: rgb(250, 250, 250);
   box-shadow: 0 1px 8px 3px rgb(0, 0, 0, 10%);
   z-index: 99;
@@ -137,7 +132,7 @@ li {
     margin: 15px;
   }
   .nav-list li {
-    margin-left: 20px;
+    margin-left: 30px;
   }
   .nav-list a {
     color: #432;
@@ -152,7 +147,7 @@ li {
   .nav-list a:active {
     color: #432;
   }
-  .lang-link {
+  /* .lang-link {
     background-color: #87CEEB;
     padding: 0 10px;
     border: solid 1px #fff;
@@ -160,7 +155,7 @@ li {
   }
   .lang-link a {
     color: #fff;
-  }
+  } */
   /* ----------------------------------------------- メイン背景画像 */
   .big-bg {
     background-size: cover;  /* 画像の縦横比率を保ったまま画面いっぱいに広げる */
@@ -175,13 +170,24 @@ li {
   /* ----------------------------------------------- メインテキスト */
   .home-content {
     position: absolute;
-    top: 30%;
-    left: 20%;
-  }
-  .home-content p {
-    color: white;
-    font-size: 3rem;
+    top: 25%;
+    left: 15%;
+    color: #fff;
     text-shadow: 4px 5px 1px rgb(61 70 70);
+  }
+  .home-content .home-content-text {
+    font-size: 3rem;
+    letter-spacing: 0.1em;
+  }
+  .home-content-lang {
+    font-size: 2em;
+    margin-left: 20px;
+  }
+  .home-content-lang a {
+    color: #87CEEB;
+  }
+  .home-content-lang a:hover {
+    opacity: 0.8;
   }
   /* ----------------------------------------------- スクロールダウン促すアニメーション PC版 */
   @media screen and (min-width: 800px) {
@@ -241,31 +247,48 @@ li {
 /*======================
   メイン main
 ======================*/
-/* header・footerを除く横幅を固定 */
 #main-wrap {
   border: solid 5px blue;
-  /* max-width: 1300px; */
   margin: 0 auto;
+  
   background-color: #ccf1ff;
   z-index: 0;
 }
+/* 各セクションの横幅を固定 ※contactのみ別設定*/
+#about, #skills, #service, #works {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
 
+/* ======================================================================================================================================== 背景斜め */
 .container-aboutToSkills {
   background: linear-gradient(-6deg, #fff, #fff 800px, #ccf1ff 800px);
 }
 .container-serviceToWorks {
-  background: linear-gradient(8deg, #d6dcdb, #d6dcdb 800px, #ccf1ff 800px);
+  background: linear-gradient(6deg, #fff, #fff 2750px, #ccf1ff 2750px);
+}
+.about-container {
+  /* background-color: #ccf1ff; */
+}
+.skills-container {
+  /* background-color: #fff;
+  -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
+  clip-path: polygon(0 120px, 100% 0%, 100% 100%, 0 100%); */
+}
+.service-container {
+  /* background-color: #ccf1ff; */
+}
+.works-container {
+  /* background-color: #fff;
+  -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 120px, 100% 100%, 0 100%); */
+}
+.contact-container {
+  /* background-color: #fff; */
 }
 
 /* ----------------------------------------------- aboutセクション */
-  .about-container {
-    /* background-color: #ccf1ff; */
-  }
-  #about {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding-top: 20px;
-  }
   .about-wrap {
     border: solid 5px red;
     display: flex;
@@ -287,20 +310,8 @@ li {
     width: 48%;
     padding: 2%;
   }
-  /* jQuery - fadeIn */
   
-
 /* ----------------------------------------------- skillsセクション */
-  .skills-container {
-    /* background-color: #fff;
-    -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
-    clip-path: polygon(0 120px, 100% 0%, 100% 100%, 0 100%); */
-  }
-  #skills {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding-top: 20px;
-  }
   .icons-wrap {
     border: solid 5px red;
     display: flex;
@@ -338,7 +349,7 @@ li {
     left: 50%;
     margin-left: -12px;
     border: 12px solid transparent;
-    border-bottom: 15px solid red;
+    border-bottom: 15px solid #ccf1ff;
   }
   /* jQuery - hover時に表示される */
   .text-active {
@@ -347,14 +358,6 @@ li {
 
 
 /* ----------------------------------------------- serviceセクション */
-  .service-container {
-    /* background-color: #ccf1ff; */
-  }
-  #service {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding-top: 20px;
-  }
   .service-wrap {
     border: solid 5px red;
   }
@@ -480,16 +483,6 @@ li {
   
   
 /* ----------------------------------------------- worksセクション */
-  .works-container {
-    background-color: #fff;
-    -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
-    clip-path: polygon(0 0, 100% 120px, 100% 100%, 0 100%);
-  }
-  #works {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding-top: 20px;
-  }
   .works-wrap {
     border: solid 5px red;
     overflow: hidden;  /* カルーセルはみ出し部分を隠す */
@@ -608,7 +601,7 @@ li {
     /* ページネーションボタン */
     .pagination {
       width: 130px;
-      margin: 5% auto 0;
+      margin: 5% auto;
       display: flex;
       justify-content: space-around;
     }
@@ -626,7 +619,7 @@ li {
   .works-item-list-1, .works-item-list-2, .works-item-list-3, .works-item-list-4 {
     /* ---------- セレクタ範囲 ---------- */
     outline: 3px solid yellow;
-    background-color: rgba(249, 123, 199, 0.6);
+    /* background-color: rgba(249, 123, 199, 0.6); */
     /* ---------------------------------- */
     display: flex;
     justify-content: space-between;
@@ -641,27 +634,26 @@ li {
   .works-item-img {
     width: 600px;
   }
+  .works-item-title {
+    text-align: center;
+    color: #432;
+    margin-top: 20px;
+  }
   .works-item-skill {
     position: absolute;
     /* top: 75%; */
-    right: -20px;
-    top: 30px;
+    /* top: 30px; */
+    bottom: 50px;
+    right: -10px;
     /* right: -35px; */
     background-color:rgba(135, 206, 235, 0.8);
     color: #fff;
     z-index: 11;
-    padding: 5px 10px;
+    padding: 20px 10px;
     border-radius: 5px;
-  }
-  .works-item-title {
-    text-align: center;
-    color: #432;
   }
 
 /* ----------------------------------------------- contact */
-  .contact-container {
-    background-color: #fff;
-  }
   #contact {
     max-width: 1300px;
     margin: 0 auto;
