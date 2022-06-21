@@ -16,6 +16,7 @@
   width: 100%;
 }
 
+
 /*================
   common
 ================*/
@@ -27,6 +28,7 @@
 }
 html {
   font-size: 100%;
+  /* scroll-behavior: smooth;  スムーススクロール */
 }
 body {
   font-family: 'Noto Sans JP', sans-serif;
@@ -82,6 +84,24 @@ li {
   font-size: 1.2rem;
   padding-left: 150px;
 }
+.sns-link-icon {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.sns-link-icon .twitter-icon {
+  color: #333;
+  padding: 3px;
+  border: solid 2px #333;
+  border-radius: 50%;
+}
+.sns-link-icon .twitter-icon:hover {
+  opacity: 0.6;
+  color: #00bfff;
+  border: solid 2px #00bfff;
+  border-radius: 50%;
+  background: #fefefe;
+}
 /* ----------------------------------------------- jQuery - 下からふわっとfadeIn */
 .under-fadein {
   opacity: 0;
@@ -94,7 +114,6 @@ li {
   visibility: visible;
   transform: translateX(0);
 }
-
 
 /*=======================
   ヘッダー header
@@ -132,7 +151,7 @@ li {
     margin: 15px;
   }
   .nav-list li {
-    margin-left: 30px;
+    margin-left: 25px;
   }
   .nav-list a {
     color: #432;
@@ -147,15 +166,6 @@ li {
   .nav-list a:active {
     color: #432;
   }
-  /* .lang-link {
-    background-color: #87CEEB;
-    padding: 0 10px;
-    border: solid 1px #fff;
-    border-radius: 12px;
-  }
-  .lang-link a {
-    color: #fff;
-  } */
   /* ----------------------------------------------- メイン背景画像 */
   .big-bg {
     background-size: cover;  /* 画像の縦横比率を保ったまま画面いっぱいに広げる */
@@ -386,15 +396,93 @@ li {
   .service-content {
     font-size: 1rem;
   }
-  .price-btn {
+  .price-btn-wrap {
     text-align: center;
     margin: 0 auto;
   }
-  .price-btn > a {
+  span.price-btn {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+  }
+  span.learn-more {
+    width: 12rem;
+    height: auto;
+  }
+  span.learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #282936;
+    border-radius: 1.625rem;
+  }
+  span.learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+  }
+  span.learn-more .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+  }
+  span.learn-more .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+  }
+  span.learn-more .price-show {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #282936;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  span.price-btn:hover .circle {
+    width: 100%;
+  }
+  span.price-btn:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+  }
+  span.price-btn:hover .price-show {
+    color: #fff;
+  }
+  /* .price-btn > a {
     background-color: rgb(221, 153, 153);
     font-size: 1.35rem;
     cursor: pointer;
-  }
+  } */
   /* --------------- price 料金一覧 */
   .mask {
     position: fixed;
@@ -488,133 +576,6 @@ li {
     overflow: hidden;  /* カルーセルはみ出し部分を隠す */
     margin-top: 50px;
   }
-  /* --------------- 制作物カルーセル */
-    .carousel {
-      /* display: inline-block;    */
-      width: 500px;
-      height: calc(600px * 0.5625);
-      margin: 0 auto;
-      position: relative;
-    }
-    .carousel-area {
-      width: 3150px;
-      height: 100%;
-      display: flex;
-      position: absolute;
-    }
-    .carousel-list {
-      width: 600px;
-      height: calc(600px * 0.5625);
-      margin-right: 30px;
-      overflow: hidden;
-      box-shadow: 3px 3px 3px 3px #BBBBBB;
-    }
-    .carousel-img {
-      width: 100%;
-      height: 100%;
-    }
-    @media screen and (max-width: 600px) {
-      .carousel {
-        width: 300px;
-        height: calc(300px * 0.5625);
-      }
-      .carousel-area {
-        width: 1500px;
-      }
-      .carousel-list {
-        width: 300px;
-        height: calc(300px * 0.5625);
-        margin-right: 0;
-      }
-    }
-    /* スライド送りボタン */
-    /* ボタンタグの装飾リセット */
-    button {
-      cursor: pointer;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      vertical-align: middle;
-      color: inherit;
-      font: inherit;
-      border: 0;
-      background: transparent;
-      padding: 0;
-      margin: 0;
-      outline: none;
-      border-radius: 0;
-    }
-    /* 共有パーツ */
-    .arow-wrap {
-      width: 90%;
-      height: 100%;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .arrow-btn {
-      width: 50px;
-      height: 50px;
-      background-color: rgba(143, 217, 244, 0.8);
-      border-radius: 50%;
-      transition: .2s;
-    }
-    .arrow-btn:focus {
-      box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.7);
-    }
-    .arrow-btn:hover {
-      background-color: rgb(14, 144, 219);
-      box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.6);
-    }
-    /* スライド送りボタン（デザイン） */
-    /* 左 */
-    .arrow-left {
-      position: relative
-    }
-    .arrow-left:before {
-      content: "";
-      width: 15px;
-      height: 15px;
-      border-top: 2px solid #fefefe;
-      border-left: 2px solid #fefefe;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-30%, -50%)rotate(-45deg);
-    }
-    /* 右 */
-    .arrow-right {
-      position: relative
-    }
-    .arrow-right:before {
-      content: "";
-      width: 15px;
-      height: 15px;
-      border-top: solid 3px #fefefe;
-      border-left: solid 3px #fefefe;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-70%, -50%)rotate(135deg);
-    }
-    /* ページネーションボタン */
-    .pagination {
-      width: 130px;
-      margin: 5% auto;
-      display: flex;
-      justify-content: space-around;
-    }
-    .pagination-circle {
-      width: 15px;
-      height: 15px;
-      border: 1px solid #333;
-      border-radius: 50%;
-      background-color: rgb(200, 240, 255);
-    }
-    .pagination-circle.target {  /* jsでtargetクラスがついたら背景色を変える */
-      background-color: rgb(64, 175, 238);
-    }
   /* --------------- 制作物一覧 */
   .works-item-list-1, .works-item-list-2, .works-item-list-3, .works-item-list-4 {
     /* ---------- セレクタ範囲 ---------- */
@@ -662,43 +623,44 @@ li {
     border: solid 5px red;
   }
   /* 問い合わせボタンのカスタマイズ */
-  .contact-btn {
+
+
+  span.contact-btn {
     display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: 2px solid #17C3B2;
     position: relative;
-    color: #333;
-    font-size: 1.10rem;
-    font-weight: bold;
-    background: transparent;
-    padding: 10px 25px;
-    margin-top: 40px;
-    border: 3px solid #333;
-    border-radius: 8px;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.05em;
+    transition: .5s;
+    font-family: inherit;
+    color: #17C3B2;
+    border-radius: 5px;
     z-index: 1;
-    transition: .3s;
   }
-  /* スライドカラー */
-  .contact-btn::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background: #fff;
-    border-radius: 6px;
-    transform-origin: 100% 50%;
-    transform: scaleX(0);
-    transition: transform ease .5s;
+  span.contact-btn::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 450%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #17C3B2;
+  transition: .6s ease;
+  z-index: -1;
   }
-  .contact-btn:hover, .price-btn:hover {
-    color: #333;
-    border-color: transparent;
-    transition-delay: .5s;  /* 色の変化を遅らせる */
+  span.contact-btn:hover::before {
+  width: 100%;
   }
-  .contact-btn:hover::before, .price-btn:hover::before {
-    transform-origin: 0% 50%;
-    transform: scaleX(1);
+  span.contact-btn:hover {
+  color: #fff;
+  font-weight: bold;
   }
   
   /* お問い合わせフォーム全体範囲 */
@@ -827,7 +789,7 @@ li {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
     opacity: 0.7;
   }
-  
+/* ================================================================== */
   .submit-btn {
     display: block;
     border-radius: 6px;
@@ -853,6 +815,57 @@ li {
     top: 5px;
     box-shadow: none;
   }
+/* ===================================================== */
+  button {
+    font-family: inherit;
+    font-size: 20px;
+    background: royalblue;
+    color: white;
+    margin: 0 auto;
+    padding: 0.4em 1.5em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+  button span.send {
+    display: block;
+    margin-left: 12px;
+    transition: all 0.4s ease-in-out;
+  }
+  button svg {
+    display: block;
+    background: white;
+    color: royalblue;
+    border-radius: 50%;
+    padding: 5px;
+    /* transform-origin: center center; */
+    transition: transform 0.2s ease-in-out;
+  }
+  button:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+  /* button:hover svg {
+    transform: translateX(3.5em) rotate(45deg) scale(1.1);
+  } */
+  button:hover span.send {
+    transform: translateX(5em);
+  }
+  button:active {
+    transform: scale(0.95);
+  }
+  /* スライド後の上下の動き */
+  @keyframes fly-1 {
+    from {
+      transform: translateY(0.1em);
+    }
+    to {
+      transform: translateY(-0.1em);
+    }
+  }
 
 /*=======================
   フッター footer
@@ -861,11 +874,19 @@ li {
   background-color: #fff;
 }
 .footer-wrap {
-  border: solid 5px red;
+  /* border: solid 5px red; */
 }
 #footer a {
   display: block;
   text-align: center;
+}
+#footer .sns-link-icon {
+  display: flex;
+  margin-left: 48%;
+}
+#footer .sns-link-icon a {
+  /* padding-right: 50%; */
+  margin-right: 20px;
 }
 #footer .copyright {
   text-align: center;

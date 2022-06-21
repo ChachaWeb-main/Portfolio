@@ -10,7 +10,7 @@
   <!-- Favicon icon -->
   <link rel="shortcut icon" href="img/programmer.png">
   <!-- Font awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.1/css/all.css">
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,10 +47,9 @@
             <li><a href="#service">サービス</a></li>
             <li><a href="#works">制作物・実績</a></li>
             <li><a href="contact.html">お問い合わせ</a></li>
-            <!-- <div class="contact-show">
-              <li>お問い合わせ</li>
-            </div> -->
             <!-- <li class="lang-link"><a href="./index-en.html">English</a></li> -->
+            <li><a class="twitter-icon" href="#"><img src="./img/icons/twitter.png" width="27px" alt="Twitterアイコン"></a></li>
+            <li><a class="github-icon" href="#"><img src="./img/icons/github.png" width="27px" alt="GitHubアイコン"></a></li>
           </ul>
         </nav>
       </div>
@@ -69,7 +68,7 @@
       <br>
       <br>
       <div class="home-content-lang">
-        <span><i class="fa-solid fa-globe"></i>  日本語 | <a href="./index-en.html">English</a></span>
+        <span><i class="fas fa-globe"></i>  日本語 | <a href="./index-en.html">English</a></span>
       </div>
     </div>
   </div>
@@ -209,8 +208,13 @@
                 </p>
               </li>
             </ul>
-            <div class="price-btn show-modal">
-              <a><span>価格一覧 <i class="fas fa-angle-right fa-position-right"></i></span></a>
+            <div class="price-btn-wrap show-modal">
+              <span class="price-btn learn-more">
+                <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                </span>
+                <a><span class="price-show">価格を見る</span></a>
+              </span>
             </div>
             <!-- マスク-->
             <div class="mask" id="price-modal">
@@ -268,36 +272,7 @@
             <h2 class="en">Works</h2>
             <p class="jp">制作物・実績</p>
           </div>
-          <!-- カルーセル -->
           <div class="works-wrap">
-            <div class="carousel  under-fadein">
-              <ul class="carousel-area">
-                <li class="carousel-list"><img class="carousel-img" src="./img/works/Work-01.png" alt=""></li>
-                <li class="carousel-list"><img class="carousel-img" src="./img/works/Work-02.png" alt=""></li>
-                <li class="carousel-list"><img class="carousel-img" src="./img/works/Work-03.png" alt=""></li>
-                <li class="carousel-list"><img class="carousel-img" src="./img/works/Work-04.png" alt=""></li>
-                <li class="carousel-list"><img class="carousel-img" src="./img/works/Work-05.png" alt=""></li>
-                <li class="carousel-list"><img class="carousel-img" src="./img/works/typingGame.png" alt=""></li>
-                <li class="carousel-list"><img class="carousel-img" src="./img/works/toDoApp-1.png" alt=""></li>
-              </ul>
-              <div class="arow-wrap">
-                <div class="arrow-left">
-                  <button class="arrow-btn js-btn-back" type="button"></button>
-                </div>
-                <div class="arrow-right">
-                  <button class="arrow-btn js-btn-next" type="button"></button>
-                </div>
-              </div>
-              <div class="pagination">
-                <span class="pagination-circle target"></span>
-                <span class="pagination-circle"></span>
-                <span class="pagination-circle"></span>
-                <span class="pagination-circle"></span>
-                <span class="pagination-circle"></span>
-                <span class="pagination-circle"></span>
-                <span class="pagination-circle"></span>
-              </div>
-            </div>
             <!-- 各制作物 -->
             <div class="works">
               <ul class="works-item-list-1 under-fadein">
@@ -377,8 +352,11 @@
         <div class="contact-wrap under-fadein">
           <p>お問い合わせは以下の入力フォーム又はTwitter DMにてお気軽にご連絡ください。<br>些細なご相談でも構いませんよ。</p>
           <!-- <a class="contact-btn btn-flat"><span class="contact-show">お問い合わせはこちら！</span></a> -->
+          <div class="sns-link-icon">
+            <a href="#"><i class="fab fa-twitter twitter-icon fa-2x"></i></a>
+          </div>
           <a href="contact.html">
-            <span class="contact-show contact-btn"> お問い合わせはこちら！ <i class="fas fa-angle-right fa-position-right"></i></span>
+            <span class="contact-btn"> お問い合わせはこちら！ <i class="fas fa-angle-right fa-position-right"></i></span>
           </a>
           <br>
           <br>
