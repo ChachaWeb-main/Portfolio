@@ -24,10 +24,10 @@
 </head>
 
 <body>
-  <!-- fadeIN animation -->
-  <!-- <div class="fadeIn">
-    <img src="./img/fadeIn-Img.svg" alt="フェードイン画像">
-  </div> -->
+  <!-- fadeIN LoadingAnimation -->
+  <div id="splash">
+    <div id="splash_text"></div>
+  </div>
   <div id="home" class="big-bg">
     <!-- header -->
     <header id="header" class="header-wrap">
@@ -48,8 +48,10 @@
             <li><a href="#works">制作物・実績</a></li>
             <li><a href="contact.html">お問い合わせ</a></li>
             <!-- <li class="lang-link"><a href="./index-en.html">English</a></li> -->
-            <li><a class="twitter-icon" href="#"><img src="./img/icons/twitter.png" width="27px" alt="Twitterアイコン"></a></li>
-            <li><a class="github-icon" href="#"><img src="./img/icons/github.png" width="27px" alt="GitHubアイコン"></a></li>
+            <li><a class="twitter-icon" href="#"><img src="./img/icons/twitter.png" width="27px" alt="Twitterアイコン"></a>
+            </li>
+            <li><a class="github-icon" href="#"><img src="./img/icons/github.png" width="27px" alt="GitHubアイコン"></a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -68,7 +70,7 @@
       <br>
       <br>
       <div class="home-content-lang">
-        <span><i class="fas fa-globe"></i>  日本語 | <a href="./index-en.html">English</a></span>
+        <span><i class="fas fa-globe"></i> 日本語 | <a href="./index-en.html">English</a></span>
       </div>
     </div>
   </div>
@@ -372,8 +374,12 @@
   </footer>
 
   <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- loading プログレスバー＋数字カウントアップ -->
+  <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+  <!-- loading IE11用 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
   <!-- JavaScript -->
   <script src="./js/fadein.js"></script>
   <script src="./js/main.js"></script>
