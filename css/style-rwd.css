@@ -283,6 +283,7 @@
     th, td {
       display: block;
     }
+    /* contact.php */
     .contact-wrap form .contact-table tr th {
       width: 45%;
       margin: 0 auto;
@@ -304,6 +305,10 @@
     }
     .contact-wrap form .contact-table tr:first-child td:before, .contact-wrap form .contact-table tr td:after {
       border: none;
+    }
+    /* confirm.php */
+    .confirm-table .display-item-name, .confirm-table .display-item-mail, .confirm-table .display-item-phone {
+      text-align: center;
     }
 
 

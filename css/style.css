@@ -624,7 +624,7 @@ li {
     border-radius: 5px;
   }
 
-/* ----------------------------------------------- contact */
+/* ----------------------------------------------- contact セクション */
   #contact {
     max-width: 1300px;
     margin: 0 auto;
@@ -633,8 +633,6 @@ li {
     border: solid 5px red;
   }
   /* 問い合わせボタンのカスタマイズ */
-
-
   span.contact-btn {
     display: inline-block;
     margin-top: 10px;
@@ -673,209 +671,269 @@ li {
   font-weight: bold;
   }
   
-  /* お問い合わせフォーム全体範囲 */
-  .contact-wrap {
-    max-width: 900px;
-    margin: 0  auto;
+/* =================== contact.php =================== */
+.contact-info {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+/* お問い合わせフォーム全体範囲 */
+.contact-wrap {
+  max-width: 900px;
+  margin: 0  auto;
+}
+.contact-wrap form {
+  width: 100%;
+}
+.contact-wrap form .contact-table {
+  width: 100%;
+}
+.contact-wrap form .contact-table tr {
+  position: relative;
+}
+.contact-wrap form .contact-table tr:first-child td:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 1px;
+  border-bottom: solid 2px rgba(28, 46, 83, 0.5);
+}
+/* 入力項目 */
+.contact-wrap form .contact-table tr th {
+  width: 30%;
+  font-weight: normal;
+  padding: 1em .5em;
+  background-color: #1c2e53;
+  color: #fff;
+  border-radius: 5px;
+  position: relative;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+th span.required, th span.any {
+  padding: 2% 3%;
+  color: #fff;
+  margin-left: 15px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* spanのrequiredクラスのみ */
+th span.required {
+  background: red;
+}
+/* spanのanyクラスのみ */
+th span.any {
+  background: gray;
+
+}
+/* ボックスの下枠 */
+.contact-wrap form .contact-table tr th:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  border-bottom: solid 2px #fff;
+}
+/* テキスト入力 */
+.contact-wrap form .contact-table tr td {
+  position: relative;
+  padding: 1em .5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.contact-wrap form .contact-table tr td:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  border-bottom: solid 2px rgba(28, 46, 83, 0.5);
+}
+.contact-wrap form .contact-table tr .box_br {
+  display: block;
+}
+.contact-wrap form .contact-table tr select, .contact-wrap form .contact-table tr textarea, .contact-wrap form .contact-table tr .wide {
+  width: 100%;
+  height: 3em;
+  padding: .5em;
+  border: solid 2px rgba(28, 46, 83, 0.8);  /* テキスト入力枠線 */
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.contact-wrap form .contact-table tr textarea {
+  height: 10em;
+}
+/* エラーメッセージ */
+.error_msg {
+  font-size: 1.2rem;
+  color: #ff0000;
+  height: 14px;
+}
+/* プライバシーポリシー */
+.box_check {
+  text-align: center;
+  margin: 1em auto;
+}
+.box_check label {
+  display: inline-block;
+}
+.box_check label span {
+  margin-left: .3em;
+}
+/* 確認画面へボタン */
+.confirm-btn {
+  text-align: center;
+}
+.confirm-btn input {
+  display: inline-block;
+  background: #eee;
+  padding: .5em 4em;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.confirm-btn input:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+}
+/* =================== confirm.php =================== */
+.confirm-con {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.confirm-con > h1, .confirm-con > p {
+  text-align: center;
+  margin: 30px 0;
+}
+.confirm-con > p {
+  font-size: 1.2rem;
+}
+.confirm-wrap {
+  background: #eee;
+}
+.confirm-table {
+  width: 100%;
+  font-size: 1.25rem;
+  border: 1px solid blue;
+  border-spacing: 10px;
+}
+.confirm-table th {
+  border: 1px solid red;
+}
+.confirm-table td {
+  border: 1px solid green;
+}
+/* .confirm-table .input-item {
+  font-weight: bold;
+  color: red;
+  padding: 10px;
+}
+.confirm-table .display-item {
+  margin-left: 15px;
+} */
+.btn-wrap {
+  display: flex;
+}
+/* 内容修正ボタン */
+.confirm-return-btn {
+  text-align: center;
+  margin: 50px auto;
+}
+a.return {
+  color: #fff;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  border: solid 0.5px rgb(173, 173, 173);
+  background-color: #87CEEB;
+  padding: 15px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+a.return:hover {
+  opacity: 0.7;
+  background-color: #fff;
+  border: solid 3px #87CEEB;
+  color: #87CEEB;
+}
+/* 送信ボタン */
+button {
+  font-family: inherit;
+  font-size: 20px;
+  background: royalblue;
+  color: white;
+  margin: 0 auto;
+  padding: 10px 27px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+button svg {
+  display: block;
+  background: white;
+  color: royalblue;
+  border-radius: 50%;
+  padding: 5px;
+  /* transform-origin: center center; */
+  transition: transform 0.2s ease-in-out;
+}
+button:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+button span.send {
+  display: block;
+  margin-left: 12px;
+  letter-spacing: 1px;
+  transition: all 0.4s ease-in-out;
+}
+/* button:hover svg {
+  transform: translateX(3.5em) rotate(45deg) scale(1.1);
+} */
+button:hover span.send {
+  transform: translateX(5em);
+}
+button:active {
+  transform: scale(0.95);
+}
+/* スライド後の上下の動き */
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
   }
-  .contact-wrap form {
-    width: 100%;
+  to {
+    transform: translateY(-0.1em);
   }
-  .contact-wrap form .contact-table {
-    width: 100%;
-  }
-  .contact-wrap form .contact-table tr {
-    position: relative;
-  }
-  .contact-wrap form .contact-table tr:first-child td:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    height: 1px;
-    border-bottom: solid 2px rgba(28, 46, 83, 0.5);
-  }
-  /* 入力項目 */
-  .contact-wrap form .contact-table tr th {
-    width: 30%;
-    font-weight: normal;
-    padding: 1em .5em;
-    background-color: #1c2e53;
-    color: #fff;
-    border-radius: 5px;
-    position: relative;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  th span {
-    padding: 2% 3%;
-    color: #fff;
-    margin-left: 15px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  /* spanのrequiredクラスのみ */
-  th span.required {
-    background: red;
-  }
-  /* spanのanyクラスのみ */
-  th span.any {
-    background: gray;
-  }
-  /* ボックスの下枠 */
-  .contact-wrap form .contact-table tr th:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    height: 1px;
-    border-bottom: solid 2px #fff;
-  }
-  /* テキスト入力 */
-  .contact-wrap form .contact-table tr td {
-    position: relative;
-    padding: 1em .5em;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  .contact-wrap form .contact-table tr td:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    height: 1px;
-    border-bottom: solid 2px rgba(28, 46, 83, 0.5);
-  }
-  .contact-wrap form .contact-table tr .box_br {
-    display: block;
-  }
-  .contact-wrap form .contact-table tr select, .contact-wrap form .contact-table tr textarea, .contact-wrap form .contact-table tr .wide {
-    width: 100%;
-    height: 3em;
-    padding: .5em;
-    border: solid 2px rgba(28, 46, 83, 0.8);  /* テキスト入力枠線 */
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  .contact-wrap form .contact-table tr textarea {
-    height: 10em;
-  }
-  /* プライバシーポリシー */
-  .box_check {
-    text-align: center;
-    margin: 1em auto;
-  }
-  .box_check label {
-    display: inline-block;
-  }
-  .box_check label span {
-    margin-left: .3em;
-  }
-  /* 送信ボタン */
-  .btn {
-    text-align: center;
-  }
-  .btn input {
-    display: inline-block;
-    background: #eee;
-    padding: .5em 4em;
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    transition: all 0.4s;
-  }
-  .btn input:hover {
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-    opacity: 0.7;
-  }
-/* ================================================================== */
-  .submit-btn {
-    display: block;
-    border-radius: 6px;
-    margin: 0 auto;
-    padding: 10px 5px;
-    width: 150px;
-    background: #00bfff;
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.15em;
-    text-align: center;
-    letter-spacing: 0.5em;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0px 5px #2c86aa;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    transition: all 0.4s;
-  }
-  .submit-btn:active {
-    position: relative;
-    top: 5px;
-    box-shadow: none;
-  }
-/* ===================================================== */
-  button {
-    font-family: inherit;
-    font-size: 20px;
-    background: royalblue;
-    color: white;
-    margin: 0 auto;
-    padding: 0.4em 1.5em;
-    padding-left: 0.9em;
-    display: flex;
-    align-items: center;
-    border: none;
-    border-radius: 6px;
-    overflow: hidden;
-    transition: all 0.2s;
-  }
-  button span.send {
-    display: block;
-    margin-left: 12px;
-    transition: all 0.4s ease-in-out;
-  }
-  button svg {
-    display: block;
-    background: white;
-    color: royalblue;
-    border-radius: 50%;
-    padding: 5px;
-    /* transform-origin: center center; */
-    transition: transform 0.2s ease-in-out;
-  }
-  button:hover .svg-wrapper {
-    animation: fly-1 0.6s ease-in-out infinite alternate;
-  }
-  /* button:hover svg {
-    transform: translateX(3.5em) rotate(45deg) scale(1.1);
-  } */
-  button:hover span.send {
-    transform: translateX(5em);
-  }
-  button:active {
-    transform: scale(0.95);
-  }
-  /* スライド後の上下の動き */
-  @keyframes fly-1 {
-    from {
-      transform: translateY(0.1em);
-    }
-    to {
-      transform: translateY(-0.1em);
-    }
-  }
+}
+/* ================== thanks.php =================== */
+.thanks-msg {
+  max-width: 1000px;
+  margin: 10px auto;
+  text-align: center;
+  background-color: #c8fbff;
+  padding:20px 50px;
+}
+.thanks-msg p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
 
 /*=======================
   フッター footer
