@@ -588,10 +588,8 @@ li {
   }
   /* --------------- 制作物一覧 */
   .works-item-list-1, .works-item-list-2, .works-item-list-3, .works-item-list-4 {
-    /* ---------- セレクタ範囲 ---------- */
     outline: 3px solid yellow;
-    /* background-color: rgba(249, 123, 199, 0.6); */
-    /* ---------------------------------- */
+    /* ---------- セレクタ範囲 ---------- */
     display: flex;
     justify-content: space-between;
     padding: 20px;
@@ -632,7 +630,7 @@ li {
     text-align: center;
     border: solid 5px red;
   }
-  /* 問い合わせボタンのカスタマイズ */
+  /* 問い合わせリンクボタンのカスタマイズ */
   span.contact-btn {
     display: inline-block;
     margin-top: 10px;
@@ -677,7 +675,7 @@ li {
   font-size: 1.2rem;
   margin-bottom: 15px;
 }
-/* お問い合わせフォーム全体範囲 */
+/* フォーム全体範囲 */
 .contact-wrap {
   max-width: 900px;
   margin: 0  auto;
@@ -704,9 +702,10 @@ li {
 .contact-wrap form .contact-table tr th {
   width: 30%;
   font-weight: normal;
-  padding: 1em .5em;
-  background-color: #1c2e53;
+  padding: 15px 5px;
+  background-color: #254689;
   color: #fff;
+  font-size: 1rem;
   border-radius: 5px;
   position: relative;
   -moz-box-sizing: border-box;
@@ -714,9 +713,11 @@ li {
   box-sizing: border-box;
 }
 th span.required, th span.any {
-  padding: 2% 3%;
+  padding: 1% 3%;
   color: #fff;
-  margin-left: 15px;
+  font-size: 0.85rem;
+  border-radius: 3px;
+  margin-left: 10px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -728,7 +729,6 @@ th span.required {
 /* spanのanyクラスのみ */
 th span.any {
   background: gray;
-
 }
 /* ボックスの下枠 */
 .contact-wrap form .contact-table tr th:after {
@@ -815,16 +815,28 @@ th span.any {
   max-width: 1000px;
   margin: 0 auto;
 }
-.confirm-con > h1, .confirm-con > p {
+.confirm-con .confirm-title {
   text-align: center;
-  margin: 30px 0;
+  margin: 30px 0 0 0;
 }
-.confirm-con > p {
+.confirm-con .confirm-title-en {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.confirm-con .confirm-text, .confirm-con .confirm-text-en {
+  text-align: center;
   font-size: 1.2rem;
 }
+.confirm-con .confirm-text-en {
+  margin-bottom: 30px;
+}
+/* .confirm-con > p {
+  font-size: 1.2rem;
+} */
 .confirm-wrap {
   background: #eee;
 }
+/* table */
 .confirm-table {
   width: 100%;
   font-size: 1.25rem;
@@ -837,17 +849,22 @@ th span.any {
 .confirm-table td {
   border: 1px solid green;
 }
-/* .confirm-table .input-item {
-  font-weight: bold;
-  color: red;
-  padding: 10px;
+
+.confirm-content {
+  padding: 25px;
 }
-.confirm-table .display-item {
-  margin-left: 15px;
-} */
-.btn-wrap {
-  display: flex;
+.confirm-content .form-item {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
 }
+/* 最初の.form-item以外 */
+.confirm-content .form-item:not(:first-child) {
+  margin-top: 30px;
+}
+.confirm-content span.output {
+  font-size: 1.1rem;
+}
+
 /* 内容修正ボタン */
 .confirm-return-btn {
   text-align: center;
@@ -859,16 +876,16 @@ a.return {
   letter-spacing: 1px;
   border: solid 0.5px rgb(173, 173, 173);
   background-color: #87CEEB;
-  padding: 15px 20px;
+  padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
   transition: 0.3s;
 }
 a.return:hover {
-  opacity: 0.7;
   background-color: #fff;
   border: solid 3px #87CEEB;
   color: #87CEEB;
+  font-weight: bold;
 }
 /* 送信ボタン */
 button {
@@ -876,7 +893,7 @@ button {
   font-size: 20px;
   background: royalblue;
   color: white;
-  margin: 0 auto;
+  margin: 0 auto 20px auto; 
   padding: 10px 27px;
   padding-left: 20px;
   display: flex;
@@ -908,7 +925,7 @@ button span.send {
   transform: translateX(3.5em) rotate(45deg) scale(1.1);
 } */
 button:hover span.send {
-  transform: translateX(5em);
+  transform: translateX(8em);
 }
 button:active {
   transform: scale(0.95);
@@ -939,7 +956,8 @@ button:active {
   フッター footer
 =======================*/
 #footer {
-  background-color: #fff;
+  background-color: rgb(247, 247, 247);
+  box-shadow: 8px 10px 0px 13px rgb(0, 0, 0, 10%);
 }
 .footer-wrap {
   /* border: solid 5px red; */

@@ -2,11 +2,11 @@
 session_start();
 
 // 直リンクアクセスであれば、戻す!
-if (!isset($_SESSION['form'])) {
-    header('Location: contact.php');
-} else {
-    $post = $_SESSION['form'];
-}
+// if (!isset($_SESSION['form'])) {
+//     header('Location: contact.php');
+// } else {
+//     $post = $_SESSION['form'];
+// }
 
 //メールの日本語設定
 mb_language("Japanese");
@@ -47,8 +47,7 @@ mb_send_mail($to, $subject, $message, $headers);
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Chacha WEB Create</title>
-  <meta description="駆け出しWEBコーダー Chacha のポートフォリオサイトです。些細なご相談でも大丈夫です。お気軽にご連絡ください。">
+  <title>送信完了 | Successfully sent</title>
   <!-- Viewport マルチデバイス対応のため -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Favicon icon -->
@@ -71,13 +70,12 @@ mb_send_mail($to, $subject, $message, $headers);
 <body>
     <div class="container">
         <div class="thanks-msg">
-            <p>お問い合わせありがとうございました。</p><br>
-            <p>ご入力いただいたメールアドレス宛に、確認メールをお送りいたしましのでご確認ください。</p><br>
-            <p>可能な限り早く折り返しご連絡させていただきますので</p><br>
-            <p>少々お待ち頂けますと幸いです。</p><br>
-            <p>今後ともどうぞよろしくお願いいたします。 </p><br>
-            <img src="./img/title-logo.svg" width="120px" alt="サイトタイトルロゴ">
-            <!-- <img src="./img/icon.png"> -->
+          <p>お問い合わせありがとうございました。</p><br>
+          <p>ご入力いただいたメールアドレス宛に、確認メールをお送りいたしましのでご確認ください。</p><br>
+          <p>可能な限り早く折り返しご連絡させていただきますので</p><br>
+          <p>少々お待ち頂けますと幸いです。</p><br>
+          <p>今後ともどうぞよろしくお願いいたします。 </p><br>
+          <img src="./img/title-logo.svg" width="120px" alt="サイトタイトルロゴ">
         </div>
     </div>
 </body>

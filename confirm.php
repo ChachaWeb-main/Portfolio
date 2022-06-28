@@ -2,11 +2,11 @@
 session_start();
 
 // 直リンクアクセスであれば、戻す!
-if (!isset($_SESSION['form'])) {
-  header('Location: contact.php');
-} else {
-  $post = $_SESSION['form'];
-}
+// if (!isset($_SESSION['form'])) {
+//   header('Location: contact.php');
+// } else {
+//   $post = $_SESSION['form'];
+// }
 
 //メールの日本語設定
 mb_language("Japanese");
@@ -41,8 +41,7 @@ EOT;
 
 <head>
   <meta charset="UTF-8">
-  <title>Chacha WEB Create</title>
-  <meta description="駆け出しWEBコーダー Chacha のポートフォリオサイトです。些細なご相談でも大丈夫です。お気軽にご連絡ください。">
+  <title>お問い合わせ内容確認 | Contents confirm</title>
   <!-- Viewport マルチデバイス対応のため -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Favicon icon -->
@@ -65,40 +64,27 @@ EOT;
 <body>
   <form action="" method="POST">
     <div class="confirm-con">
-      <h1>お問い合わせ内容確認</h1>
-      <p>お問い合わせ内容はこちらで宜しいでしょうか？<br>よろしければ「送信」ボタンをクリックして下さい。</p>
+      <h1 class="confirm-title">お問い合わせ内容確認</h1>
+      <h1 class="confirm-title-en">Contents confirm</h1>
+      <p class="confirm-text">お問い合わせ内容は以下の内容で宜しいでしょうか？<br>よろしければ「送信」ボタンをクリックして下さい。</p>
+      <p class="confirm-text-en">Is it okay to contact me with the following ?<br>If there is no problem, click the "Send" button. </p>
 
       <div class="confirm-wrap">
-        <table class="confirm-table">
-          <tr>
-            <th><span class="input-item">お名前</span></th>
-            <td>
-              <p class="display-item-name"><?php echo htmlspecialchars($post['name']); ?></p>
-            </td>
-          </tr>
-          <tr>
-            <th><span class="input-item">メールアドレス</span></th>
-            <td>
-              <p class="display-item-mail"><?php echo htmlspecialchars($post['email']); ?></p>
-            </td>
-          </tr>
-          <tr>
-            <th><span class="input-item">電話番号</span></th>
-            <td>
-              <p class="display-item-phone"><?php echo htmlspecialchars($post['phone']); ?></p>
-            </td>
-          </tr>
-          <tr>
-            <th><span class="input-item">お問い合わせ内容</span></th>
-            <td>
-              <p class="display-item"><?php echo nl2br(htmlspecialchars($post['message'])); ?></p>
-            </td>
-          </tr>
-        </table>
+        
+        <div class="confirm-content">
+          <div class="form-item">&diams; 名前 | Name</div>
+          <span class="output"><?php echo htmlspecialchars($post['name']); ?></span>
+          <div class="form-item">&diams; メールアドレス | E-mail</div>
+          <span class="output"><?php echo htmlspecialchars($post['email']); ?></span>
+          <div class="form-item">&diams; 電話番号 | PhoneNumber</div>
+          <span class="output"><?php echo htmlspecialchars($post['phone']); ?></span>
+          <div class="form-item">&diams; お問い合わせ内容 | Content</div>
+          <span class="output"><?php echo nl2br(htmlspecialchars($post['message'])); ?></span>
+        </div>
       </div>
 
       <div class="confirm-return-btn">
-        <a class="return" href="contact.php"><span>内容を修正</span></a>
+        <a class="return" href="contact.php"><span>内容を修正 | Modify content</span></a>
       </div>
       <button type="submit">
         <div class="svg-wrapper">
@@ -108,7 +94,7 @@ EOT;
             </path>
           </svg>
         </div>
-        <span class="send">送信</span>
+        <span class="send">送信 | Send</span>
       </button>
     </div>
   </form>

@@ -33,8 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (empty($post['message'])) {
     // 空の場合
     $error['message'] = 'blank';
+  } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9]{1,250}+$/u", $post['name'])) {
+    // 正規表現に合致する場合(ひらがな・漢字・アルファベット, 1 ~ 250字)
+  } else {
+    // 正規表現に合致しない場合
+    $error['message'] = 'invaild';
   }
 
+  // 上記で$errorの配列数カウントが０＝エラーがなければ
   if (count($error) === 0) {
     // エラーがないので確認画面に移動
     $_SESSION['form'] = $post;
@@ -58,8 +64,7 @@ echo '</pre>';
 
 <head>
   <meta charset="UTF-8">
-  <title>Chacha WEB Create</title>
-  <meta description="駆け出しWEBコーダー Chacha のポートフォリオサイトです。些細なご相談でも大丈夫です。お気軽にご連絡ください。">
+  <title>お問い合わせ | Contact</title>
   <!-- Viewport マルチデバイス対応のため -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Favicon icon -->
@@ -106,8 +111,6 @@ echo '</pre>';
   </header>
 
   <main>
-    <br>
-    <br>
     <div class="section-title">
       <h2 class="en">Contact</h2>
       <p class="jp">お問い合わせ</p>
@@ -117,9 +120,9 @@ echo '</pre>';
         <p class="contact-info">お問い合わせ内容をご入力の上、「確認画面へ」をクリックしてください。</p>
         <table class="contact-table">
           <tr>
-            <th>お名前<span class="required">必須</span></th>
+            <th>名前 | Name<span class="required">必須 | Required</span></th>
             <td>
-              <input size="20" type="text" class="wide" name="name" placeholder="ex).  山田太郎" value="<?php echo htmlspecialchars($post['name']); ?>" />
+              <input size="20" type="text" class="wide" name="name" placeholder="ex).  山田太郎 / Taro Yamada" value="<?php echo htmlspecialchars($post['name']); ?>" />
               <!-- Notice: Undefined index の防止 -->
               <?php if (!empty($error['name'])) : ?>
                 <?php if ($error['name'] === 'blank') : ?>
@@ -132,7 +135,7 @@ echo '</pre>';
             </td>
           </tr>
           <tr>
-            <th>メールアドレス<span class="required">必須</span></th>
+            <th>メール | E-mail<span class="required">必須 | Required</span></th>
             <td>
               <input size="30" type="text" class="wide" name="email" placeholder="ex).  example@gmail.com    ※半角英数" value="<?php echo htmlspecialchars($post['email']); ?>" required />
               <?php if (!empty($error['email'])) : ?>
@@ -146,8 +149,7 @@ echo '</pre>';
             </td>
           </tr>
           <tr>
-            <th>電話番号<span class="any">任意</sapn>
-            </th>
+            <th>電話番号 | Phone<span class="any">任意 | Any</sapn></th>
             <td>
               <input size="30" type="text" class="wide" name="phone" placeholder="ex).  012-3456-7890   ※半角数字" value="<?php echo htmlspecialchars($post['phone']); ?>" />
               <?php if (!empty($error['phone'])) : ?>
@@ -158,12 +160,15 @@ echo '</pre>';
             </td>
           </tr>
           <tr>
-            <th>お問い合わせ内容<span class="required">必須</span></th>
+            <th>お問い合わせ内容 | Message<br><br><span class="required last">必須 | Required</span></th>
             <td>
               <textarea name="message" cols="50" rows="5" placeholder="お見積もりは無料で承ります。まずはお気軽にお問い合わせくださいませ。" required><?php echo htmlspecialchars($post['message']); ?></textarea>
               <?php if (!empty($error['message'])) : ?>
                 <?php if ($error['message'] === 'blank') : ?>
                   <p class="error_msg">※お問い合わせ内容をご記入下さい</p>
+                <?php endif; ?>
+                <?php if ($error['message'] === 'invaild') : ?>
+                    <p class="error_msg">※５００字以内で入力して下さい</p>
                 <?php endif; ?>
               <?php endif; ?>
             </td>

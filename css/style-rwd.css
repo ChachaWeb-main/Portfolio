@@ -262,13 +262,13 @@
       padding: 15px 0 8px 0;
     }
     /* モーダル閉じるボタン位置 */
-  .fa-times {
-    top: 10px;
-    right:  15px;
-  }
-  .size {
-    font-size: 2em;;
-  }
+    .fa-times {
+      top: 10px;
+      right:  15px;
+    }
+    .size {
+      font-size: 2em;;
+    }
 
     /* ----------------------------------------------- worksセクション */
     .works-item-list-1, .works-item-list-2, .works-item-list-3, .works-item-list-4, .works-item-list-5 {
@@ -283,7 +283,6 @@
     th, td {
       display: block;
     }
-    /* contact.php */
     .contact-wrap form .contact-table tr th {
       width: 45%;
       margin: 0 auto;
@@ -292,9 +291,18 @@
       width: 80%;
       margin: 0 auto;
     }
-    @media screen and (min-width: 375px) {
+    @media screen and (max-width: 515px) {
+      th span.required, th span.any {
+        font-size: 0.75rem;
+      }
+    }
+
+    @media screen and (min-width: 325px) {
+      .contact-info {
+        font-size: 0.85rem;
+      }
       .contact-wrap form .contact-table tr th {
-        width: 55%;
+        width: 65%;
       }
       .contact-wrap form .contact-table tr td {
         width: 90%;
@@ -305,10 +313,6 @@
     }
     .contact-wrap form .contact-table tr:first-child td:before, .contact-wrap form .contact-table tr td:after {
       border: none;
-    }
-    /* confirm.php */
-    .confirm-table .display-item-name, .confirm-table .display-item-mail, .confirm-table .display-item-phone {
-      text-align: center;
     }
 
 
