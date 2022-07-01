@@ -2,11 +2,11 @@
 session_start();
 
 // 直リンクアクセスであれば、戻す!
-// if (!isset($_SESSION['form'])) {
-//   header('Location: contact.php');
-// } else {
-//   $post = $_SESSION['form'];
-// }
+if (!isset($_SESSION['form'])) {
+  header('Location: contact.php');
+} else {
+  $post = $_SESSION['form'];
+}
 
 //メールの日本語設定
 mb_language("Japanese");

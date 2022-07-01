@@ -2,18 +2,18 @@
 session_start();
 
 // 直リンクアクセスであれば、戻す!
-// if (!isset($_SESSION['form'])) {
-//     header('Location: contact.php');
-// } else {
-//     $post = $_SESSION['form'];
-// }
+if (!isset($_SESSION['form'])) {
+    header('Location: contact.php');
+} else {
+    $post = $_SESSION['form'];
+}
 
 //メールの日本語設定
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
 
 //送信先アドレス = 相手方
-$to = $_POST['email'];
+$to = $post['email'];
 //メール件名
 $subject = "お問い合わせありがとうございます。";
 //メッセージ本文を視覚的に見やすく格納（ヒアドキュメント）
@@ -23,16 +23,16 @@ $message = <<< EOM
 以下の内容で承りました。
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 【 お名前 】
-{$_POST['name']}
+{$post['name']}
 
 【 メール 】
-{$_POST['email']}
+{$post['email']}
 
 【 電話番号 】
-{$_POST['phone']}
+{$post['phone']}
 
 【 お問い合わせ内容 】
-{$_POST['message']}
+{$post['message']}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOM;
@@ -68,15 +68,19 @@ mb_send_mail($to, $subject, $message, $headers);
   <link rel="stylesheet" href="./css/style-rwd.css">
 </head>
 <body>
-    <div class="container">
-        <div class="thanks-msg">
-          <p>お問い合わせありがとうございました。</p><br>
-          <p>ご入力いただいたメールアドレス宛に、確認メールをお送りいたしましのでご確認ください。</p><br>
-          <p>可能な限り早く折り返しご連絡させていただきますので</p><br>
-          <p>少々お待ち頂けますと幸いです。</p><br>
-          <p>今後ともどうぞよろしくお願いいたします。 </p><br>
-          <img src="./img/title-logo.svg" width="120px" alt="サイトタイトルロゴ">
-        </div>
+    <div class="thanks-container">
+      <div class="thanks-title">
+        <p>お問い合わせありがとうございました。<br><span class="thanks-en">Thank you for your inquiry.<span></p>
+      </div>
+      <div class="thanks-text">
+        <p>ご入力いただいたメールアドレス宛に、確認メールをお送りいたしましのでご確認ください。</p>
+        <p>可能な限り早く折り返しご連絡させていただきますので、</p>
+        <p>少々お待ち頂けますと幸いです。</p>
+        <p class="thanks-en">Please check the confirmation email to your email address.</p>
+        <p class="thanks-en">I will contact you as soon as possible,</p>
+        <p class="thanks-en">I’d appreciate if you could wait for a while.</p>
+      </div>
+      <img src="./img/title-logo.svg" width="200px" alt="サイトタイトルロゴ">
     </div>
 </body>
 </html>

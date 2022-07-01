@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $error['message'] = 'invaild';
   }
 
-  // 上記で$errorの配列数カウントが０＝エラーがなければ
+  // 上記で$errorの配列数カウントが０であれば
   if (count($error) === 0) {
     // エラーがないので確認画面に移動
     $_SESSION['form'] = $post;
@@ -53,10 +53,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 
-echo '代入値の確認';
-echo '<pre>';
-var_dump($error);
-echo '</pre>';
+// ----- 代入値確認用 -----
+// echo '代入値の確認';
+// echo '<pre>';
+// var_dump($error);
+// echo '</pre>';
 ?>
 
 <!DOCTYPE html>
@@ -110,7 +111,9 @@ echo '</pre>';
     </div>
   </header>
 
-  <main>
+  <main id="contact-container">
+    <br>
+    <br>
     <div class="section-title">
       <h2 class="en">Contact</h2>
       <p class="jp">お問い合わせ</p>
@@ -118,6 +121,8 @@ echo '</pre>';
     <div class="contact-wrap">
       <form action="" method="post" novalidate>
         <p class="contact-info">お問い合わせ内容をご入力の上、「確認画面へ」をクリックしてください。</p>
+        <p class="contact-info-en">Please enter the contact form and click "To Confirm".</p>
+
         <table class="contact-table">
           <tr>
             <th>名前 | Name<span class="required">必須 | Required</span></th>
@@ -129,7 +134,7 @@ echo '</pre>';
                   <p class="error_msg">※お名前をご記入下さい</p>
                 <?php endif; ?>
                 <?php if ($error['name'] === 'invaild') : ?>
-                    <p class="error_msg">※お名前は50字以内で入力して下さい</p>
+                  <p class="error_msg">※お名前は50字以内で入力して下さい</p>
                 <?php endif; ?>
               <?php endif; ?>
             </td>
@@ -143,13 +148,14 @@ echo '</pre>';
                   <p class="error_msg">※メールアドレスをご記入下さい</p>
                 <?php endif; ?>
                 <?php if ($error['email'] === 'invaild') : ?>
-                  <p class="error_msg">※メールアドレスが不正です</p>
+                  <p class="error_msg">※正しい形式ではありません</p>
                 <?php endif; ?>
               <?php endif; ?>
             </td>
           </tr>
           <tr>
-            <th>電話番号 | Phone<span class="any">任意 | Any</sapn></th>
+            <th>電話番号 | Phone<span class="any">任意 | Any</sapn>
+            </th>
             <td>
               <input size="30" type="text" class="wide" name="phone" placeholder="ex).  012-3456-7890   ※半角数字" value="<?php echo htmlspecialchars($post['phone']); ?>" />
               <?php if (!empty($error['phone'])) : ?>
@@ -168,7 +174,7 @@ echo '</pre>';
                   <p class="error_msg">※お問い合わせ内容をご記入下さい</p>
                 <?php endif; ?>
                 <?php if ($error['message'] === 'invaild') : ?>
-                    <p class="error_msg">※５００字以内で入力して下さい</p>
+                  <p class="error_msg">※５００字以内で入力して下さい</p>
                 <?php endif; ?>
               <?php endif; ?>
             </td>
@@ -181,7 +187,7 @@ echo '</pre>';
           </label>
         </div>
         <p class="confirm-btn">
-          <span><input type="submit" name="confirm" value="確認画面へ" /></span>
+          <span><input type="submit" name="confirm" value="確認画面へ | To Confirm" /></span>
         </p>
         <br>
         <br>

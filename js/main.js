@@ -1,13 +1,14 @@
 'use strict';
 
-
 // =============== ページ内リンク先、追従するヘッダー分の高さを引いて適切な場所へスクロール ================
 // (CSSで scroll-behavior: smooth; でもスームズスクロール可能だが飛び先がズレる、動きブレる)
-$('#page-link a[href*="#"]').click(function () {
-	var elmHash = $(this).attr('href');  //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
-	var pos = $(elmHash).offset().top - 70;  //idの上部の距離からHeaderの高さを引いた値を取得
-	$('body,html').animate({ scrollTop: pos }, 600);  //取得した位置にスクロール。数値が大きくなるほどゆっくりスクロール
-	return false;
+$(function() {
+  $('#page-link a[href*="#"]').click(function () {
+    var elmHash = $(this).attr('href');  //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
+    var pos = $(elmHash).offset().top - 70;  //idの上部の距離からHeaderの高さを引いた値を取得
+    $('body,html').animate({ scrollTop: pos }, 600);  //取得した位置にスクロール。数値が大きくなるほどゆっくりスクロール
+    return false;
+  });
 });
 
 
@@ -22,14 +23,16 @@ $(function () {
 
 
 // ================ スキルアイコン ホバー時に表示されるアクション ===============
-// $('.icon-hover').hover(
-// 	function () {  // 子要素の「.text-contents」の要素を取得し、text-activeクラスをつける
-// 		$(this).find('skill-name').addClass('text-active');
-// 	},
-// 	function () {  // 子要素の「.text-contents」の要素を取得し、text-activeクラスを外す
-// 		$(this).find('skill-name').removeClass('text-active');
-// 	}
-// );
+$(function() {
+  $('.icon-hover').hover(
+    function () {  // 子要素の「.text-contents」の要素を取得し、text-activeクラスをつける
+      $(this).find('skill-name').addClass('text-active');
+    },
+    function () {  // 子要素の「.text-contents」の要素を取得し、text-activeクラスを外す
+      $(this).find('skill-name').removeClass('text-active');
+    }
+  )
+});
 
 
 // =============== price 料金一覧 モーダル表示 ==============
@@ -44,11 +47,13 @@ $(function () {
 
 
 // ============== sendボタン アクション
-$('button').click(function () {
-  $('svg.move').css('transform', 'translateX(4em) rotate(45deg)')
-});
-$('button').mouseleave(function () {
-  $('svg.move').css('transform', 'translateX(0)')
+$(function() {
+  $('button').click(function () {
+    $('svg.move').css('transform', 'translateX(7em) rotate(45deg)')
+  });
+  $('button').mouseleave(function () {
+    $('svg.move').css('transform', 'translateX(0)')
+  });
 });
 
 
@@ -87,4 +92,3 @@ $(window).scroll(function () {
 $(window).on('load', function () {
   PageTopAnime();  /* スクロールした際の動きの関数を呼ぶ*/
 });
-

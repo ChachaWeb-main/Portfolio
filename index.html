@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Chacha WEB Create</title>
-  <meta description="駆け出しWEBコーダー Chacha のポートフォリオサイトです。些細なご相談でも大丈夫です。お気軽にご連絡ください。">
+  <meta description="駆け出しWEBコーダー Chacha のポートフォリオサイトです。些細なご相談でもお気軽にご連絡ください。">
   <!-- Viewport マルチデバイス対応のため -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Favicon icon -->
@@ -25,15 +25,15 @@
 
 <body>
   <!-- fadeIN LoadingAnimation -->
-  <div id="splash">
+  <div id="splash" class="loading">
     <div id="splash_text"></div>
   </div>
   <div id="home" class="big-bg">
     <!-- header -->
     <header id="header" class="header-wrap">
-      <!-- logo -->
+      <!-- sitelogo -->
       <a href="index.html" class="site-title-header"><img src="./img/title-logo.svg" width="160px" alt="サイトタイトルロゴ"></a>
-      <!-- ハンバーガーメニュー -->
+      <!-- ハンバーガーメニュー (CSSのみで) -->
       <div class="nav">
         <!-- 表示・非表示を切り替えるチェックボックス -->
         <input id="drawer_input" class="drawer_hidden" type="checkbox">
@@ -47,15 +47,15 @@
             <li><a href="#service">サービス</a></li>
             <li><a href="#works">制作物・実績</a></li>
             <li><a href="contact.php">お問い合わせ</a></li>
-            <!-- <li class="lang-link"><a href="./index-en.html">English</a></li> -->
             <li><a class="twitter-icon" href="#"><img src="./img/icons/twitter.png" width="27px" alt="Twitterアイコン"></a>
             </li>
-            <li><a class="github-icon" href="#"><img src="./img/icons/github.png" width="27px" alt="GitHubアイコン"></a>
+            <li><a class="github-icon" href="https://github.com/ChachaWeb-main"><img src="./img/icons/github.png" width="27px" alt="GitHubアイコン"></a>
             </li>
           </ul>
         </nav>
       </div>
     </header>
+
     <div class="scrolldown3">
       <span>Scroll<img src="./img/pc-mouse.svg" height="100px" alt="スクロール促進するマウス形状のアイコン"></span>
     </div>
@@ -74,7 +74,6 @@
       </div>
     </div>
   </div>
-
   <main id="main-wrap">
     <!-- ABOUT section -->
     <div class="container-aboutToSkills">
@@ -98,7 +97,7 @@
               <p class="about-txt">サイトをご覧いただきありがとうございます。</p>
               <br>
               <p class="about-txt">コロナ前まで数年間海外でバリスタをやっておりました</p>
-              <p class="about-txt">コーヒーLOVE人間ですww</p>
+              <p class="about-txt">コーヒー好きな男ですww</p>
               <p class="about-txt">人の役に立つことや感謝されること、喜んでもらえて得られる笑顔が好きです。</p>
               <br>
               <p class="about-txt">駆け出しのため、至らない点も多々あるかと思いますが</p>
@@ -357,9 +356,7 @@
           <div class="sns-link-icon">
             <a href="#"><i class="fab fa-twitter twitter-icon fa-2x"></i></a>
           </div>
-          <a href="contact.html">
-            <span class="contact-btn"> お問い合わせはこちら！ <i class="fas fa-angle-right fa-position-right"></i></span>
-          </a>
+          <a href="contact.php"><span class="contact-btn"> お問い合わせはこちら！ <i class="fas fa-angle-right fa-position-right"></i></span></a>
           <br>
           <br>
         </div>
@@ -375,14 +372,15 @@
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <!-- loading プログレスバー＋数字カウントアップ -->
+  <!-- loading ライブラリーprogressbar.js -->
   <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
   <!-- loading IE11用 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
   <!-- JavaScript -->
-  <script src="./js/fadein.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/fadein.js"></script>
+  <script src="./js/loading.js"></script>
 </body>
 
 </html>

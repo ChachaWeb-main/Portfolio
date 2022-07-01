@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 820px) {
   /*===================
     共通 common
   ===================*/
@@ -106,7 +106,7 @@
       margin: 0;
     }
     .nav-list li {
-      margin: 8% 30%;
+      margin: 3% auto;
       display: block;
     }
     .nav-list > li:nth-child(1) {

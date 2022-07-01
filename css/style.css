@@ -136,7 +136,7 @@ li {
   align-items: center;
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 0 3%;
   background-color: rgb(250, 250, 250);
   box-shadow: 0 1px 8px 3px rgb(0, 0, 0, 10%);
   z-index: 99;
@@ -156,10 +156,13 @@ li {
   }
   .nav-list {
     display: flex;
-    /* font-family: 'Lora', serif; */
+    font-family: 'Lora', serif;
     font-size: 0.9rem;
     text-align: center;
     margin: 15px;
+  }
+  .nav-list-en {
+    font-size: 1.2rem;
   }
   .nav-list li {
     margin-left: 25px;
@@ -188,6 +191,7 @@ li {
     background-image: url(../img/main-img_1920.jpeg);
     min-height: 100vh;  /* 100vhとすることで画面の表示領域の高さいっぱいに画像を広げる */
   }
+  
 
   /* ----------------------------------------------- メインテキスト */
   .home-content {
@@ -476,7 +480,7 @@ li {
     font-weight: 700;
     line-height: 1.6;
     text-align: center;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
   }
   span.price-btn:hover .circle {
     width: 100%;
@@ -670,9 +674,12 @@ li {
   }
   
 /* =================== contact.php =================== */
-.contact-info {
+.contact-info, .contact-info-en {
   text-align: center;
   font-size: 1.2rem;
+}
+.contact-info-en {
+  color: red;
   margin-bottom: 15px;
 }
 /* フォーム全体範囲 */
@@ -817,7 +824,7 @@ th span.any {
 }
 .confirm-con .confirm-title {
   text-align: center;
-  margin: 30px 0 0 0;
+  margin: 15px 0 0 0;
 }
 .confirm-con .confirm-title-en {
   text-align: center;
@@ -827,29 +834,19 @@ th span.any {
   text-align: center;
   font-size: 1.2rem;
 }
+.confirm-text {
+  margin-bottom: 10px;
+}
 .confirm-con .confirm-text-en {
   margin-bottom: 30px;
 }
-/* .confirm-con > p {
-  font-size: 1.2rem;
-} */
+.confirm-title-en, .confirm-text-en {
+  color: red;
+}
 .confirm-wrap {
   background: #eee;
 }
-/* table */
-.confirm-table {
-  width: 100%;
-  font-size: 1.25rem;
-  border: 1px solid blue;
-  border-spacing: 10px;
-}
-.confirm-table th {
-  border: 1px solid red;
-}
-.confirm-table td {
-  border: 1px solid green;
-}
-
+/* 出力部分 */
 .confirm-content {
   padding: 25px;
 }
@@ -940,16 +937,33 @@ button:active {
   }
 }
 /* ================== thanks.php =================== */
-.thanks-msg {
+.thanks-container {
   max-width: 1000px;
-  margin: 10px auto;
+  margin: 50px auto;
   text-align: center;
   background-color: #c8fbff;
-  padding:20px 50px;
+  padding:30px;
 }
-.thanks-msg p {
+.thanks-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+.thanks-title .thanks-en {
+  color: red;
+}
+.thanks-text p {
   font-size: 1.2rem;
-  margin: 10px 0;
+  line-height: 1.5;
+}
+.thanks-text p:nth-child(3) {
+  margin-bottom: 20px;
+}
+.thanks-text .thanks-en {
+  color: red;
+}
+.thanks-container img {
+  margin-top: 30px;
 }
 
 /*=======================
@@ -957,7 +971,7 @@ button:active {
 =======================*/
 #footer {
   background-color: rgb(247, 247, 247);
-  box-shadow: 8px 10px 0px 13px rgb(0, 0, 0, 10%);
+  box-shadow: 0 1px 8px 3px rgb(0, 0, 0, 10%);
 }
 .footer-wrap {
   /* border: solid 5px red; */
