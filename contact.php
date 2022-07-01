@@ -23,17 +23,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $error['email'] = 'invaild';
   }
 
-  if (preg_match("/^0[-0-9]{9,13}$/", $post['phone'])) {
-    // 正規表現に合致する場合
-  } else {
-    // 正規表現に合致しない場合
+  // if (preg_match("/^0[-0-9]{9,13}$/", $post['phone'])) {
+  //   // 正規表現に合致する場合
+  // } else {
+  //   // 正規表現に合致しない場合
+  //   $error['phone'] = 'invaild';
+  // }
+  if (preg_match("/\D+/", $post['phone'])) {
+    // 正規表現に合致する場合＝数字,全半角空欄&ハイフンに合致しない場合
     $error['phone'] = 'invaild';
+  } else {
+    // 正規表現に合致しない場合、エラーメッセージなし
   }
 
   if (empty($post['message'])) {
     // 空の場合
     $error['message'] = 'blank';
-  } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9]{1,250}+$/u", $post['name'])) {
+  } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9]{1,250}+$/u", $post['message'])) {
     // 正規表現に合致する場合(ひらがな・漢字・アルファベット, 1 ~ 250字)
   } else {
     // 正規表現に合致しない場合
@@ -142,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <tr>
             <th>メール | E-mail<span class="required">必須 | Required</span></th>
             <td>
-              <input size="30" type="text" class="wide" name="email" placeholder="ex).  example@gmail.com    ※半角英数" value="<?php echo htmlspecialchars($post['email']); ?>" required />
+              <input size="30" type="text" class="wide" name="email" placeholder="ex).  example@gmail.com" value="<?php echo htmlspecialchars($post['email']); ?>" required />
               <?php if (!empty($error['email'])) : ?>
                 <?php if ($error['email'] === 'blank') : ?>
                   <p class="error_msg">※メールアドレスをご記入下さい</p>
@@ -157,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <th>電話番号 | Phone<span class="any">任意 | Any</sapn>
             </th>
             <td>
-              <input size="30" type="text" class="wide" name="phone" placeholder="ex).  012-3456-7890   ※半角数字" value="<?php echo htmlspecialchars($post['phone']); ?>" />
+              <input size="30" type="text" class="wide" name="phone" placeholder="ex).  01234567890   ※半角数字のみ" value="<?php echo htmlspecialchars($post['phone']); ?>" />
               <?php if (!empty($error['phone'])) : ?>
                 <?php if ($error['phone'] === 'invaild') : ?>
                   <p class="error_msg">※電話番号は半角数字をご記入下さい</p>
@@ -168,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <tr>
             <th>お問い合わせ内容 | Message<br><br><span class="required last">必須 | Required</span></th>
             <td>
-              <textarea name="message" cols="50" rows="5" placeholder="お見積もりは無料で承ります。まずはお気軽にお問い合わせくださいませ。" required><?php echo htmlspecialchars($post['message']); ?></textarea>
+              <textarea name="message" cols="50" rows="5" placeholder="お見積もりは無料で承ります。まずはお気軽にお問い合わせくださいませ / I accept quotes for free. Please feel free to contact us first." required><?php echo htmlspecialchars($post['message']); ?></textarea>
               <?php if (!empty($error['message'])) : ?>
                 <?php if ($error['message'] === 'blank') : ?>
                   <p class="error_msg">※お問い合わせ内容をご記入下さい</p>

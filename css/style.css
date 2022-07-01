@@ -684,7 +684,7 @@ li {
 }
 /* フォーム全体範囲 */
 .contact-wrap {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0  auto;
 }
 .contact-wrap form {
@@ -777,7 +777,7 @@ th span.any {
   box-sizing: border-box;
 }
 .contact-wrap form .contact-table tr textarea {
-  height: 10em;
+  height: 15em;
 }
 /* エラーメッセージ */
 .error_msg {
