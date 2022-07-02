@@ -52,10 +52,6 @@ mb_send_mail($to, $subject, $message, $headers);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Favicon icon -->
   <link rel="shortcut icon" href="img/programmer.png">
-  <!-- Font awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-  <!-- Google fonts Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

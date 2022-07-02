@@ -118,7 +118,7 @@
     }
     /* ----------------------------------------------- メイン背景画像 */
     #home {
-      background-image: url(../img/main-img_sp2.png);
+      background-image: url(../img/main-img_sp.png);
     }
     /* ----------------------------------------------- メインテキスト */
     .home-content {
@@ -224,14 +224,14 @@
     .modal {
       padding: 0 0 20px 0;
     }
-    @media screen and (max-width: 376px) {
-      .section-title .en {
-        font-size: 1.5em;
+      @media screen and (max-width: 376px) {
+        .section-title .en {
+          font-size: 1.5em;
+        }
+        .section-title .jp {
+          font-size: 0.5em;
+        }
       }
-      .section-title .jp {
-        font-size: 0.5em;
-      }
-    }
     /*  料金一覧 */
     .price-table table tr {
       border-bottom: none;
@@ -241,11 +241,11 @@
       width: 100%;
       padding: 8px 0;
     }
-    @media screen and (max-width: 520px) {
-      .price-table table th {
-        font-size: 1em;
+      @media screen and (max-width: 520px) {
+        .price-table table th {
+          font-size: 1em;
+        }
       }
-    }
     .price-table table th:after {
       content: "";
       position: absolute;
@@ -291,29 +291,29 @@
       width: 80%;
       margin: 0 auto;
     }
-    @media screen and (max-width: 515px) {
-      th span.required, th span.any {
-        font-size: 0.75rem;
+      @media screen and (max-width: 515px) {
+        th span.required, th span.any {
+          font-size: 0.75rem;
+        }
       }
-    }
 
-    @media screen and (min-width: 325px) {
-      .contact-info {
-        font-size: 0.85rem;
+      @media screen and (min-width: 325px) {
+        .contact-info {
+          font-size: 0.85rem;
+        }
+        .contact-wrap form .contact-table tr th {
+          width: 65%;
+        }
+        .contact-wrap form .contact-table tr td {
+          width: 90%;
+        }
       }
-      .contact-wrap form .contact-table tr th {
-        width: 65%;
+      th span {
+        padding: 4px 5px;
       }
-      .contact-wrap form .contact-table tr td {
-        width: 90%;
+      .contact-wrap form .contact-table tr:first-child td:before, .contact-wrap form .contact-table tr td:after {
+        border: none;
       }
-    }
-    th span {
-      padding: 4px 5px;
-    }
-    .contact-wrap form .contact-table tr:first-child td:before, .contact-wrap form .contact-table tr td:after {
-      border: none;
-    }
 
 
   /*========================
