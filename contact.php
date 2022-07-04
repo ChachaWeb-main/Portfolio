@@ -1,9 +1,11 @@
 <?php
+#セッション変数使えるように
 session_start();
 
-// エラーメッセージ判定
 $error = [];
+#POSTで呼び出された時だけ、以下のエラー判定を動作するように
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // POSTの値をフィルタ(危険な文字をなくす)で安全性を高める
   $post = filter_input_array(INPUT_POST, $_POST);
   // フォーム送信時にエラーチェック
   if (empty($post['name'])) {
@@ -46,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $error['message'] = 'invaild';
   }
 
-  // 上記で$errorの配列数カウントが０であれば
+  // 上記で$errorの配列数カウントが０であれば ＝ 上記で設定したエラーに一つも当てはまらない
   if (count($error) === 0) {
     // エラーがないので確認画面に移動
     $_SESSION['form'] = $post;

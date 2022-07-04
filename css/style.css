@@ -3,12 +3,12 @@
 /* ----------------------------------------------- ページアクセス時フェードインアニメーション */
 /* Loading背景画面設定 */
 #splash {
-  /*fixedで全面に固定*/
+  /*fixedで表示画面全面に固定*/
   position: fixed;
   z-index: 999;
   width: 100%;
   height: 100%;
-  background: #333;
+  background: rgb(77, 77, 77);
   text-align: center;
   color: #fff;
 }
@@ -22,7 +22,7 @@
   transform: translate(-50%, -50%);
   color: #fff;
 }
-/*IE11対策用バーの線の高さ※対応しなければ削除してください*/
+/*IE11対策用バーの線の高さ*/
 #splash_text svg {
   height: 2px;
 }
@@ -182,32 +182,117 @@ li {
   }
   /* ----------------------------------------------- メイン背景画像 */
   .big-bg {
-    background-size: cover;  /* 画像の縦横比率を保ったまま画面いっぱいに広げる */
-    background-position: center top;
-    background-repeat: no-repeat;
-    position: relative;
+    min-height: 100vh; /* 100vhとすることで画面の表示領域の高さいっぱいに画像を広げる */
   }
-  #home {
-    background-image: url(../img/main-img_1920.jpeg);
-    min-height: 100vh;  /* 100vhとすることで画面の表示領域の高さいっぱいに画像を広げる */
+  #mainvisual .fade li img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    animation: fade 23s infinite;
   }
-  
+  #mainvisual .fade img.main-1-sp, #mainvisual .fade img.main-3-sp {
+    display: none;
+  }
+  #mainvisual .fade img.main-1, #mainvisual .fade img.main-1-sp {
+    animation-delay: 0s;
+  }
+  #mainvisual .fade img.main-2 {
+    animation-delay: 8s;
+  }
+  #mainvisual .fade img.main-3, #mainvisual .fade img.main-3-sp {
+    animation-delay: 15s;
+  }
+  #mainvisual .fade li img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+  #mainvisual .fade li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: inset 0px 0px 7px 7px #fff;
+  }
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    30% {
+      opacity: 1;
+    }
+    45% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 
   /* ----------------------------------------------- メインテキスト */
   .home-content {
     position: absolute;
     top: 25%;
-    left: 15%;
+    left: 10%;
     color: #fff;
-    text-shadow: 4px 5px 1px rgb(61 70 70);
+    text-shadow: 3px 3px 1px rgb(61 70 70);
+    z-index: 20;
   }
   .home-content .home-content-text {
-    font-size: 3rem;
+    font-size: 2.5rem;
     letter-spacing: 0.1em;
+  }
+  .home-content .home-content-text > p {
+    background: linear-gradient(transparent 50%, #a7d6ff 60%); /* 数値を小さくするほど太く */
+    padding: 0 20px;
+    margin-bottom: 50px;
+  }
+  .home-content .home-content-text .brackets {
+    font-size: 1.75rem;
+    position: relative;
+    line-height: 1.4;
+    padding: 10px;
+    margin-left: 50px;
+    display: inline-block;
+    top:0;
+  }
+  .home-content .home-content-text .brackets:before, .home-content .home-content-text .brackets:after {
+    position: absolute;
+    top: 0;
+    content:'';
+    width: 20px;
+    height: 100%;
+    display: inline-block;
+  }
+  .home-content .home-content-text .brackets:before {
+    border-top: dotted 4px #ccf1ff;
+    border-left: dotted 4px #ccf1ff;
+    border-bottom: dotted 4px #ccf1ff;
+    left: 0;
+  }
+  .home-content .home-content-text .brackets:after {
+    content: '';
+    border-top: dotted 4px #ccf1ff;
+    border-right: dotted 4px #ccf1ff;
+    border-bottom: dotted 4px #ccf1ff;
+    right: 0;
+  }
+  .home-content .home-content-text .brackets p:nth-child(1) {
+    padding: 5px 35px;
+  }
+  .home-content .home-content-text .brackets p:nth-child(2) {
+    padding: 5px 65px;
   }
   .home-content-lang {
     font-size: 1.75rem;
     margin-left: 20px;
+
   }
   .home-content-lang a {
     color: #87CEEB;
@@ -216,30 +301,37 @@ li {
     opacity: 0.7;
   }
   /* ----------------------------------------------- スクロールダウン促すアニメーション PC版 */
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 820px) {
     /*スクロールダウン全体の場所*/
-    .scrolldown3{
+    .scrolldown3 {
       position: absolute;
       bottom: 30px;
       right: 52.5%;
       animation: mousemove 1.3s ease-in-out infinite;
     }
-      /*下からの距離が変化して上から下に動く*/
-    @keyframes mousemove{
-      0%{bottom:25px;}
-      50%{bottom:10px;}
-      100%{bottom:25px;}
+    /*下からの距離が変化して上から下に動く*/
+    @keyframes mousemove {
+      0% {
+        bottom: 25px;
+      }
+      50% {
+        bottom: 10px;
+      }
+      100% {
+        bottom: 25px;
+      }
     }
     /*Scrollテキストの描写*/
-    .scrolldown3 span{
+    .scrolldown3 span {
       position: absolute;
       bottom: -10px;
       color: #eee;
       font-size: 1.75rem;
       letter-spacing: 0.1em;
+      z-index: 21;
     }
     /*線描写 */
-    .scrolldown3 span::after{
+    .scrolldown3 span::after {
       content: "";
       position: absolute;
       top: 0px;
@@ -248,20 +340,21 @@ li {
       height: 10px;
       background: #eee;
       animation: mousepathmove 1.3s linear infinite;
-      opacity:0;
+      opacity: 0;
+      z-index: 21;
     }
     /*上からの距離・不透明度・高さが変化して上から下に流れる*/
-    @keyframes mousepathmove{
-      0%{
+    @keyframes mousepathmove {
+      0% {
         height: 0;
         top: 35px;
         opacity: 1;
       }
-      50%{
+      50% {
         height: 35px;
         opacity: 1;
       }
-      100%{
+      100% {
         height: 35px;
         top: 55px;
         opacity: 0;
@@ -285,7 +378,7 @@ li {
   padding-top: 20px;
 }
 
-/* ======================================================================================================================================== 背景斜め */
+/* ================================================================================================================================= 背景斜め */
 .container-aboutToSkills {
   background: linear-gradient(-6deg, #fff, #fff 800px, #ccf1ff 800px);
 }
@@ -330,13 +423,14 @@ li {
     height: 350px;
     width: 350px;
   }
-  .about-cont {
+  .about-content {
     width: 48%;
     padding: 2%;
+    background-color: #fff;
   }
   
 /* ----------------------------------------------- skillsセクション */
-  .icons-wrap {
+  .icons-flex {
     border: solid 5px red;
     display: flex;
     flex-wrap: wrap;
@@ -360,7 +454,7 @@ li {
     font-size: 1.3rem;
     font-weight: bold;
     font-family: "Lobster", cursive;
-    background-color: #ccf1ff;
+    background-color: rgb(226, 226, 226);
     padding: 10px 0;
     border-radius: 25px;
     text-align: center;
@@ -373,7 +467,7 @@ li {
     left: 50%;
     margin-left: -12px;
     border: 12px solid transparent;
-    border-bottom: 15px solid #ccf1ff;
+    border-bottom: 15px solid rgb(226, 226, 226);
   }
   /* jQuery - hover時に表示される */
   .text-active {
@@ -1072,4 +1166,3 @@ button:active {
     color: #333;
     font-size: .8rem;
   }
-

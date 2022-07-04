@@ -1,4 +1,5 @@
 <?php
+#contact.phpのセッション変数を受け取る
 session_start();
 
 // 直リンクアクセスであれば、戻す!

@@ -25,9 +25,9 @@
 
 <body>
   <!-- fadeIN LoadingAnimation -->
-  <div id="splash" class="loading">
+  <!-- <div id="splash" class="loading">
     <div id="splash_text"></div>
-  </div>
+  </div> -->
   <div id="home" class="big-bg">
     <!-- header -->
     <header id="header" class="header-wrap">
@@ -49,31 +49,44 @@
             <li><a href="contact.php">お問い合わせ</a></li>
             <li><a class="twitter-icon" href="#"><img src="./img/icons/twitter.png" width="27px" alt="Twitterアイコン"></a>
             </li>
-            <li><a class="github-icon" href="https://github.com/ChachaWeb-main"><img src="./img/icons/github.png" width="27px" alt="GitHubアイコン"></a>
+            <li><a class="github-icon" href="https://github.com/ChachaWeb-main"><img src="./img/icons/github.png"
+                  width="27px" alt="GitHubアイコン"></a>
             </li>
           </ul>
         </nav>
       </div>
     </header>
-
-    <div class="scrolldown3">
-      <span>Scroll<img src="./img/pc-mouse.svg" height="100px" alt="スクロール促進するマウス形状のアイコン"></span>
-    </div>
-    <div class="home-content">
-      <div class="home-content-text">
-        <p>WEBを通じて</p>
-        <p>新たな価値を</p>
-        <p>お手伝い致します</p>
-        <p>This site is my Portfolio!!</p>
+    <!-- スライダー 日本語 -->
+    <div id="mainvisual">
+      <div class="scrolldown3">
+        <span>Scroll<img src="./img/pc-mouse.svg" height="100px" alt="スクロール促進するマウス形状のアイコン"></span>
       </div>
-      <br>
-      <br>
-      <br>
-      <div class="home-content-lang">
-        <span><i class="fas fa-globe"></i> 日本語 | <a href="./index-en.html">English</a></span>
+      <div class="home-content">
+        <div class="home-content-text">
+          <p>私のポートフォリオサイトです</p>
+          <div class="brackets">
+            <p>お気軽にご相談下さい</p>
+            <p>お手伝い致します</p>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="home-content-lang">
+          <span><i class="fas fa-globe"></i> 日本語 | <a href="./index-en.html">English</a></span>
+        </div>
+      </div>
+      <!-- メイン画像 オートスライド -->
+      <div class="fade"> 
+        <li><img class="main-1" src="./img/main-img_1920.jpeg" alt="メイン画像01"></li>
+        <li><img class="main-1-sp" src="./img/main-img_sp.png" alt="メイン画像01-SP"></li>
+        <li><img class="main-2" src="./img/main-img-2_1920.jpeg" alt="メイン画像02"></li>
+        <li><img class="main-3" src="./img/main-img-3_1920.jpeg" alt="メイン画像03"></li>
+        <li><img class="main-3-sp" src="./img/main-img-3_sp.png" alt="メイン画像03-SP"></li>
       </div>
     </div>
   </div>
+
   <main id="main-wrap">
     <!-- ABOUT section -->
     <div class="container-aboutToSkills">
@@ -88,7 +101,7 @@
             <div class="about-img">
               <img src="img/profile.png" alt="プロフィール画像">
             </div>
-            <div class="about-cont">
+            <div class="about-content">
               <p class="about-txt">名前 ｜ 佐々木大輔（ニックネーム：ちゃちゃ）</p>
               <p class="about-txt">拠点 ｜ 東京</p>
               <p class="about-txt">事業内容 ｜ WEB制作</p>
@@ -124,9 +137,9 @@
             <h2 class="en">Skills</h2>
             <p class="jp">スキル</p>
           </div>
-          <div class="icons-wrap under-fadein">
+          <div class="icons-flex under-fadein">
             <div class="skill-icon icon-hover">
-              <img class="html-icon" src="img/icons/html-5.svg" height="100" alt="">
+              <img src="img/icons/html-5.svg" height="100" alt="">
               <div class="skill-name">
                 <p>HTML</p>
                 <!-- <p>Webサイトを記述するマークアップ言語</p> -->

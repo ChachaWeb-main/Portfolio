@@ -11,26 +11,23 @@
     li {
       list-style: none;
     }
-    .wrapper {
-      /* padding: 0 16px; */
-    }
     .fadeIn p {
       width: 100%;
       -webkit-transform: translate(-30%, -30%);
             transform: translate(-30%, -30%);
     }
+    .section-title::after {
+      width: 40px;
+      height: 1.75px;
+      bottom: -10px;
+    }
     .section-title .en {
       font-size: 2rem;
     }
     .section-title .jp {
-      font-size: 0.95rem;
+      font-size: 0.75rem;
     }
-    .section-title::after {
-      width:50px;
-      height: 2px;
-      bottom: 6px;
-      right: 8px;
-    }
+
 
   /*=====================
     ヘッダー header
@@ -117,15 +114,38 @@
       left: 0;  /* メニューを画面に入れる */
     }
     /* ----------------------------------------------- メイン背景画像 */
-    #home {
-      background-image: url(../img/main-img_sp.png);
+    #mainvisual .fade img.main-1, #mainvisual .fade img.main-3 {
+      display: none;
+    }
+    #mainvisual .fade img.main-1-sp, #mainvisual .fade img.main-3-sp {
+      display: block;
     }
     /* ----------------------------------------------- メインテキスト */
     .home-content {
-      top: 40%;
+      top: 25%;
+      left: 10%;
     }
-    .home-content p {
-      font-size: 2rem;
+    .home-content .home-content-text {
+      font-size: 1.75rem;
+    }
+    .home-content .home-content-text .brackets {
+      font-size: 1.15rem;
+    }
+    .home-content-lang {
+      font-size: 1.25rem;
+    }
+    @media screen and (max-width: 540px) {
+      .home-content .home-content-text {
+        font-size: 1.25rem;
+      }
+      .home-content .home-content-text .brackets {
+        font-size: 0.85rem;
+        padding: 5px;
+        margin-left: 15px;
+      }
+      .home-content-lang {
+        font-size: 1.25rem;
+      }
     }
     /* ----------------------------------------------- スクロールダウン促すアニメーション SP版 */
     .scrolldown3{
@@ -144,9 +164,10 @@
       position: absolute;
       left:-20px;
       bottom:10px;
-      color: #eee;
+      color: #ccf1ff;
       font-size: 1.25rem;
       letter-spacing: 0.1em;
+      z-index: 21;
       /*縦書き設定*/
       -ms-writing-mode: tb-rl;
       -webkit-writing-mode: vertical-rl;
@@ -156,21 +177,23 @@
     .scrolldown3:before {
       content: "";
       position: absolute;
-      bottom: 15px;
-      right: -16px;
+      bottom: 10px;
+      right: -22px;
       width: 2px;
       height: 20px;
-      background: #eee;
+      background: #ccf1ff;
       transform: skewX(-31deg);
+      z-index: 21;
     }
     .scrolldown3:after{
       content:"";
       position: absolute;
-      bottom: 15px;
-      right: -10px;
+      bottom: 10px;
+      right: -16px;
       width: 2px;
-      height: 55px;
-      background:#eee;
+      height: 60px;
+      background: #ccf1ff;
+      z-index: 21;
     }
     .scrolldown3 img {
       display: none;
@@ -224,14 +247,14 @@
     .modal {
       padding: 0 0 20px 0;
     }
-      @media screen and (max-width: 376px) {
-        .section-title .en {
-          font-size: 1.5em;
-        }
-        .section-title .jp {
-          font-size: 0.5em;
-        }
+    @media screen and (max-width: 376px) {
+      .section-title .en {
+        font-size: 1.5em;
       }
+      .section-title .jp {
+        font-size: 0.5em;
+      }
+    }
     /*  料金一覧 */
     .price-table table tr {
       border-bottom: none;
@@ -241,11 +264,11 @@
       width: 100%;
       padding: 8px 0;
     }
-      @media screen and (max-width: 520px) {
-        .price-table table th {
-          font-size: 1em;
-        }
+    @media screen and (max-width: 520px) {
+      .price-table table th {
+        font-size: 1em;
       }
+    }
     .price-table table th:after {
       content: "";
       position: absolute;
@@ -291,29 +314,29 @@
       width: 80%;
       margin: 0 auto;
     }
-      @media screen and (max-width: 515px) {
-        th span.required, th span.any {
-          font-size: 0.75rem;
-        }
+    @media screen and (max-width: 515px) {
+      th span.required, th span.any {
+        font-size: 0.75rem;
       }
+    }
 
-      @media screen and (min-width: 325px) {
-        .contact-info {
-          font-size: 0.85rem;
-        }
-        .contact-wrap form .contact-table tr th {
-          width: 65%;
-        }
-        .contact-wrap form .contact-table tr td {
-          width: 90%;
-        }
+    @media screen and (min-width: 325px) {
+      .contact-info {
+        font-size: 0.85rem;
       }
-      th span {
-        padding: 4px 5px;
+      .contact-wrap form .contact-table tr th {
+        width: 65%;
       }
-      .contact-wrap form .contact-table tr:first-child td:before, .contact-wrap form .contact-table tr td:after {
-        border: none;
+      .contact-wrap form .contact-table tr td {
+        width: 90%;
       }
+    }
+    th span {
+      padding: 4px 5px;
+    }
+    .contact-wrap form .contact-table tr:first-child td:before, .contact-wrap form .contact-table tr td:after {
+      border: none;
+    }
 
 
   /*========================
