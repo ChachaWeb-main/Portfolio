@@ -57,7 +57,7 @@ li {
   list-style: none;
 }
 .section-title {
-  margin: 50px 0 60px 0;
+  margin: 10% 0 50px 0;
   text-align: center;
   position: relative;
 }
@@ -114,13 +114,13 @@ li {
   background: #fefefe;
 }
 /* ----------------------------------------------- jQuery - 下からふわっとfadeIn */
-.under-fadein {
+.fadein-under {
   opacity: 0;
   visibility: hidden;
   transform: translateY(100px);
   transition: opacity 2s, visibility 2s, transform 1s;
 }
-.add-fadein {  /* フェードイン時に入るクラス */
+.fadein-add {  /* フェードイン時に入るクラス */
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
@@ -136,7 +136,7 @@ li {
   align-items: center;
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 3%;
+  padding: 0 2%;
   background-color: rgb(250, 250, 250);
   box-shadow: 0 1px 8px 3px rgb(0, 0, 0, 10%);
   z-index: 99;
@@ -157,25 +157,28 @@ li {
   .nav-list {
     display: flex;
     font-family: 'Lora', serif;
-    font-size: 0.9rem;
     text-align: center;
-    margin: 15px;
+    margin: 15px 0;
   }
   .nav-list-en {
     font-size: 1.2rem;
   }
   .nav-list li {
-    margin-left: 25px;
+    margin-left: 15px;
+    vertical-align: middle; /* 要素を上下中央で揃える */
   }
   .nav-list a {
     color: #432;
+    padding: 5px;
+    box-sizing: border-box; /* 崩れ防止 */
   }
   .nav-list a:link {
     color: #432;
   }
   .nav-list a:hover {
     opacity: 0.7;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    background-color: #ccf1ff;
   }
   .nav-list a:active {
     color: #432;
@@ -372,10 +375,10 @@ li {
   z-index: 0;
 }
 /* 各セクションの横幅を固定 ※contactのみ別設定*/
-#about, #skills, #service, #works {
+#about, #skills, #service, #works, #contact {
   max-width: 1300px;
   margin: 0 auto;
-  padding-top: 20px;
+  /* padding-top: 50px; */
 }
 
 /* ================================================================================================================================= 背景斜め */
@@ -407,7 +410,7 @@ li {
 
 /* ----------------------------------------------- aboutセクション */
   .about-wrap {
-    border: solid 5px red;
+    /* border: solid 5px red; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -415,18 +418,48 @@ li {
   }
   .about-img {
     margin-left: auto;  /* プロフ写真のみ右寄せ */
-    margin-right: 10%;
-    
+    margin-right: 12%;
   }
   .about-img img {
-    border-radius: 50%;
-    height: 350px;
-    width: 350px;
+    height: 400px;
+    width: 400px;
+    border-radius: 8px;
+    box-shadow: 20px 20px 0px 0 rgb(139, 215, 239);
   }
   .about-content {
     width: 48%;
     padding: 2%;
-    background-color: #fff;
+    /* background: #e4fcff;
+    border-top: solid 6px #1dc1d6;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32); */
+    color: #432;
+    background: white;
+    border-top: solid 8px #432;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.22);
+  }
+  .about-content .me {
+    border-left: double 8px rgb(139, 215, 239);
+    padding-left: 15px;
+  }
+  .about-content .career > p:nth-child(1) {
+    display: inline-block;
+    background-color: rgb(139, 215, 239);
+    color: #fff;
+    padding: 0 10px 3px 10px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    font-size: 1.25rem;
+    position: relative;
+  }
+  .about-content .career > p:nth-child(1):after {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 10px;
+    border: 8px solid transparent;
+    border-top: 10px solid rgb(139, 215, 239);
+    width: 0;
+    height: 0;
   }
   
 /* ----------------------------------------------- skillsセクション */
@@ -485,11 +518,14 @@ li {
     margin: 0 auto;
   }
   .service-item {
-    background-color: #fff;
     width: 100%;
     margin: 30px;
     padding: 20px;
+    background-color: #fff;
+    border-top: solid 10px #00bfff;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
   }
+
   .service-img {
     text-align: center;
     margin-bottom: 20px;
@@ -722,11 +758,14 @@ li {
 
 /* ----------------------------------------------- contact セクション */
   #contact {
-    max-width: 1300px;
     margin: 0 auto;
-    padding-top: 50px;
+    padding-top: 80px;
     text-align: center;
     border: solid 5px red;
+  }
+  .contact-wrap > p {
+    font-size: 1.25rem;
+    letter-spacing: 0.15rem;
   }
   /* 問い合わせリンクボタンのカスタマイズ */
   span.contact-btn {
@@ -1166,3 +1205,4 @@ button:active {
     color: #333;
     font-size: .8rem;
   }
+

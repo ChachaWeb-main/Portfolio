@@ -22,10 +22,17 @@
       bottom: -10px;
     }
     .section-title .en {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
     .section-title .jp {
-      font-size: 0.75rem;
+      font-size: 1.1rem;
+    }
+    .section-title::after {  /* 疑似要素でタイトル下に下線を引く */
+      content: "";
+      width: 50px;
+      height: 3px;
+      bottom: 10px;
+      left: 20px;
     }
 
 
@@ -211,11 +218,20 @@
       margin: 0 auto;
     }
     .about-img img {
-      width: 280px;
-      height: 250px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      box-shadow: none;
+      margin: 30px 0 60px 0;
     }
-    .about-cont {
-      width: 80%;
+    @media screen and (max-width: 540px) {
+      .about-img img {
+        width: 230px;
+        height: 230px;
+      }
+    }
+    .about-content {
+      width: 70%;
       padding-top: 30px;
     }
 
@@ -264,7 +280,7 @@
       width: 100%;
       padding: 8px 0;
     }
-    @media screen and (max-width: 520px) {
+    @media screen and (max-width: 515px) {
       .price-table table th {
         font-size: 1em;
       }
