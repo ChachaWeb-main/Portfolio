@@ -255,6 +255,7 @@
     /* ----------------------------------------------- serviceセクション */
     .service-list {
       flex-direction: column;
+      width: 80%;
       /* margin: 0 auto; */
     }
     .service-item {
@@ -272,6 +273,15 @@
       }
     }
     /*  料金一覧 */
+    .section-title.price-section {
+      margin-top: 8%;
+    }
+    .section-title.price-section .en {
+      font-size: 2rem;
+    }
+    .section-title.price-section .jp {
+      font-size: 0.8rem;
+    }
     .price-table table tr {
       border-bottom: none;
     }
@@ -280,9 +290,9 @@
       width: 100%;
       padding: 8px 0;
     }
-    @media screen and (max-width: 515px) {
+    @media screen and (max-width: 620px) {
       .price-table table th {
-        font-size: 1em;
+        font-size: 1.05em;
       }
     }
     .price-table table th:after {

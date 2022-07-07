@@ -1,32 +1,96 @@
 @charset "UTF-8";
 
 /* ----------------------------------------------- ページアクセス時フェードインアニメーション */
-/* Loading背景画面設定 */
-#splash {
-  /*fixedで表示画面全面に固定*/
+.fadeIn {
+  background: #3e3e3e;
   position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
   z-index: 999;
+}
+#loading-wrapper {
+  position: fixed;
   width: 100%;
   height: 100%;
-  background: rgb(77, 77, 77);
-  text-align: center;
-  color: #fff;
+  left: 0;
+  top: 0;
 }
-/* Loadingバー中央配置 */
-#splash_text {
+#loading-text {
+  display: block;
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 999;
-  width: 100%;
-  transform: translate(-50%, -50%);
-  color: #fff;
+  color: #eee;
+  width: 100px;
+  height: 30px;
+  margin: -10px 0 0 -55px;
+  text-align: center;
+  font-family:  'Lora', cursive , sans-serif;
+  font-size: 30px;
 }
-/*IE11対策用バーの線の高さ*/
-#splash_text svg {
-  height: 2px;
+#loading-content {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 250px;
+  height: 250px;
+  margin: -115px 0 0 -125px;
+  border: 3px solid transparent;
+  border-top-color: #00bfff;
+  border-bottom-color: #00bfff;
+  border-radius: 50%;
+  animation: loader 2s linear infinite;
+  -webkit-animation: loader 2s linear infinite;
+  -moz-animation: loader 2s linear infinite;
+  -ms-animation: loader 2s linear infinite;
 }
-
+#loading-content:after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  top: 15px;
+  bottom: 15px;
+  border: 3px solid transparent;
+  border-top-color: #f04747;
+  border-bottom-color: #f04747;
+  border-radius: 50%;
+  animation: loader 1.5s linear infinite;
+  -webkit-animation: loader 1.5s linear infinite;
+  -moz-animation: loader 2s linear infinite;
+  -ms-animation: loader 2s linear infinite;
+}
+#loading-content:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+  border: 3px solid transparent;
+  border-top-color: #ffed23;
+  border-bottom-color: #ffed23;
+  border-radius: 50%;
+  animation: loader 3s linear infinite;
+  -webkit-animation: loader 3s linear infinite;
+  -moz-animation: loader 2s linear infinite;
+  -ms-animation: loader 2s linear infinite;
+}
+@keyframes loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 
 /*================
   common
@@ -39,7 +103,6 @@
 }
 html {
   font-size: 100%;
-  /* scroll-behavior: smooth;  スムーススクロール */
 }
 body {
   font-family: 'Noto Sans JP', sans-serif;
@@ -56,12 +119,17 @@ a {
 li {
   list-style: none;
 }
+.site-title-logo:hover {
+  opacity: 0.7;
+}
 .section-title {
-  margin: 10% 0 50px 0;
   text-align: center;
   position: relative;
 }
-.section-title::after {  /* 疑似要素でタイトル下に下線を引く */
+.section-title:not(.price-section) {
+  margin: 10% 0 50px 0;
+}
+.section-title::after:not(.price-section) {  /* 疑似要素でタイトル下に下線を引く */
   content: "";
   background-color: #333;
   width: 50px;
@@ -167,21 +235,25 @@ li {
     margin-left: 15px;
     vertical-align: middle; /* 要素を上下中央で揃える */
   }
-  .nav-list a {
+  .nav-list li a {
     color: #432;
-    padding: 5px;
+    padding: 3px 5px;
     box-sizing: border-box; /* 崩れ防止 */
+    transition: 0.2s;
   }
-  .nav-list a:link {
+  .nav-list li a:link {
     color: #432;
   }
-  .nav-list a:hover {
+  .nav-list li a:active {
+    color: #432;
+  }
+  .nav-list li a:hover {
     opacity: 0.7;
-    /* text-decoration: underline; */
-    background-color: #ccf1ff;
   }
-  .nav-list a:active {
-    color: #432;
+  .nav-list li a:hover:not(.twitter-icon):not(.github-icon) {
+    background-color: #76d0f0;
+    color: #fff;
+    border-radius: 5px;
   }
   /* ----------------------------------------------- メイン背景画像 */
   .big-bg {
@@ -252,8 +324,13 @@ li {
     letter-spacing: 0.1em;
   }
   .home-content .home-content-text > p {
-    background: linear-gradient(transparent 50%, #a7d6ff 60%); /* 数値を小さくするほど太く */
-    padding: 0 20px;
+    background: linear-gradient(transparent 40%, #a7d6ff 50%); /* 数値を小さくするほど太く */
+    padding: 0 20px 5px 20px;
+  }
+  .home-content .home-content-text > p:nth-child(1) {
+    display: inline-block;
+  }
+  .home-content .home-content-text > p:nth-child(2) {
     margin-bottom: 50px;
   }
   .home-content .home-content-text .brackets {
@@ -261,7 +338,7 @@ li {
     position: relative;
     line-height: 1.4;
     padding: 10px;
-    margin-left: 50px;
+    margin-left: 20px;
     display: inline-block;
     top:0;
   }
@@ -438,6 +515,7 @@ li {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.22);
   }
   .about-content .me {
+    font-size: 1.25rem;
     border-left: double 8px rgb(139, 215, 239);
     padding-left: 15px;
   }
@@ -514,7 +592,7 @@ li {
   }
   .service-list {
     display: flex;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
   }
   .service-item {
@@ -641,21 +719,33 @@ li {
   .modal {
     position: absolute;
     top: 5%;
-    bottom: 5%;
+    bottom: 3%;
     left: 10%;
     right: 10%;
     margin: 0 auto;
     background-color: #f1f3f5;
-    /* margin: 2%; */
     padding: 20px 0 40px 0;
     border-radius: 10px;
-    /* width: 720px; */
     height: auto;
   }
   /* 料金一覧 */
+  .fa-times { /* モーダル閉じるボタン位置 */
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    /* color: rgba(128, 128, 128, 0.8); */
+    cursor: pointer;
+  }
+  .size {
+    font-size: 2em;;
+    color: #87CEEB;
+  }
+  .price-section {
+    margin-top: 4%;
+  }
   .price-table {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 10px auto 0 auto;
   }
   .price-table table {
     width: 100%;
@@ -699,18 +789,6 @@ li {
   }
   p.price-cont {
     text-align: center;
-  }
-  /* モーダル閉じるボタン位置 */
-  .fa-times {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    /* color: rgba(128, 128, 128, 0.8); */
-    cursor: pointer;
-  }
-  .size {
-    font-size: 3em;;
-    color: #87CEEB;
   }
   
   
@@ -764,8 +842,8 @@ li {
     border: solid 5px red;
   }
   .contact-wrap > p {
-    font-size: 1.25rem;
-    letter-spacing: 0.15rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
   }
   /* 問い合わせリンクボタンのカスタマイズ */
   span.contact-btn {
@@ -1127,7 +1205,7 @@ button:active {
 }
 #footer span {
   font-family: "Lobster", cursive;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
   /* ----------------------------------------------- スクロール＆ページトップ */
   #page-top {

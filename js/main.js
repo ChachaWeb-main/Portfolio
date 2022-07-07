@@ -22,19 +22,6 @@ $(function () {
 });
 
 
-// ================ スキルアイコン ホバー時に表示されるアクション ===============
-$(function() {
-  $('.icon-hover').hover(
-    function () {  // 子要素の「.text-contents」の要素を取得し、text-activeクラスをつける
-      $(this).find('skill-name').addClass('text-active');
-    },
-    function () {  // 子要素の「.text-contents」の要素を取得し、text-activeクラスを外す
-      $(this).find('skill-name').removeClass('text-active');
-    }
-  )
-});
-
-
 // =============== price 料金一覧 モーダル表示 ==============
 $(function () {
   $('.show-modal').click(function () {
@@ -84,11 +71,11 @@ $('#page-top').click(function () {
   }
 	return false;  // リンク自体の無効化
 });
-// 画面をスクロールをしたら動かしたい場合の記述
+// 画面をスクロールをしたら
 $(window).scroll(function () {
 	PageTopAnime();  /* スクロールした際の動きの関数を呼ぶ*/
 });
-// ページが読み込まれたらすぐに動かしたい場合の記述
+// ページが読み込まれたらすぐに
 $(window).on('load', function () {
   PageTopAnime();  /* スクロールした際の動きの関数を呼ぶ*/
 });
