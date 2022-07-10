@@ -11,7 +11,6 @@ if (!isset($_SESSION['form'])) {
 //メールの日本語設定
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
-
 //送信先アドレス = 相手方
 $to = $post['email'];
 //メール件名

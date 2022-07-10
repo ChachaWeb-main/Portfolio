@@ -25,12 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $error['email'] = 'invaild';
   }
 
-  // if (preg_match("/^0[-0-9]{9,13}$/", $post['phone'])) {
-  //   // 正規表現に合致する場合
-  // } else {
-  //   // 正規表現に合致しない場合
-  //   $error['phone'] = 'invaild';
-  // }
+  #任意設定なので他とは違い、指定した正規表現に合致した場合にエラーが出るようにした
   if (preg_match("/\D+/", $post['phone'])) {
     // 正規表現に合致する場合＝数字,全半角空欄&ハイフンに合致しない場合
     $error['phone'] = 'invaild';
@@ -118,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <main id="contact-container">
     <br>
     <br>
-    <div class="section-title">
+    <div class="section-title contact-section">
       <h2 class="en">Contact</h2>
       <p class="jp">お問い合わせ</p>
     </div>
@@ -185,11 +180,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </tr>
         </table>
 
-        <div class="box_check">
-          <label>
-            <input type="checkbox" name="acceptance-714" value="1" aria-invalid="false" class="agree"><span class="check">プライバシーポリシーに同意する</span>
-          </label>
-        </div>
         <p class="confirm-btn">
           <span><input type="submit" name="confirm" value="確認画面へ | To Confirm" /></span>
         </p>

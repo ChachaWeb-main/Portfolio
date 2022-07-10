@@ -12,9 +12,8 @@ if (!isset($_SESSION['form'])) {
 //メールの日本語設定
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
-
+#自分へのメール通知設定
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // メールを送信する
   $to = 'chacha.forba.634@gmail.com';
   $from = $post['email'];
   $subject = 'CahcahWebCreateにお問い合わせが届きました';
@@ -26,10 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 {$post['message']}
 EOT;
   // 実際の送信はサーバーアップしないとできないため var_dumpで値をチェック
-  var_dump($body);
-  exit();
+  // var_dump($body);
+  // exit();
   // メール送信設定
-  // mb_send_mail($to, $subject, $body, "From: {$form}");
+  mb_send_mail($to, $subject, $body, "From: {$form}");
   // セッションを消してお礼画面へ
   unset($_SESSION['form']);
   header('Location: thanks.php');
