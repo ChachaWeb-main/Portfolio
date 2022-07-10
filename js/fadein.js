@@ -4,10 +4,10 @@
 $(function() {
 	setTimeout(function(){
 		$('.fadeIn').fadeIn(1000);
-	},200);
+	},400);
 	setTimeout(function(){
 		$('.fadeIn').fadeOut(1000);
-	},3000);
+	},2000);
 });
 
 // ============== 各セクション ふわっと下から ===============

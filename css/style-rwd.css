@@ -21,10 +21,10 @@
       height: 1.75px;
       bottom: -10px;
     }
-    .section-title .en {
+    .section-title:not(.price-section) .en {
       font-size: 2.5rem;
     }
-    .section-title .jp {
+    .section-title:not(.price-section) .jp {
       font-size: 1.1rem;
     }
     .section-title::after {  /* 疑似要素でタイトル下に下線を引く */
@@ -224,10 +224,22 @@
       box-shadow: none;
       margin: 30px 0 60px 0;
     }
-    @media screen and (max-width: 540px) {
+    @media screen and (max-width: 820px) {
       .about-img img {
-        width: 230px;
-        height: 230px;
+        width: 300px;
+        height: 300px;
+      }
+    }
+    @media screen and (max-width: 620px) {
+      .about-img img {
+        width: 220px;
+        height: 220px;
+      }
+    }
+    @media screen and (max-width: 420px) {
+      .about-img img {
+        width: 180px;
+        height: 180px;
       }
     }
     .about-content {
@@ -264,23 +276,26 @@
     .modal {
       padding: 0 0 20px 0;
     }
-    @media screen and (max-width: 376px) {
-      .section-title .en {
-        font-size: 1.5em;
-      }
-      .section-title .jp {
-        font-size: 0.5em;
-      }
+    /* モーダル閉じるボタン位置 */
+    .fa-times {
+      top: 10px;
+      right:  15px;
     }
-    /*  料金一覧 */
+    .size {
+      font-size: 2em;;
+    }
+    /* --------------- price 料金一覧 */
     .section-title.price-section {
       margin-top: 8%;
     }
     .section-title.price-section .en {
       font-size: 2rem;
     }
-    .section-title.price-section .jp {
-      font-size: 0.8rem;
+    @media screen and (max-width: 420px) {
+      .section-title.price-section .en {
+        font-size: 1.5em;
+        margin-top: 40px;
+      }
     }
     .price-table table tr {
       border-bottom: none;
@@ -289,6 +304,7 @@
       display: block;
       width: 100%;
       padding: 8px 0;
+      font-size: 1.25rem;
     }
     @media screen and (max-width: 620px) {
       .price-table table th {
@@ -307,17 +323,13 @@
     .price-table table td {
       display: block;
       width: 100%;
-      font-size: 0.95em;
+      font-size: 1.2rem;
       padding: 15px 0 8px 0;
     }
-    /* モーダル閉じるボタン位置 */
-    .fa-times {
-      top: 10px;
-      right:  15px;
+    p.price-cont {
+      font-size: 1rem;
     }
-    .size {
-      font-size: 2em;;
-    }
+    
 
     /* ----------------------------------------------- worksセクション */
     .works-item-list-1, .works-item-list-2, .works-item-list-3, .works-item-list-4, .works-item-list-5 {
@@ -346,7 +358,7 @@
       }
     }
 
-    @media screen and (min-width: 325px) {
+    @media screen and (min-width: 420px) {
       .contact-info {
         font-size: 0.85rem;
       }

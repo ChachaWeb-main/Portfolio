@@ -126,10 +126,10 @@ li {
   text-align: center;
   position: relative;
 }
-.section-title:not(.price-section) {
+.section-title:not(.price-section):not(.contact-section) {
   margin: 10% 0 50px 0;
 }
-.section-title::after:not(.price-section) {  /* 疑似要素でタイトル下に下線を引く */
+.section-title:not(.price-section)::after {  /* 疑似要素でタイトル下に下線を引く */
   content: "";
   background-color: #333;
   width: 50px;
@@ -159,6 +159,7 @@ li {
     0 10px rgb(220, 217, 217),
     0 10px 6px #000000;
 }
+
 .section-title .jp {
   font-size: 1.2rem;
   padding-left: 150px;
@@ -217,6 +218,7 @@ li {
 }
   .title-logo img {
     margin-top: 10px;
+    border: none; /* IE10以前ではリンク設定した画像の周りに罫線が表示されてしまうため */
   }
   /* ----------------------------------------------- navメニュー */
   .drawer_hidden {
@@ -290,7 +292,7 @@ li {
     bottom: 0;
     left: 0;
     right: 0;
-    box-shadow: inset 0px 0px 7px 7px #fff;
+    box-shadow: inset 0px 0px 7px 7px #fff; /* 内側に白ぼかし */
   }
   @keyframes fade {
     0% {
@@ -744,8 +746,8 @@ li {
     margin-top: 4%;
   }
   .price-table {
-    max-width: 1000px;
-    margin: 10px auto 0 auto;
+    max-width: 1080px;
+    margin: 20px auto 0 auto;
   }
   .price-table table {
     width: 100%;
@@ -789,6 +791,7 @@ li {
   }
   p.price-cont {
     text-align: center;
+    font-size: 1.2rem;
   }
   
   
@@ -799,7 +802,7 @@ li {
     margin-top: 50px;
   }
   /* --------------- 制作物一覧 */
-  .works-item-list-1, .works-item-list-2, .works-item-list-3, .works-item-list-4 {
+  .works-item-list-1, .works-item-list-2, .works-item-list-3 {
     outline: 3px solid yellow;
     /* ---------- セレクタ範囲 ---------- */
     display: flex;
@@ -885,6 +888,9 @@ li {
   }
   
 /* =================== contact.php =================== */
+.contact-section {
+  margin-top: 5%;
+}
 .contact-info, .contact-info-en {
   text-align: center;
   font-size: 1.2rem;
