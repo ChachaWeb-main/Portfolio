@@ -25,13 +25,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 {$post['message']}
 EOT;
   // 実際の送信はサーバーアップしないとできないため var_dumpで値をチェック
-  // var_dump($body);
-  // exit();
+  var_dump($to, $body, $subject, $from);
+  exit();
   // メール送信設定
-  mb_send_mail($to, $subject, $body, "From: {$form}");
-  // セッションを消してお礼画面へ
-  unset($_SESSION['form']);
-  header('Location: thanks.php');
+  mb_send_mail($to, $subject, $body, "From: {$from}");
+  // お礼画面 thanks.phpへ
+  // header('Location: http://chacha-web.com/thanks.php');
   exit();
 }
 ?>

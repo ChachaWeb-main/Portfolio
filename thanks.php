@@ -11,7 +11,7 @@ if (!isset($_SESSION['form'])) {
 //メールの日本語設定
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
-//送信先アドレス = 相手方
+//送信先アドレス = 相手(問い合わせ)方
 $to = $post['email'];
 //メール件名
 $subject = "お問い合わせありがとうございます。";
@@ -37,6 +37,7 @@ $message = <<< EOM
 EOM;
 //送信元 = 自身
 $headers = "From: chacha.forba.634@gmail.com";
+// var_dump($to, $subject, $message, $headers);
 //メール送信設定
 mb_send_mail($to, $subject, $message, $headers);
 
@@ -69,6 +70,7 @@ mb_send_mail($to, $subject, $message, $headers);
       </div>
       <div class="thanks-text">
         <p>ご入力いただいたメールアドレス宛に、確認メールをお送りいたしましのでご確認ください。</p>
+        <p>（注. 迷惑フォルダに届いてしまう可能性もございますことご承知くださいませ）</p>
         <p>可能な限り早く折り返しご連絡させていただきますので、</p>
         <p>少々お待ち頂けますと幸いです。</p>
         <p class="thanks-en">Please check the confirmation email to your email address.</p>
