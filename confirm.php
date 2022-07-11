@@ -2,21 +2,21 @@
 #contact.phpのセッション変数を受け取る
 session_start();
 
-// 直リンクアクセスであれば、戻す!
+# 直リンクアクセスであれば、戻す!
 if (!isset($_SESSION['form'])) {
   header('Location: contact.php');
 } else {
   $post = $_SESSION['form'];
 }
 
-//メールの日本語設定
+# メールの日本語設定
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
-#自分へのメール通知設定
+# 自分へのメール通知設定
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $to = 'chacha.forba.634@gmail.com';
   $from = $post['email'];
-  $subject = 'CahcahWebCreateにお問い合わせが届きました';
+  $subject = 'Cahcah Web Createに '. $post['name']. " 様より". ' お問い合わせが届きました';
   $body = <<<EOT
 名前： {$post['name']}
 メールアドレス： {$post['email']}
@@ -24,13 +24,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 内容：
 {$post['message']}
 EOT;
-  // 実際の送信はサーバーアップしないとできないため var_dumpで値をチェック
-  var_dump($to, $body, $subject, $from);
-  exit();
-  // メール送信設定
+  # 実際の送信はサーバーアップしないとできないため var_dumpで値をチェック
+  // var_dump($to, $body, $subject, $from);
+  // exit();
+  # メール送信設定
   mb_send_mail($to, $subject, $body, "From: {$from}");
-  // お礼画面 thanks.phpへ
-  // header('Location: http://chacha-web.com/thanks.php');
+  # セッション(入力データ)を消去
+  // unset($_SESSION['form']);
+  # お礼画面 thanks.phpへ (相対パスだとうまくページ移動せずなので、絶対パス指定へ)
+  header('Location: http://chacha-web.com/thanks.php');
   exit();
 }
 ?>

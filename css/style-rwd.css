@@ -376,6 +376,52 @@
       border: none;
     }
 
+    /* =================== confirm.php =================== */
+    a.return, button span.send {
+      font-size: 1rem;
+    }
+    @media screen and (max-width: 425px) {
+      .confirm-container .confirm-title, .confirm-container .confirm-title-en {
+        font-size: 1.25rem;
+      }
+      .confirm-container .confirm-text, .confirm-container .confirm-text-en {
+        font-size: 0.85rem;
+      }
+      .confirm-content .form-item {
+        font-size: 1rem;
+      }
+      .confirm-content span.output {
+        font-size: 0.9rem;
+      }
+      a.return, button {
+        padding: 8px 16px;
+      }
+      a.return, button span.send {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ================== thanks.php =================== */
+    .thanks-title {
+      font-size: 1.8rem;
+    }
+    .thanks-text p, .return-btn span  {
+      font-size: 1rem;
+    }
+    .thanks-container img {
+      width: 150px;
+    }
+    @media screen and (max-width: 425px) {
+      .thanks-title {
+        font-size: 1.2rem;
+      }
+      .thanks-text p, .return-btn span {
+        font-size: 0.8rem;
+      }
+      .thanks-container img {
+        width: 100px;
+      }
+    }
 
   /*========================
     フッター footer

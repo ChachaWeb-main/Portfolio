@@ -503,7 +503,7 @@ li {
     height: 400px;
     width: 400px;
     border-radius: 8px;
-    box-shadow: 20px 20px 0px 0 rgb(139, 215, 239);
+    box-shadow: 15px 15px 0px 0 rgb(139, 215, 239);
   }
   .about-content {
     width: 48%;
@@ -525,10 +525,10 @@ li {
     display: inline-block;
     background-color: rgb(139, 215, 239);
     color: #fff;
-    padding: 0 10px 3px 10px;
+    padding: 1px 10px 3px 10px;
     margin-bottom: 15px;
     border-radius: 3px;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     position: relative;
   }
   .about-content .career > p:nth-child(1):after {
@@ -599,7 +599,7 @@ li {
   }
   .service-item {
     width: 100%;
-    margin: 30px;
+    margin: 30px 15px;
     padding: 20px;
     background-color: #fff;
     border-top: solid 10px #00bfff;
@@ -615,7 +615,7 @@ li {
     color: #432;
     text-align: center;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   .service-content {
     font-size: 1rem;
@@ -637,11 +637,11 @@ li {
     font-size: inherit;
     font-family: inherit;
   }
-  span.learn-more {
+  span.more {
     width: 12rem;
     height: auto;
   }
-  span.learn-more .circle {
+  span.more .circle {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: relative;
     display: block;
@@ -651,7 +651,7 @@ li {
     background: #282936;
     border-radius: 1.625rem;
   }
-  span.learn-more .circle .icon {
+  span.more .circle .icon {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: absolute;
     top: 0;
@@ -659,14 +659,14 @@ li {
     margin: auto;
     background: #fff;
   }
-  span.learn-more .circle .icon.arrow {
+  span.more .circle .icon.arrow {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     left: 0.625rem;
     width: 1.125rem;
     height: 0.125rem;
     background: none;
   }
-  span.learn-more .circle .icon.arrow::before {
+  span.more .circle .icon.arrow::before {
     position: absolute;
     content: "";
     top: -0.29rem;
@@ -677,7 +677,7 @@ li {
     border-right: 0.125rem solid #fff;
     transform: rotate(45deg);
   }
-  span.learn-more .price-show {
+  span.more .price-show {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: absolute;
     top: 0;
@@ -815,8 +815,37 @@ li {
     margin-top: 5%;
     z-index: 10;
   }
+  .mask-works {
+    /* cursor: pointer; */
+    position: relative;
+  }
   .works-item-img {
     width: 600px;
+  }
+  .hover-mask {
+    opacity: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 90%;
+    transition: opacity .5s ease;
+  }
+  .hover-mask .show-site {
+    color: #fff;
+    background-color: rgba(135, 206, 235,0.95);
+    border: solid 2px #eee;
+    border-radius: 5px;
+    font-size: 2.5rem;
+    padding: 30px 55px;
+  }
+  .hover-mask:hover {
+    opacity: 1;
   }
   .works-item-title {
     text-align: center;
@@ -825,16 +854,14 @@ li {
   }
   .works-item-skill {
     position: absolute;
-    /* top: 75%; */
-    /* top: 30px; */
     bottom: 50px;
     right: -10px;
-    /* right: -35px; */
-    background-color:rgba(135, 206, 235, 0.8);
+    background-color:rgba(135, 206, 235, 0.9);
+    border: solid 2px #eee;
     color: #fff;
-    z-index: 11;
     padding: 20px 10px;
     border-radius: 5px;
+    z-index: 11;
   }
 
 /* ----------------------------------------------- contact セクション */
@@ -890,6 +917,9 @@ li {
 /* =================== contact.php =================== */
 .contact-section {
   margin-top: 5%;
+}
+.contact-info {
+  margin-top: 20px;
 }
 .contact-info, .contact-info-en {
   text-align: center;
@@ -1020,6 +1050,7 @@ th span.any {
 .confirm-btn input {
   display: inline-block;
   background: #eee;
+  margin-top: 40px;
   padding: .5em 4em;
   color: #000;
   text-decoration: none;
@@ -1035,26 +1066,26 @@ th span.any {
   opacity: 0.7;
 }
 /* =================== confirm.php =================== */
-.confirm-con {
+.confirm-container {
   max-width: 1000px;
   margin: 0 auto;
 }
-.confirm-con .confirm-title {
-  text-align: center;
+.confirm-container .confirm-title {
   margin: 15px 0 0 0;
-}
-.confirm-con .confirm-title-en {
   text-align: center;
+}
+.confirm-container .confirm-title-en {
   margin-bottom: 30px;
-}
-.confirm-con .confirm-text, .confirm-con .confirm-text-en {
   text-align: center;
+}
+.confirm-container .confirm-text, .confirm-container .confirm-text-en {
   font-size: 1.2rem;
+  text-align: center;
 }
 .confirm-text {
   margin-bottom: 10px;
 }
-.confirm-con .confirm-text-en {
+.confirm-container .confirm-text-en {
   margin-bottom: 30px;
 }
 .confirm-title-en, .confirm-text-en {
@@ -1077,19 +1108,20 @@ th span.any {
 }
 .confirm-content span.output {
   font-size: 1.1rem;
+  word-wrap: break-word; /* 単語の区切りで改行するが、場合によっては単語の途中でも改行 */
+  text-align: left;
 }
-
-/* 内容修正ボタン */
+/* ===== 内容修正ボタン ===== */
 .confirm-return-btn {
   text-align: center;
   margin: 50px auto;
 }
 a.return {
-  color: #fff;
+  color: #432;
   font-size: 1.2rem;
   letter-spacing: 1px;
   border: solid 0.5px rgb(173, 173, 173);
-  background-color: #87CEEB;
+  background-color: #eee;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
@@ -1101,11 +1133,11 @@ a.return:hover {
   color: #87CEEB;
   font-weight: bold;
 }
-/* 送信ボタン */
+/* ===== 送信ボタン ===== */
 button {
   font-family: inherit;
   font-size: 20px;
-  background: royalblue;
+  background: #87CEEB;
   color: white;
   margin: 0 auto 20px auto; 
   padding: 10px 27px;
@@ -1120,7 +1152,7 @@ button {
 button svg {
   display: block;
   background: white;
-  color: royalblue;
+  color: #87CEEB;
   border-radius: 50%;
   padding: 5px;
   /* transform-origin: center center; */
@@ -1155,11 +1187,14 @@ button:active {
 }
 /* ================== thanks.php =================== */
 .thanks-container {
+  text-align: center;
+}
+.thanks-wrap{
   max-width: 1000px;
   margin: 50px auto;
   text-align: center;
   background-color: #c8fbff;
-  padding:30px;
+  padding: 50px 30px;
 }
 .thanks-title {
   font-size: 2rem;
@@ -1173,11 +1208,23 @@ button:active {
   font-size: 1.2rem;
   line-height: 1.5;
 }
-.thanks-text p:nth-child(3) {
+.thanks-text p:nth-child(2), .thanks-text p:nth-child(7) {
   margin-bottom: 20px;
 }
 .thanks-text .thanks-en {
   color: red;
+}
+.return-btn span {
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 1.3rem;
+  border: solid 1px #333;
+  background-color: rgb(235, 235, 235);
+  color: #333;
+  transition: 0.5s;
+}
+.return-btn:hover {
+  opacity: 0.7;
 }
 .thanks-container img {
   margin-top: 30px;

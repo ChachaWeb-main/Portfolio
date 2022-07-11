@@ -1,44 +1,46 @@
 <?php 
 session_start();
 
-// 直リンクアクセスであれば、戻す!
+# 直リンクアクセスであれば、戻す!
 if (!isset($_SESSION['form'])) {
     header('Location: contact.php');
 } else {
     $post = $_SESSION['form'];
 }
 
-//メールの日本語設定
+# メールの日本語設定
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
-//送信先アドレス = 相手(問い合わせ)方
+# 送信先アドレス = 相手方
 $to = $post['email'];
-//メール件名
-$subject = "お問い合わせありがとうございます。";
-//メッセージ本文を視覚的に見やすく格納（ヒアドキュメント）
+# メール件名
+$subject = $post['name']. "様 ". " お問い合わせありがとうございます。\n\r" . "Dear. ". $post['name']. " Thank you for your inquiry." ;
+# メッセージ本文を視覚的に見やすく格納（ヒアドキュメント）
 $message = <<< EOM
 お問い合わせありがとうございます。
+Thank you for your inquiry.
 
 以下の内容で承りました。
+I accepted with the following contents.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-【 お名前 】
+【 お名前 | Your Name 】
 {$post['name']}
 
-【 メール 】
+【 メール | E-mail 】
 {$post['email']}
 
-【 電話番号 】
+【 電話番号 | Phone Number 】
 {$post['phone']}
 
-【 お問い合わせ内容 】
+【 お問い合わせ内容 | Content 】
 {$post['message']}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOM;
-//送信元 = 自身
+# 送信元 = 自身
 $headers = "From: chacha.forba.634@gmail.com";
 // var_dump($to, $subject, $message, $headers);
-//メール送信設定
+# メール送信設定
 mb_send_mail($to, $subject, $message, $headers);
 
 ?>
@@ -70,7 +72,6 @@ mb_send_mail($to, $subject, $message, $headers);
       </div>
       <div class="thanks-text">
         <p>ご入力いただいたメールアドレス宛に、確認メールをお送りいたしましのでご確認ください。</p>
-        <p>（注. 迷惑フォルダに届いてしまう可能性もございますことご承知くださいませ）</p>
         <p>可能な限り早く折り返しご連絡させていただきますので、</p>
         <p>少々お待ち頂けますと幸いです。</p>
         <p class="thanks-en">Please check the confirmation email to your email address.</p>
