@@ -35,7 +35,7 @@
     <!-- header -->
     <header id="header" class="header-wrap">
       <!-- sitelogo -->
-      <a href="index.html" class="site-title-logo"><img src="./img/title-logo.svg" width="160px" alt="ChachaWebCreate"></a>
+      <a href="./index.html" class="site-title-logo"><img src="./img/title-logo.svg" width="160px" alt="ChachaWebCreate"></a>
       <!-- ハンバーガーメニュー (CSSのみで) -->
       <div class="nav">
         <!-- 表示・非表示を切り替えるチェックボックス -->
@@ -49,12 +49,9 @@
             <li><a href="#skills">スキル</a></li>
             <li><a href="#service">サービス</a></li>
             <li><a href="#works">制作物・実績</a></li>
-            <li><a href="contact.php">お問い合わせ</a></li>
-            <li><a class="twitter-icon" href="#"><img src="./img/icons/twitter.png" width="27px" alt="Twitterアイコン"></a>
-            </li>
-            <li><a class="github-icon" href="https://github.com/ChachaWeb-main"><img src="./img/icons/github.png"
-                  width="27px" alt="GitHubアイコン"></a>
-            </li>
+            <li><a href="./contact.php">お問い合わせ</a></li>
+            <li><a class="twitter-icon" href="https://twitter.com/Chacha_P_C_Log" target="_blank" rel="noopener noreferrer"><img src="./img/icons/twitter.png" width="27px" alt="Twitterアイコン"></a></li>
+            <li><a class="github-icon" href="https://github.com/ChachaWeb-main" target="_blank" rel="noopener noreferrer"><img src="./img/icons/github.png" width="27px" alt="GitHubアイコン"></a></li>
           </ul>
         </nav>
       </div>
@@ -62,7 +59,7 @@
     <!-- スライダー 日本語 -->
     <div id="mainvisual">
       <div class="scrolldown3">
-        <span>Scroll<img src="./img/pc-mouse.svg" height="100px" alt="スクロール促進するマウス形状のアイコン"></span>
+        <span>Scroll<img src="./img/pc-mouse.svg" width="100px" alt="スクロール促進するマウス形状のアイコン"></span>
       </div>
       <div class="home-content">
         <div class="home-content-text">
@@ -76,8 +73,8 @@
         <br>
         <br>
         <br>
-        <div class="home-content-lang">
-          <span><i class="fas fa-globe"></i> 日本語 | <a href="./index-en.html">English</a></span>
+        <div class="language-switch">
+          <span><i class="fas fa-globe"></i><img src="./img/flag_JP.png" width="30px" alt="日本国旗"> 日本語 | <a href="./index-en.html"><img src="./img/flag_UK.png" width="35px" alt="イギリス国旗"> English</a></span>
         </div>
       </div>
       <!-- メイン画像 オートスライド -->
@@ -138,6 +135,12 @@
               <br>
               <p class="about-txt">以下に私のスキルや制作物をご紹介しておりますので</p>
               <p class="about-txt">ご覧いただけますと幸いです。</p>
+              <br>
+              <ul class="sns-icons-list">
+                <li><a class="email-icon" href="./contact.php"><img src="./img/icons/email.png" width="40px" alt="メールアイコン"></a></li>
+                <li><a class="twitter-icon" href="https://twitter.com/Chacha_P_C_Log" target="_blank" rel="noopener noreferrer"><img src="./img/icons/twitter.png" width="40px" alt="Twitterアイコン"></a></li>
+                <li><a class="github-icon" href="https://github.com/ChachaWeb-main" target="_blank" rel="noopener noreferrer"><img src="./img/icons/github.png" width="40px" alt="GitHubアイコン"></a></li>
+              </ul>
             </div>
           </div>
         </section>
@@ -155,35 +158,36 @@
               <img src="img/icons/html-5.svg" height="100" alt="HTML icon">
               <div class="skill-name">
                 <p>HTML</p>
-                <!-- <p>Webサイトを記述するマークアップ言語</p> -->
               </div>
             </div>
             <div class="skill-icon icon-hover">
               <img class="css-icon" src="img/icons/css-3.svg" height="100" alt="CSS icon">
               <div class="skill-name">
                 <p>CSS</p>
-                <!-- <p>Webサイトの色やサイズ、レイアウトetcのデザインを定義</p> -->
               </div>
             </div>
             <div class="skill-icon icon-hover">
               <img src="img/icons/javascript.svg" height="100" width="80" alt="JavaScript icon">
               <div class="skill-name">
                 <p>JavaScript</p>
-                <!-- <p>画面を横にスライドさせたり、エラーメッセージを表示etc、Webサイトに動きを加える</p> -->
-              </div>
-            </div>
-            <div class="skill-icon icon-hover">
-              <img src="img/icons/wordpress-icon.svg" height="100" width="90" alt="WordPress icon">
-              <div class="skill-name">
-                <p>WordPress</p>
-                <!-- <p>PHPで作られている、ブログやWebサイトを作成できるCMSの一つ</p> -->
               </div>
             </div>
             <div class="skill-icon icon-hover">
               <img src="img/icons/php.svg" height="100" width="120" alt="PHP icon">
               <div class="skill-name">
                 <p>PHP</p>
-                <!-- <p>Webサイトやアプリの開発、ゲームや業務システムの構築などに使用</p> -->
+              </div>
+            </div>
+            <div class="skill-icon icon-hover">
+              <img src="img/icons/bootstrap.svg" height="100" width="90" alt="Bootstrap icon">
+              <div class="skill-name">
+                <p>Bootstrap</p>
+              </div>
+            </div>
+            <div class="skill-icon icon-hover">
+              <img src="img/icons/wordpress-icon.svg" height="100" width="90" alt="WordPress icon">
+              <div class="skill-name">
+                <p>WordPress</p>
               </div>
             </div>
           </div>
@@ -219,8 +223,7 @@
                 </div>
                 <p class="service-title">WordPressサイト</p>
                 <p class="service-content">
-                  WordPressを使用し、ホームページやブログ、お知らせなど、<br>
-                  お客様自身で手軽に更新・管理できるウェブサイトを制作。<br>
+                  WordPressを使用し、ホームページやブログ、お知らせなど、お客様自身で手軽に更新・管理できるウェブサイトを制作。<br>
                   既存のテーマでの構築、またイチからオリジナルテーマを作成し構築も可能です。
                 </p>
               </li>
@@ -230,8 +233,7 @@
                 </div>
                 <p class="service-title">機能追加・サイト改修</p>
                 <p class="service-content">
-                  すでにお持ちのWebサイトにお問い合わせフォーム等の新たな機能追加、<br>
-                  アニメーションで動きをつけたり等の修正を行います。
+                  すでにお持ちのWebサイトにお問い合わせフォーム等の新たな機能追加、アニメーションで動きをつけたり等の修正を行います。
                 </p>
               </li>
             </ul>
@@ -306,10 +308,13 @@
                   <div class="mask-works">
                     <img src="./img/works/myWork-01.svg" class="works-item-img" alt="">
                     <div class="hover-mask">
-                      <a href="https://chachaweb-main.github.io/company_LP/"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
+                      <a href="https://chachaweb-main.github.io/company_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
                     </div>
                   </div>
-                  <h2 class="works-item-title">コーポレイトサイト(LP)</h2>
+                  <h2 class="works-item-title">コーポレイトサイト (LP)</h2>
+                  <div class="site-view">
+                    <a href="https://chachaweb-main.github.io/company_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
+                  </div>
                   <p class="works-item-skill">HTML & CSS</p>
                 </li>
 
@@ -317,10 +322,13 @@
                   <div class="mask-works">
                     <img src="./img/works/myWork-03.svg" class="works-item-img" alt="">
                     <div class="hover-mask">
-                      <a href="https://chachaweb-main.github.io/SunKitchen/"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
+                      <a href="https://chachaweb-main.github.io/SunKitchen/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
                     </div>
                   </div>
-                  <h2 class="works-item-title">イタリアレストラン(LP)</h2>
+                  <h2 class="works-item-title">イタリアレストラン (LP)</h2>
+                  <div class="site-view">
+                    <a href="https://chachaweb-main.github.io/company_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
+                  </div>
                   <p class="works-item-skill">Bootstrap<br>HTML & CSS</p>
                 </li>
               </ul>
@@ -329,20 +337,26 @@
                   <div class="mask-works">
                     <img src="./img/works/myWork-04.svg" class="works-item-img" alt="">
                     <div class="hover-mask">
-                      <a href="https://chachaweb-main.github.io/School_LP/"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
+                      <a href="https://chachaweb-main.github.io/School_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
                     </div>
                   </div>
-                  <h2 class="works-item-title">英会話教室(LP)</h2>
+                  <h2 class="works-item-title">英会話教室 (LP)</h2>
+                  <div class="site-view">
+                    <a href="https://chachaweb-main.github.io/company_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
+                  </div>
                   <p class="works-item-skill">HTML & CSS<br>JavaScript</p>
                 </li>
                 <li class="works-item">
                   <div class="mask-works">
                     <img src="./img/works/myWork-07.svg" class="works-item-img" alt="">
                     <div class="hover-mask">
-                      <a href="https://chachaweb-main.github.io/TypingGame_forPC/"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
+                      <a href="https://chachaweb-main.github.io/TypingGame_forPC/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
                     </div>
                   </div>
                   <h2 class="works-item-title">タイピングゲーム</h2>
+                  <div class="site-view">
+                    <a href="https://chachaweb-main.github.io/company_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
+                  </div>
                   <p class="works-item-skill">HTML & CSS<br>JavaScript</p>
                 </li>
               </ul>
@@ -351,21 +365,27 @@
                   <div class="mask-works">
                     <img src="./img/works/myWork-05.svg" class="works-item-img" alt="">
                     <div class="hover-mask">
-                      <a href="#"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
+                      <a href="#" target="_blank" rel="noopener noreferrer"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
                     </div>
                   </div>
                   <h2 class="works-item-title">個人ブログ</h2>
+                  <div class="site-view">
+                    <a href="https://chachaweb-main.github.io/company_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
+                  </div>
                   <p class="works-item-skill">WordPress</p>
                 </li>
                 <li class="works-item">
                   <div class="mask-works">
                     <img src="./img/works/myWork-08.svg" class="works-item-img" alt="">
                     <div class="hover-mask">
-                      <a href="#"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
+                      <a href="#" target="_blank" rel="noopener noreferrer"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
                     </div>
                   </div>
                   <h2 class="works-item-title">Todoアプリ</h2>
-                  <p class="works-item-skill">HTML & CSS<br>PHP</p>
+                  <div class="site-view">
+                    <a href="https://chachaweb-main.github.io/company_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">サイトを見る <i class="fas fa-external-link-alt"></i></sapn></a>
+                  </div>
+                  <p class="works-item-skill">PHP / Laravel<br>HTML & CSS</p>
                 </li>
               </ul>
             </div>
@@ -378,15 +398,17 @@
     <div class="contact-container">
       <section id="contact">
         <div class="contact-wrap fadein-under">
-          <p>お問い合わせは以下の入力フォーム又はTwitter DMにてお気軽にご連絡ください。<br>些細なご相談でも構いませんよ(^o^)</p>
+          <p>お問い合わせは以下の入力フォーム又はTwitter DMにてお気軽にご連絡ください<br>些細なご相談でも構いませんよ(^o^)</p>
           <br>
-          <div class="sns-link-icon">
-            <a href="#"><i class="fab fa-twitter twitter-icon fa-2x"></i></a>
+          <div class="contact-method">
+            <div class="sns-link-icon">
+              <a href="https://twitter.com/Chacha_P_C_Log" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter twitter-icon fa-2x"></i></a>
+            </div>
+            <br>
+            <a href="contact.php"><span class="contact-btn"> お問い合わせはこちら！ <i class="fas fa-angle-right fa-position-right"></i></span></a>
+            <br>
+            <br>
           </div>
-          <br>
-          <a href="contact.php"><span class="contact-btn"> お問い合わせはこちら！ <i class="fas fa-angle-right fa-position-right"></i></span></a>
-          <br>
-          <br>
         </div>
       </section>
     </div>

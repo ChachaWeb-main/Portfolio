@@ -5,21 +5,21 @@ session_start();
 $error = [];
 #POSTで呼び出された時だけ、以下のエラー判定を動作するように
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // POSTの値をフィルタ(危険な文字をなくす)で安全性を高める
+  # POSTの値をフィルタ(危険な文字をなくす)で安全性を高める
   $post = filter_input_array(INPUT_POST, $_POST);
-  // フォーム送信時にエラーチェック
+  # フォーム送信時にエラーチェック
   if (empty($post['name'])) {
-    // 空の場合
+    # 空の場合
     $error['name'] = 'blank';
   } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9]{1,50}+$/u", $post['name'])) {
-    // 正規表現に合致する場合(ひらがな・漢字・アルファベット, 1 ~ 50字)
+    # 正規表現に合致する場合(ひらがな・漢字・アルファベット, 1 ~ 50字)
   } else {
-    // 正規表現に合致しない場合
+    # 正規表現に合致しない場合
     $error['name'] = 'invaild';
   }
 
   if (empty($post['email'])) {
-    // 空の場合
+    # 空の場合
     $error['email'] = 'blank';
   } elseif (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
     $error['email'] = 'invaild';
@@ -27,25 +27,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   #任意設定なので他とは違い、指定した正規表現に合致した場合にエラーが出るようにした
   if (preg_match("/\D+/", $post['phone'])) {
-    // 正規表現に合致する場合＝数字,全半角空欄&ハイフンに合致しない場合
+    # 正規表現に合致する場合＝数字,全半角空欄&ハイフンに合致しない場合
     $error['phone'] = 'invaild';
   } else {
-    // 正規表現に合致しない場合、エラーメッセージなし
+    # 正規表現に合致しない場合、エラーメッセージなし
   }
 
   if (empty($post['message'])) {
-    // 空の場合
+    # 空の場合
     $error['message'] = 'blank';
-  } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9]{1,250}+$/u", $post['message'])) {
-    // 正規表現に合致する場合(ひらがな・漢字・アルファベット, 1 ~ 250字)
+  } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9]{1,500}+$/u", $post['message'])) {
+    # 正規表現に合致する場合(ひらがな・漢字・アルファベット, 1 ~ 500字)
   } else {
-    // 正規表現に合致しない場合
+    # 正規表現に合致しない場合
     $error['message'] = 'invaild';
   }
 
-  // 上記で$errorの配列数カウントが０であれば ＝ 上記で設定したエラーに一つも当てはまらない
+  # 上記で$errorの配列数カウントが０であれば ＝ 上記で設定したエラーに一つも当てはまらない
   if (count($error) === 0) {
-    // エラーがないので確認画面に移動
+    # エラーがないので確認画面に移動
     $_SESSION['form'] = $post;
     header('Location: confirm.php');
     exit();
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 
-// ----- 代入値確認用 -----
+# ----- 代入値確認用 -----
 // echo '代入値の確認';
 // echo '<pre>';
 // var_dump($error);

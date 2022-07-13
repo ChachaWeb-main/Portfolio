@@ -44,10 +44,8 @@
             <li><a href="#service">Service</a></li>
             <li><a href="#works">Works</a></li>
             <li><a href="contact.php">Contact</a></li>
-            <li><a class="twitter-icon" href="#"><img src="./img/icons/twitter.png" width="27px" alt="Twitterアイコン"></a>
-            </li>
-            <li><a class="github-icon" href="https://github.com/ChachaWeb-main"><img src="./img/icons/github.png" width="27px" alt="GitHubアイコン"></a>
-            </li>
+            <li><a class="twitter-icon" href="https://twitter.com/Chacha_P_C_Log" target="_blank" rel="noopener noreferrer"><img src="./img/icons/twitter.png" width="27px" alt="Twitterアイコン"></a></li>
+            <li><a class="github-icon" href="https://github.com/ChachaWeb-main" target="_blank" rel="noopener noreferrer"><img src="./img/icons/github.png" width="27px" alt="GitHubアイコン"></a></li>
           </ul>
         </nav>
       </div>
@@ -55,7 +53,7 @@
     <!-- スライダー -->
     <div id="mainvisual">
       <div class="scrolldown3">
-        <span>Scroll<img src="./img/pc-mouse.svg" height="100px" alt="スクロール促進するマウス形状のアイコン"></span>
+        <span>Scroll<img src="./img/pc-mouse.svg" width="100px" alt="スクロール促進するマウス形状のアイコン"></span>
       </div>
       <div class="home-content">
         <div class="home-content-text">
@@ -69,8 +67,8 @@
         <br>
         <br>
         <br>
-        <div class="home-content-lang">
-          <span><i class="fas fa-globe"></i> <a href="./index.html">日本語</a> | English</a></span>
+        <div class="language-switch">
+          <span><i class="fas fa-globe"></i> <a href="./index.html"><img src="./img/flag_JP.png" width="30px" alt="日本国旗"> 日本語</a> | <img src="./img/flag_UK.png" width="35px" alt="イギリス国旗"> English</a></span>
         </div>
       </div>
       <!-- メイン画像 オートスライド -->
@@ -131,6 +129,12 @@
               <br>
               <p class="about-txt">I introduce below my skill and production thing,</p>
               <p class="about-txt">I'm happy that you can see it !!</p>
+              <br>
+              <ul class="sns-icons-list">
+                <li><a class="email-icon" href="./contact.php"><img src="./img/icons/email.png" width="40px" alt="メールアイコン"></a></li>
+                <li><a class="twitter-icon" href="https://twitter.com/Chacha_P_C_Log" target="_blank" rel="noopener noreferrer"><img src="./img/icons/twitter.png" width="40px" alt="Twitterアイコン"></a></li>
+                <li><a class="github-icon" href="https://github.com/ChachaWeb-main" target="_blank" rel="noopener noreferrer"><img src="./img/icons/github.png" width="40px" alt="GitHubアイコン"></a></li>
+              </ul>
             </div>
           </div>
         </section>
@@ -163,15 +167,21 @@
               </div>
             </div>
             <div class="skill-icon icon-hover">
-              <img src="img/icons/wordpress-icon.svg" height="100" width="90" alt="">
-              <div class="skill-name">
-                <p>WordPress</p>
-              </div>
-            </div>
-            <div class="skill-icon icon-hover">
               <img src="img/icons/php.svg" height="100" width="120" alt="PHP icon">
               <div class="skill-name">
                 <p>PHP</p>
+              </div>
+            </div>
+            <div class="skill-icon icon-hover">
+              <img src="img/icons/bootstrap.svg" height="100" width="90" alt="Bootstrap icon">
+              <div class="skill-name">
+                <p>Bootstrap</p>
+              </div>
+            </div>
+            <div class="skill-icon icon-hover">
+              <img src="img/icons/wordpress-icon.svg" height="100" width="90" alt="">
+              <div class="skill-name">
+                <p>WordPress</p>
               </div>
             </div>
           </div>
@@ -207,8 +217,7 @@
                 </div>
                 <p class="service-title">WordPress</p>
                 <p class="service-content">
-                  Using WordPress, I will bulid sites that can be easily updated by customers,<br>
-                  such as homepages, blogs, and announcements.<br>
+                  Using WordPress, I will bulid sites that can be easily updated by customers, such as homepages, blogs, and announcements.<br>
                   It is possible to build on existing themes and build with original themes from scratch.
                 </p>
               </li>
@@ -218,8 +227,7 @@
                 </div>
                 <p class="service-title">Function addition ,<br>Site repair</p>
                 <p class="service-content">
-                  Add new functions such as inquiry forms to your website already,<br>
-                  I will update the site with animation, etc.
+                  Add new functions such as inquiry forms to your website already, I will update the site with animation, etc.
                 </p>
               </li>
             </ul>
@@ -291,50 +299,87 @@
             <div class="works">
               <ul class="works-item-list-1 fadein-under">
                 <li class="works-item">
-                  <a href="https://chachaweb-main.github.io/company_LP/">
+                  <div class="mask-works">
                     <img src="./img/works/myWork-01.svg" class="works-item-img" alt="">
-                    <h2 class="works-item-title">Corporate site (LP)</h2>
-                  </a>
+                    <div class="hover-mask">
+                      <a href="https://chachaweb-main.github.io/company_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">Show the site <i class="fas fa-external-link-alt"></i></sapn></a>
+                    </div>
+                  </div>
+                  <h2 class="works-item-title">Corporate site (LP)</h2>
+                  <!-- rwd 以下で表示 -->
+                  <div class="site-view">
+                    <a href="https://chachaweb-main.github.io/company_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">Show the site <i class="fas fa-external-link-alt"></i></sapn></a>
+                  </div>
                   <p class="works-item-skill">HTML & CSS</p>
                 </li>
                 <li class="works-item">
-                  <a href="https://chachaweb-main.github.io/SunKitchen/">
+                  <div class="mask-works">
                     <img src="./img/works/myWork-03.svg" class="works-item-img" alt="">
-                    <h2 class="works-item-title">Italian Restaurant (LP)</h2>
-                  </a>
+                    <div class="hover-mask">
+                      <a href="https://chachaweb-main.github.io/SunKitchen/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">Show the site <i class="fas fa-external-link-alt"></i></sapn></a>
+                    </div>
+                  </div>
+                  <h2 class="works-item-title">Italian Restaurant (LP)</h2>
+                  <div class="site-view">
+                    <a href="https://chachaweb-main.github.io/company_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">Show the site <i class="fas fa-external-link-alt"></i></sapn></a>
+                  </div>
                   <p class="works-item-skill">Bootstrap<br>HTML & CSS</p>
                 </li>
               </ul>
               <ul class="works-item-list-2 fadein-under">
                 <li class="works-item">
-                  <a href="https://chachaweb-main.github.io/School_LP/">
+                  <div class="mask-works">
                     <img src="./img/works/myWork-04.svg" class="works-item-img" alt="">
-                    <h2 class="works-item-title">English School (LP)</h2>
-                  </a>
+                    <div class="hover-mask">
+                      <a href="https://chachaweb-main.github.io/School_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">Show the site <i class="fas fa-external-link-alt"></i></sapn></a>
+                    </div>
+                  </div>
+                  <h2 class="works-item-title">English School (LP)</h2>
+                  <div class="site-view">
+                    <a href="https://chachaweb-main.github.io/company_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">Show the site <i class="fas fa-external-link-alt"></i></sapn></a>
+                  </div>
                   <p class="works-item-skill">HTML & CSS<br>JavaScript</p>
                 </li>
                 <li class="works-item">
-                  <a href="https://chachaweb-main.github.io/TypingGame_forPC/">
+                  <div class="mask-works">
                     <img src="./img/works/myWork-07.svg" class="works-item-img" alt="">
-                    <h2 class="works-item-title">Typing game</h2>
-                  </a>
+                    <div class="hover-mask">
+                      <a href="https://chachaweb-main.github.io/TypingGame_forPC/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">Show the site <i class="fas fa-external-link-alt"></i></sapn></a>
+                    </div>
+                  </div>
+                  <h2 class="works-item-title">Typing game</h2>
+                  <div class="site-view">
+                    <a href="https://chachaweb-main.github.io/company_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">Show the site <i class="fas fa-external-link-alt"></i></sapn></a>
+                  </div>
                   <p class="works-item-skill">HTML & CSS<br>JavaScript</p>
                 </li>
               </ul>
               <ul class="works-item-list-3 fadein-under">
                 <li class="works-item">
-                  <a href="#">
+                  <div class="mask-works">
                     <img src="./img/works/myWork-05.svg" class="works-item-img" alt="">
-                    <h2 class="works-item-title">Personal blog</h2>
-                  </a>
+                    <div class="hover-mask">
+                      <a href="#" target="_blank" rel="noopener noreferrer"><sapn class="show-site">Show the site <i class="fas fa-external-link-alt"></i></sapn></a>
+                    </div>
+                  </div>
+                  <h2 class="works-item-title">Personal blog</h2>
+                  <div class="site-view">
+                    <a href="https://chachaweb-main.github.io/company_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">Show the site <i class="fas fa-external-link-alt"></i></sapn></a>
+                  </div>
                   <p class="works-item-skill">WordPress</p>
                 </li>
                 <li class="works-item">
-                  <a href="#">
+                  <div class="mask-works">
                     <img src="./img/works/myWork-08.svg" class="works-item-img" alt="">
-                    <h2 class="works-item-title">Todo App</h2>
-                  </a>
-                  <p class="works-item-skill">HTML & CSS<br>PHP</p>
+                    <div class="hover-mask">
+                      <a href="#" target="_blank" rel="noopener noreferrer"><sapn class="show-site">Show the site <i class="fas fa-external-link-alt"></i></sapn></a>
+                    </div>
+                  </div>
+                  <h2 class="works-item-title">Todo App</h2>
+                  <div class="site-view">
+                    <a href="https://chachaweb-main.github.io/company_LP/" target="_blank" rel="noopener noreferrer"><sapn class="show-site">Show the site <i class="fas fa-external-link-alt"></i></sapn></a>
+                  </div>
+                  <p class="works-item-skill">PHP / Laravel<br>HTML & CSS</p>
                 </li>
               </ul>
             </div>
@@ -348,12 +393,15 @@
       <section id="contact">
         <div class="contact-wrap fadein-under">
           <p>For inquiries, please feel free to contact me by the following contact form or Twitter DM.<br>It doesn't matter if it's a trivial consultation.</p>
-          <div class="sns-link-icon">
-            <a href="#"><i class="fab fa-twitter twitter-icon fa-2x"></i></a>
+          <div class="contact-method">
+            <div class="sns-link-icon">
+              <a href="https://twitter.com/Chacha_P_C_Log" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter twitter-icon fa-2x"></i></a>
+            </div>
+            <br>
+            <a href="contact.php"><span class="contact-btn"> Contact Me！ <i class="fas fa-angle-right fa-position-right"></i></span></a>
+            <br>
+            <br>
           </div>
-          <a href="contact.php"><span class="contact-btn"> Contact Me！ <i class="fas fa-angle-right fa-position-right"></i></span></a>
-          <br>
-          <br>
         </div>
       </section>
     </div>
