@@ -35,7 +35,6 @@
       left: 20px;
     }
 
-
   /*=====================
     ヘッダー header
   =====================*/
@@ -119,16 +118,10 @@
     .twitter-icon img, .github-icon img {
       width: 40px;
     }
+    /* ハンバーガーメニュー */
     /* アイコンがクリックされたらメニューを表示 */
     #drawer_input:checked ~ .nav-content {
       left: 0;  /* メニューを画面に入れる */
-    }
-    /* ----------------------------------------------- メイン背景画像 */
-    #mainvisual .fade img.main-1, #mainvisual .fade img.main-3 {
-      display: none;
-    }
-    #mainvisual .fade img.main-1-sp, #mainvisual .fade img.main-3-sp {
-      display: block;
     }
     /* ----------------------------------------------- メインテキスト */
     .home-content {
@@ -138,23 +131,43 @@
     .home-content .home-content-text {
       font-size: 1.75rem;
     }
+
     .home-content .home-content-text .brackets {
       font-size: 1.15rem;
     }
     .language-switch {
       font-size: 1.25rem;
     }
-    @media screen and (max-width: 540px) {
+    @media screen and (max-width: 600px) {
       .home-content .home-content-text {
-        font-size: 1.25rem;
+        font-size: 1.2em;
       }
       .home-content .home-content-text .brackets {
-        font-size: 0.85rem;
+        font-size: 1rem;
         padding: 5px;
         margin-left: 15px;
       }
       .language-switch {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
+      }
+      .language-switch img {
+        width: 25px;
+      }
+    }
+    @media screen and (max-width: 450px) {
+      .home-content .home-content-text {
+        font-size: 0.65rem;
+      }
+      .home-content .home-content-text .brackets {
+        font-size: 0.65rem;
+        padding: 5px;
+        margin-left: 15px;
+      }
+      .language-switch {
+        font-size: 0.85rem;
+      }
+      .language-switch img {
+        width: 18px;
       }
     }
     /* ----------------------------------------------- スクロールダウン促すアニメーション SP版 */
@@ -305,7 +318,7 @@
     .price-table table th {
       display: block;
       width: 100%;
-      padding: 8px 0;
+      padding: 5px 0;
       font-size: 1.25rem;
     }
     @media screen and (max-width: 620px) {
@@ -326,7 +339,7 @@
       display: block;
       width: 100%;
       font-size: 1.2rem;
-      padding: 15px 0 8px 0;
+      padding: 10px 0 8px 0;
     }
     p.price-cont {
       font-size: 1rem;
@@ -346,8 +359,9 @@
       margin-bottom: 20px;
     }
     .show-site {
-      color: #432;
-      border-bottom: solid 1px #432;
+      color: #00bfff;
+      text-shadow: 3px 3px 1px #eee;
+      border-bottom: solid 1px #00bfff;
       padding: 3px 10px;
       font-size: 1.3rem;
     }
