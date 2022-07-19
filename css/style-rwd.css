@@ -155,11 +155,11 @@
       }
     }
     @media screen and (max-width: 450px) {
-      .home-content .home-content-text {
-        font-size: 0.65rem;
+      .home-content .home-content-text > p {
+        font-size: 0.9rem;
       }
       .home-content .home-content-text .brackets {
-        font-size: 0.65rem;
+        font-size: 0.9rem;
         padding: 5px;
         margin-left: 15px;
       }
@@ -228,7 +228,8 @@
   ====================*/
     /* ----------------------------------------------- aboutセクション */
     .about-wrap {
-      flex-direction: column
+      flex-direction: column;
+      align-items: center;
     }
     .about-img {
       margin: 0 auto;
@@ -274,7 +275,6 @@
     }
     .skill-name {
       width: 50%;
-      font-size: 1.2em;
     }
     .skill-name::before {
       top: -23px;
@@ -283,7 +283,7 @@
     /* ----------------------------------------------- serviceセクション */
     .service-list {
       flex-direction: column;
-      width: 80%;
+      width: 90%;
     }
     .service-item {
       margin: 20px 0;
@@ -354,20 +354,59 @@
     .hover-mask {
       opacity: 0;
     }
+    .hover-mask .show-site {
+      font-size: 1.8rem;
+      text-shadow: none;
+    }
     .works-item .site-view {
       opacity: 1;
       margin-bottom: 20px;
+    }
+    .works-item-title {
+      font-size: 1.8rem;
     }
     .show-site {
       color: #00bfff;
       text-shadow: 3px 3px 1px #eee;
       border-bottom: solid 1px #00bfff;
       padding: 3px 10px;
+      font-size: 1.5rem;
+    }
+    .works-item-title{
+      margin-top: 20px;
+    }
+    .works-item-skill {
+      position: relative;
+      top: 30px;
+      left: 0;
+    }
+    .box-design {
+      margin-top: 0;
+      margin-bottom: 10%;
+    }
+    .box-design p {
       font-size: 1.3rem;
     }
+    @media screen and (max-width: 500px) {
+      .hover-mask .show-site {
+        font-size: 1rem;
+      }
+      .works-item-title {
+        font-size: 1.5rem;
+      }
+      .show-site {
+        font-size: 1.4rem;
+      }
+      .box-design {
+        margin-bottom: 25%;
+      }
+      .box-design p {
+        font-size: 1.1rem;
+      }
+    }
 
-    /* ----------------------------------------------- contact */
-    .contact-wrap > p{
+    /* ----------------------------------------------- contactセクション */
+    .contact-wrap > p {
       font-size: 1.25rem;
       padding: 20px 40px;
     }
@@ -379,33 +418,17 @@
         padding: 5px;
       }
     }
+    /* =================== contact.php =================== */
     th, td {
       display: block;
     }
     .contact-wrap form .contact-table tr th {
-      width: 45%;
+      width: 250px;
       margin: 0 auto;
     }
     .contact-wrap form .contact-table tr td {
       width: 80%;
       margin: 0 auto;
-    }
-    @media screen and (max-width: 515px) {
-      th span.required, th span.any {
-        font-size: 0.75rem;
-      }
-    }
-
-    @media screen and (min-width: 420px) {
-      .contact-info {
-        font-size: 0.85rem;
-      }
-      .contact-wrap form .contact-table tr th {
-        width: 65%;
-      }
-      .contact-wrap form .contact-table tr td {
-        width: 90%;
-      }
     }
     th span {
       padding: 4px 5px;
@@ -413,8 +436,26 @@
     .contact-wrap form .contact-table tr:first-child td:before, .contact-wrap form .contact-table tr td:after {
       border: none;
     }
+    @media screen and (max-width: 500px) {
+      .contact-info, .contact-info-en {
+        font-size: 1rem;
+      }
+      .contact-wrap form .contact-table tr th {
+        width: 75%;
+        margin-top: 20px;
+      }
+      .contact-wrap form .contact-table tr textarea {
+        height: 20em;
+      }
+      .error_msg {
+        font-size: 1rem;
+      }
+    }
 
     /* =================== confirm.php =================== */
+    .confirm-container {
+      max-width: 90%;
+    }
     a.return, button span.send {
       font-size: 1rem;
     }
@@ -440,6 +481,9 @@
     }
 
     /* ================== thanks.php =================== */
+    .thanks-wrap {
+      max-width: 90%;
+    }
     .thanks-title {
       font-size: 1.8rem;
     }

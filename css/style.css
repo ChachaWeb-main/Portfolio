@@ -27,7 +27,7 @@
   height: 30px;
   margin: -10px 0 0 -55px;
   text-align: center;
-  font-family:  'Lora', cursive , sans-serif;
+  font-family: 'Lora', cursive , sans-serif;
   font-size: 30px;
 }
 #loading-content {
@@ -122,6 +122,9 @@ li {
 .site-title-logo:hover {
   opacity: 0.7;
 }
+.section-container {
+  margin-bottom: 15%;
+}
 .section-title {
   text-align: center;
   position: relative;
@@ -159,12 +162,10 @@ li {
     0 10px rgb(220, 217, 217),
     0 10px 6px #000000;
 }
-
 .section-title .jp {
   font-size: 1.2rem;
   padding-left: 150px;
 }
-
 /* ----------------------------------------------- jQuery - 下からふわっとfadeIn */
 .fadein-under {
   opacity: 0;
@@ -199,8 +200,7 @@ li {
   height: 70px;  /* headerの高さを指定 */
   width: 100%;  /* position:fixed;にしたため、横幅100%を設定 */
 }
-  .title-logo img {
-    margin-top: 10px;
+  .site-title-logo img {
     border: none; /* IE10以前ではリンク設定した画像の周りに罫線が表示されてしまうため */
   }
   /* ----------------------------------------------- navメニュー */
@@ -209,7 +209,7 @@ li {
   }
   .nav-list {
     display: flex;
-    font-family: 'Lora', serif;
+    font-family:'Lora', cursive , sans-serif;
     text-align: center;
     margin: 15px 0;
   }
@@ -233,7 +233,7 @@ li {
     color: #432;
   }
   .nav-list li a:hover {
-    opacity: 0.7;
+    opacity: 0.6;
   }
   .nav-list li a:hover:not(.twitter-icon):not(.github-icon):not(.email-icon) {
     background-color: #76d0f0;
@@ -272,7 +272,7 @@ li {
     bottom: 0;
     left: 0;
     right: 0;
-    box-shadow: inset 0px 0px 7px 7px #fff; /* 内側に白ぼかし */
+    box-shadow: inset 0px 0px 7px 0 #fff; /* 内側に白ぼかし */
   }
   @keyframes fade {
     0% {
@@ -306,8 +306,8 @@ li {
     letter-spacing: 0.1em;
   }
   .home-content .home-content-text > p {
-    background: linear-gradient(transparent 40%, #a7d6ff 50%); /* 数値を小さくするほど太く */
-    padding: 0 20px 5px 20px;
+    background: linear-gradient(transparent 40%, #a7d6ff 50%); /* 数値を小さくするほどマーカーが太く */
+    padding: 0 10px 5px 10px;
   }
   .home-content .home-content-text > p:nth-child(1) {
     display: inline-block;
@@ -346,10 +346,10 @@ li {
     right: 0;
   }
   .home-content .home-content-text .brackets p:nth-child(1) {
-    padding: 5px 35px;
+    padding: 5px 20px 5px 30px;
   }
   .home-content .home-content-text .brackets p:nth-child(2) {
-    padding: 5px 65px;
+    padding: 5px 45px 5px 55px;
   }
   .language-switch {
     font-size: 1.75rem;
@@ -442,20 +442,15 @@ li {
   margin: 0 auto;
 }
 
-
-/* ================================================================================================================================= 背景斜め */
-
-
 /* ----------------------------------------------- aboutセクション */
   .about-wrap {
     /* border: solid 5px red; */
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
   }
   .about-img {
-    margin-left: auto;  /* プロフ写真のみ右寄せ */
-    margin-right: 12%;
+    margin: 100px 100px 0 auto; /* auto指定で右寄せに */
   }
   .about-img img {
     height: 350px;
@@ -501,7 +496,10 @@ li {
     margin-top: 10px;
   }
   .sns-icons-list li {
-    margin-left: 30px;
+    margin-left: 35px;
+  }
+  .sns-icons-list li:hover {
+    opacity: 0.6;
   }
   
 /* ----------------------------------------------- skillsセクション */
@@ -522,15 +520,15 @@ li {
   }
   .skill-name {
     margin: 5% auto;
-    width: 35%;
-    /* display: none; */
+    width: 45%;
     color: #432;
-    font-size: 1.3rem;
-    font-weight: bold;
+    font-size: 1.75rem;
     font-family: "Lobster", cursive;
-    background-color: rgb(226, 226, 226);
+    color: #00bfff;
+    text-shadow: 1px 1px 1px #fff;
+    background-color: #eee;
     padding: 10px 0;
-    border-radius: 25px;
+    border-radius: 50px;
     text-align: center;
     position: relative;
   }
@@ -541,18 +539,10 @@ li {
     left: 50%;
     margin-left: -12px;
     border: 12px solid transparent;
-    border-bottom: 15px solid rgb(226, 226, 226);
+    border-bottom: 15px solid #eee;
   }
-  /* jQuery - hover時に表示される */
-  .text-active {
-    display: block;
-  }
-
 
 /* ----------------------------------------------- serviceセクション */
-  /* .service-wrap {
-    border: solid 5px red;
-  } */
   .service-list {
     display: flex;
     width: 95%;
@@ -560,7 +550,7 @@ li {
   }
   .service-item {
     width: 100%;
-    margin: 30px 15px;
+    margin: 30px 15px 40px 15px;
     padding: 20px;
     background-color: #fefefe;
     border-top: solid 10px #00bfff;
@@ -578,14 +568,14 @@ li {
     margin-bottom: 30px;
   }
   .service-title {
-    font-size: 1.25rem;
+    font-size: 1.45rem;
   }
   .service-title-en {
     font-family: "Lobster", cursive;
     font-size: 1.5rem;
   }
   .service-content {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
   .price-btn-wrap {
     text-align: center;
@@ -651,13 +641,13 @@ li {
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 0.75rem 0;
-    margin: 0 0 0 1.85rem;
+    padding: 0.55rem 0;
+    margin: 0 0 0 45px;
     color: #282936;
+    font-size: 1.2rem;
     font-weight: 700;
     line-height: 1.6;
     text-align: center;
-    /* text-transform: uppercase; */
   }
   span.price-btn:hover .circle {
     width: 100%;
@@ -674,7 +664,7 @@ li {
     font-size: 1.35rem;
     cursor: pointer;
   } */
-  /* --------------- price 料金一覧 */
+  /* ========== price 料金一覧 ========== */
   .mask {
     position: fixed;
     top: 0;
@@ -761,20 +751,8 @@ li {
     font-size: 1.2rem;
   }
   
-  
 /* ----------------------------------------------- worksセクション */
-  .works-container {
-    margin-bottom: 50px;
-  }
-  .works-wrap {
-    /* border: solid 5px red; */
-    overflow: hidden;  /* カルーセルはみ出し部分を隠す */
-    margin-top: 50px;
-  }
-  /* --------------- 制作物一覧 */
   .works-item-list-1, .works-item-list-2, .works-item-list-3 {
-    /* outline: 3px solid yellow; */
-    /* ---------- セレクタ範囲 ---------- */
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
@@ -786,7 +764,6 @@ li {
     z-index: 10;
   }
   .mask-works {
-    /* cursor: pointer; */
     position: relative;
   }
   .works-item-img {
@@ -817,31 +794,50 @@ li {
   .hover-mask:hover {
     opacity: 1;
   }
-  .works-item-title {
-    text-align: center;
-    color: #432;
-    margin: 40px 0 20px 0;
-  }
   .works-item .site-view {
     opacity: 0;
   }
+  .works-item-title {
+    text-align: center;
+    color: #432;
+    margin: 70px 0 20px 0;
+  }
   .works-item-skill {
     position: absolute;
-    bottom: 70px;
-    right: -10px;
-    background-color:rgba(135, 206, 235, 0.9);
-    border: solid 2px #eee;
+    bottom: 16%;
+    left: 45px;
+  }
+  .box-design {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border: solid 3px #70c7ff;
+    background-color: #eee;
+  }
+  .box-design .box-title {
+    position: absolute;
+    top: -27px;
+    left: -3px;
+    padding: 0 10px;
+    height: 25px;
+    line-height: 25px;
+    background: #70c7ff;
     color: #fff;
-    padding: 20px 10px;
-    border-radius: 5px;
-    z-index: 11;
+    border-radius: 5px 5px 0 0;
+  }
+  .box-design p {
+    font-family: 'Lora', cursive , sans-serif;
+    font-size: 1.1rem;
   }
 
 /* ----------------------------------------------- contact セクション */
+  .contact-container {
+    margin-bottom: 5%;
+  }
   #contact {
     /* border: solid 5px red; */
     margin: 0 auto;
-    padding: 15% 0;
     text-align: center;
   }
   .contact-wrap > p {
@@ -907,11 +903,18 @@ li {
   }
   
 /* =================== contact.php =================== */
+#contact-container {
+  animation: loading 1.5s;
+}
+@keyframes loading {
+  0% {opacity: 0;transform: scale(1.5);}
+  100% {opacity: 1;transform: scale(1);}
+}
 .contact-section {
   margin-top: 5%;
 }
 .contact-info {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 .contact-info, .contact-info-en {
   text-align: center;
@@ -919,7 +922,7 @@ li {
 }
 .contact-info-en {
   color: red;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 /* フォーム全体範囲 */
 .contact-wrap {
@@ -1016,11 +1019,11 @@ th span.any {
   box-sizing: border-box;
 }
 .contact-wrap form .contact-table tr textarea {
-  height: 15em;
+  height: 25em;
 }
 /* エラーメッセージ */
 .error_msg {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: #ff0000;
   height: 14px;
 }
@@ -1031,9 +1034,10 @@ th span.any {
 .confirm-btn input {
   display: inline-block;
   background: #eee;
-  margin-top: 40px;
-  padding: .5em 4em;
+  margin-top: 55px;
+  padding: 10px 50px;
   color: #000;
+  font-size: 1.1rem;
   text-decoration: none;
   cursor: pointer;
   border: none;
@@ -1045,6 +1049,28 @@ th span.any {
 .confirm-btn input:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
   opacity: 0.7;
+}
+.btn-to-top {
+  text-align: center;
+  margin: 100px auto;
+}
+/* 共通 戻るボタン */
+a.return {
+  color: #432;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  border: solid 0.5px rgb(173, 173, 173);
+  background-color: #eee;
+  padding: 10px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+a.return:hover {
+  background-color: #fff;
+  border: solid 3px #87CEEB;
+  color: #87CEEB;
+  font-weight: bold;
 }
 /* =================== confirm.php =================== */
 .confirm-container {
@@ -1058,6 +1084,7 @@ th span.any {
 .confirm-container .confirm-title-en {
   margin-bottom: 30px;
   text-align: center;
+  color: red;
 }
 .confirm-container .confirm-text, .confirm-container .confirm-text-en {
   font-size: 1.2rem;
@@ -1068,8 +1095,6 @@ th span.any {
 }
 .confirm-container .confirm-text-en {
   margin-bottom: 30px;
-}
-.confirm-title-en, .confirm-text-en {
   color: red;
 }
 .confirm-wrap {
@@ -1097,23 +1122,6 @@ th span.any {
   text-align: center;
   margin: 50px auto;
 }
-a.return {
-  color: #432;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  border: solid 0.5px rgb(173, 173, 173);
-  background-color: #eee;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-a.return:hover {
-  background-color: #fff;
-  border: solid 3px #87CEEB;
-  color: #87CEEB;
-  font-weight: bold;
-}
 /* ===== 送信ボタン ===== */
 button {
   font-family: inherit;
@@ -1136,7 +1144,6 @@ button svg {
   color: #87CEEB;
   border-radius: 50%;
   padding: 5px;
-  /* transform-origin: center center; */
   transition: transform 0.2s ease-in-out;
 }
 button:hover .svg-wrapper {
@@ -1170,7 +1177,7 @@ button:active {
 .thanks-container {
   text-align: center;
 }
-.thanks-wrap{
+.thanks-wrap {
   max-width: 1000px;
   margin: 50px auto;
   text-align: center;
