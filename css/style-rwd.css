@@ -406,9 +406,17 @@
     }
 
     /* ----------------------------------------------- contactセクション */
+    #contact {
+      width: 95%;
+    }
+    @media screen and (max-width: 570px) {
+      #contact {
+        border-radius: 10%;
+      }
+    }
     .contact-wrap > p {
       font-size: 1.25rem;
-      padding: 20px 40px;
+      padding: 20px;
     }
     @media screen and (max-width: 425px) {
       span.contact-btn {

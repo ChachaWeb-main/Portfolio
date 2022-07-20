@@ -123,14 +123,17 @@ li {
   opacity: 0.7;
 }
 .section-container {
-  margin-bottom: 15%;
+  /* margin-bottom: 15%; */
+}
+.section-container:not(.skills):not(.works) {
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
 .section-title {
   text-align: center;
   position: relative;
 }
 .section-title:not(.price-section):not(.contact-section) {
-  margin: 10% 0 50px 0;
+  margin: 0 0 50px 0;
 }
 .section-title:not(.price-section)::after {  /* 疑似要素でタイトル下に下線を引く */
   content: "";
@@ -524,9 +527,9 @@ li {
     color: #432;
     font-size: 1.75rem;
     font-family: "Lobster", cursive;
-    color: #00bfff;
-    text-shadow: 1px 1px 1px #fff;
-    background-color: #eee;
+    color: #fff;
+    text-shadow: 1px 1px 3px #eee;
+    background-color: #87CEEB;
     padding: 10px 0;
     border-radius: 50px;
     text-align: center;
@@ -539,7 +542,7 @@ li {
     left: 50%;
     margin-left: -12px;
     border: 12px solid transparent;
-    border-bottom: 15px solid #eee;
+    border-bottom: 15px solid #87CEEB;
   }
 
 /* ----------------------------------------------- serviceセクション */
@@ -832,13 +835,16 @@ li {
   }
 
 /* ----------------------------------------------- contact セクション */
-  .contact-container {
-    margin-bottom: 5%;
-  }
   #contact {
-    /* border: solid 5px red; */
     margin: 0 auto;
+    padding-top: 50px;
     text-align: center;
+    max-width: 80%;
+    border-radius: 50%;
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+  }
+  .contact-container {
+    margin-bottom: 100px;
   }
   .contact-wrap > p {
     font-size: 1.5rem;
