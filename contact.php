@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (count($error) === 0) {
     # エラーがないので確認画面に移動
     $_SESSION['form'] = $post;
-    header('Location: confirm.php');
+    header('Location: ./confirm.php');
     exit();
   }
 } else {
