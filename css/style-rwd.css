@@ -163,8 +163,17 @@
         padding: 5px;
         margin-left: 15px;
       }
+      .home-content .home-content-text .brackets p:nth-child(2) {
+        padding: 5px 0px 5px 40px;
+      }
+      .home-content .home-content-text .brackets p:nth-child(3) {
+        padding: 5px 15px 5px 65px;
+      }
       .language-switch {
         font-size: 0.85rem;
+      }
+      .language-switch a:hover {
+        font-size: 1.5rem;
       }
       .language-switch img {
         width: 18px;
@@ -416,7 +425,7 @@
     }
     .box-design {
       margin-top: 0;
-      margin-bottom: 10%;
+      margin-bottom: 20%;
     }
     .box-design p {
       font-size: 1.3rem;
@@ -436,7 +445,7 @@
         font-size: 1rem;
       }
       .box-design {
-        margin-bottom: 20%;
+        margin-bottom: 30%;
       }
       .box-design .box-title {
         font-size: 0.8rem;

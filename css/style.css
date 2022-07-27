@@ -146,7 +146,7 @@ li {
   content: "";
   background-color: #333;
   width: 50px;
-  height: 3px;
+  height: 4px;
   display: block;
   position: absolute;
   bottom: 10px;
@@ -156,7 +156,7 @@ li {
 }
 .section-title .en {
   font-family: "Lobster", cursive;
-  font-size: 3rem;
+  font-size: 2.5rem;
   letter-spacing: 0.15em;
   margin-bottom: 5px;
   text-shadow:
@@ -174,6 +174,7 @@ li {
 }
 .section-title .jp {
   font-size: 1.2rem;
+  letter-spacing: 0.1rem;
   padding-left: 150px;
 }
 /* ===== jQuery - 下からふわっとfadeIn ===== */
@@ -250,7 +251,7 @@ li {
   }
   @media screen and (min-width: 1024px) {
     .nav-list li a {
-      padding: 5px 10px; 
+      padding: 5px; 
     }
   }
   .nav-list li a:link {
@@ -348,7 +349,7 @@ li {
   }
   .home-content .home-content-text > p {
     background: linear-gradient(transparent 40%, #a7d6ff 65%); /* 数値を小さくするほどマーカーが太く */
-    padding: 0 10px 5px 10px;
+    padding: 0 5px 5px 5px;
   }
   .home-content .home-content-text > p:nth-child(1) {
     display: inline-block;
@@ -486,16 +487,16 @@ li {
     /* align-items: center; */
   }
   .about-img {
-    margin: 100px 100px 0 auto; /* auto指定で右寄せに */
+    margin: 80px 120px 0 auto; /* auto指定で右寄せに */
   }
   .about-img img {
-    height: 350px;
-    width: 350px;
+    height: 280px;
+    width: 260px;
     border-radius: 8px;
     box-shadow: -15px -15px 3px 0 rgb(139, 215, 239);
   }
   .about-content {
-    width: 48%;
+    width: 50%;
     padding: 20px 15px 10px 20px;
     margin: 0 5px;
     color: #432;
@@ -504,12 +505,12 @@ li {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.22);
   }
   .about-content .me {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     border-left: double 10px rgb(139, 215, 239);
     padding-left: 15px;
   }
   .about-content .word, .about-content .career {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   .about-content .career > p:nth-child(1) {
     display: inline-block;
@@ -542,13 +543,12 @@ li {
     margin-left: 35px;
   }
   .sns-icons-list li:hover {
-    opacity: 0.6;
+    opacity: 0.5;
   }
   
 /* --------------------------------------------------------- skillsセクション */
   .section-container.skills {
     background-color: #fafafa;
-    /* background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */
   }
   #skills {
     max-width: 1400px;
@@ -564,29 +564,28 @@ li {
   .skill-icon {
     padding-top: 30px;
     margin-bottom: 30px;
-    width: 330px;
+    width: 300px;
     text-align: center;
-    cursor: pointer;
     position: relative;
   }
   .skill-name {
     margin: 5% auto;
-    width: 45%;
+    width: 38%;
     color: #432;
-    font-size: 1.75rem;
+    font-size: 1.35rem;
     font-family: "Lobster", cursive;
     color: #fff;
     text-shadow: 1px 1px 3px #eee;
     background-color: #87CEEB;
-    padding: 10px 0;
-    border-radius: 50px;
+    padding: 5px 0;
+    border-radius: 20px;
     text-align: center;
     position: relative;
   }
   .skill-name::before {
     content: "";
     position: absolute;
-    top: -27px;
+    top: -25px;
     left: 50%;
     margin-left: -12px;
     border: 12px solid transparent;
@@ -594,7 +593,7 @@ li {
   }
   .skill-icon span {
     color: red;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 /* --------------------------------------------------------- serviceセクション */
   .service-list {
@@ -604,8 +603,8 @@ li {
   }
   .service-item {
     width: 100%;
-    margin: 0px 15px 50px 15px;
-    padding: 20px 15px 30px 15px;
+    margin: 0px 15px 30px 15px;
+    padding: 30px 20px;
     background-color: #fefefe;
     border-top: solid 10px #00bfff;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.32);
@@ -613,6 +612,10 @@ li {
   .service-img {
     text-align: center;
     margin-bottom: 20px;
+  }
+  .service-img img {
+    width: 100px;
+    height: 100px;
   }
   .service-title, .service-title-en {
     color: #00bfff;
@@ -629,7 +632,7 @@ li {
     font-size: 1.5rem;
   }
   .service-content {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
   }
   .price-btn-wrap {
     text-align: center;
@@ -976,10 +979,10 @@ li {
   
 /* =================== contact.php =================== */
 #contact-container {
-  animation: loading 1.5s;
+  animation: loading 1s;
 }
 @keyframes loading {
-  0% {opacity: 0;transform: scale(1.5);}
+  0% {opacity: 0;transform: scale(1.2);}
   100% {opacity: 1;transform: scale(1);}
 }
 .contact-section {
@@ -1316,11 +1319,10 @@ button:active {
 }
 #footer .copyright {
   text-align: center;
-  /* padding: 0 0 5px 0; */
 }
 #footer span {
   font-family: "Lobster", cursive;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
   /* ----------------------------------------------- スクロール＆ページトップ */
   #page-top {

@@ -1,66 +1,89 @@
 <?php
-#セッション変数使えるように
-session_start();
+  #セッション変数使えるように
+  session_start();
 
-$error = [];
-#POSTで呼び出された時だけ、以下のエラー判定を動作するように
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  # POSTの値をフィルタ(危険な文字をなくす)で安全性を高める
-  $post = filter_input_array(INPUT_POST, $_POST);
-  # フォーム送信時にエラーチェック
-  if (empty($post['name'])) {
-    # 空の場合
-    $error['name'] = 'blank';
-  } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9]{1,50}+$/u", $post['name'])) {
-    # 正規表現に合致する場合(ひらがな・漢字・アルファベット, 1 ~ 50字)
+  # ===== CSRF対策 トークン =====
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $isTokenValid = false;
+    // $_POST['token']と$_SESSION['token']が空ではなく、値が一致する時のみ$isTokenValidをtrueにする
+    if (!empty($_POST['token']) && !empty($_SESSION['token'])){
+        if ($_POST['token'] === $_SESSION['token']){
+            $isTokenValid = true;
+        }
+    }
+    if ($isTokenValid === true){
+        # トークンが有効の時 ＝ トークン値が一致する時は処理が進む
+    }
+    if ($isTokenValid === false){
+        // トークンが無効の時
+        echo "不正な処理が行われました";
+        // header('Location: ./index.html');
+        exit();
+    }
+  }
+  # ===== CSRF対策 トークン生成 =====
+  $token = bin2hex(random_bytes(32));
+  $_SESSION['token'] = $token;
+
+  $error = [];
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    # POSTの値をフィルタ(危険な文字をなくす)で安全性を高める
+    $post = filter_input_array(INPUT_POST, $_POST);
+    if (empty($post['name'])) {
+      $error['name'] = 'blank';
+    } elseif (mb_strlen($post['name']) > 50) {
+      # 50文字以上だった場合
+      $error['name'] = 'exceed';
+    } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9　 ]+$/", $post['name'])) {
+      # ひらがな・カナ・漢字・英数・全半空白
+    // } elseif (preg_match("/\s+/", $post['name'])) {
+    //   # 空白
+    } else {
+      $error['name'] = 'invaild';
+    }
+
+    if (empty($post['email'])) {
+      $error['email'] = 'blank';
+    } elseif (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
+      $error['email'] = 'invaild';
+    }
+
+    #入力任意、正規表現に合致した場合にエラーが出るように
+    if (preg_match("/\D+\n\r/", $post['phone'])) {
+      # 半角数字以外の場合
+      $error['phone'] = 'invaild';
+    } elseif (mb_strlen($post['phone']) > 20) {
+      # 20文字以上だった場合
+      $error['phone'] = 'exceed';
+    } else {
+      # エラーなし
+    }
+
+    if (empty($post['message'])) {
+      $error['message'] = 'blank';
+    } elseif (mb_strlen($post['message']) > 500) {
+      # 500文字以上だった場合
+      $error['message'] = 'exceed';
+    }
+    // } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9　 ]+$/u", $post['message'])) {
+    //   # 正規表現に合致する場合(ひらがな・カナ・漢字・半英数字)
+    //   # エラーなし
+    // } else {
+    //   $error['message'] = 'invaild';
+    // }
+
+    # 上記で$errorの配列数カウントが０であれば ＝ 上記で設定したエラーに一つも当てはまらない
+    if (count($error) === 0) {
+      $_SESSION['form'] = $post;
+      # ===== 確認画面に移動 ======
+      header('Location: ./confirm.php');
+      exit();
+    }
   } else {
-    # 正規表現に合致しない場合
-    $error['name'] = 'invaild';
+    if (isset($_SESSION['form'])) {
+      $post = $_SESSION['form'];
+    }
   }
-
-  if (empty($post['email'])) {
-    # 空の場合
-    $error['email'] = 'blank';
-  } elseif (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
-    $error['email'] = 'invaild';
-  }
-
-  #任意設定なので他とは違い、指定した正規表現に合致した場合にエラーが出るようにした
-  if (preg_match("/\D+/", $post['phone'])) {
-    # 正規表現に合致する場合＝数字,全半角空欄&ハイフンに合致しない場合
-    $error['phone'] = 'invaild';
-  } else {
-    # 正規表現に合致しない場合、エラーメッセージなし
-  }
-
-  if (empty($post['message'])) {
-    # 空の場合
-    $error['message'] = 'blank';
-  } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9]{1,500}+$/u", $post['message'])) {
-    # 正規表現に合致する場合(ひらがな・漢字・アルファベット, 1 ~ 500字)
-  } else {
-    # 正規表現に合致しない場合
-    $error['message'] = 'invaild';
-  }
-
-  # 上記で$errorの配列数カウントが０であれば ＝ 上記で設定したエラーに一つも当てはまらない
-  if (count($error) === 0) {
-    # エラーがないので確認画面に移動
-    $_SESSION['form'] = $post;
-    header('Location: ./confirm.php');
-    exit();
-  }
-} else {
-  if (isset($_SESSION['form'])) {
-    $post = $_SESSION['form'];
-  }
-}
-
-# ----- 代入値確認用 -----
-// echo '代入値の確認';
-// echo '<pre>';
-// var_dump($error);
-// echo '</pre>';
 ?>
 
 <!DOCTYPE html>
@@ -102,13 +125,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <li><a href="index.html#skills">スキル</a></li>
           <li><a href="index.html#service">サービス</a></li>
           <li><a href="index.html#works">制作物・実績</a></li>
-          <div class="contact-show">
-            <li>お問い合わせ</li>
-          </div>
+          <div class="contact-show"><li>お問い合わせ</li></div>
+          <li><a class="twitter-icon" href="https://twitter.com/Chacha_P_C_Log" target="_blank" rel="noopener noreferrer"><img src="./img/icons/twitter.png" width="27px" alt="Twitterアイコン"></a></li>
+          <li><a class="github-icon" href="https://github.com/ChachaWeb-main" target="_blank" rel="noopener noreferrer"><img src="./img/icons/github.png" width="27px" alt="GitHubアイコン"></a></li>
         </ul>
       </nav>
     </div>
   </header>
+
+  <?php 
+# ----- 代入値確認用 -----
+// echo '<br>';
+// echo '<br>';
+// echo '<br>';
+// echo 'エラー判定代入値の確認';
+// echo '<pre>';
+// var_dump($error);
+// echo '</pre>';
+// echo '生成されたトークン $token';
+// echo '<pre>';
+// var_dump($token);
+// echo '</pre>';
+// echo "SESSION に保存されたトークン";
+// echo '<pre>';
+// var_dump($_SESSION['token']);
+// echo '</pre>';
+?>
 
   <main id="contact-container">
     <br>
@@ -119,21 +161,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div class="contact-wrap">
       <form action="" method="post" novalidate>
+        <!-- 生成されたトークンを出力 -->
+        <input type="hidden" name='token' value="<?php echo $_SESSION['token'] ?>">
         <p class="contact-info">お問い合わせ内容をご入力の上、「確認画面へ」をクリックしてください。</p>
         <p class="contact-info-en">Please enter the contact form and click "To Confirm".</p>
-
         <table class="contact-table">
           <tr>
             <th>名前 | Name<span class="required">必須 | Required</span></th>
             <td>
-              <input size="20" type="text" class="wide" name="name" placeholder="ex).  山田太郎 / Taro Yamada" value="<?php echo htmlspecialchars($post['name']); ?>" />
+              <input size="20" type="text" class="wide" name="name" placeholder="ex).  山田太郎 | Taro Yamada" value="<?php echo htmlspecialchars($post['name']); ?>" autofocus/>
               <!-- Notice: Undefined index の防止 -->
               <?php if (!empty($error['name'])) : ?>
                 <?php if ($error['name'] === 'blank') : ?>
-                  <p class="error_msg">※お名前をご記入下さい</p>
+                  <p class="error_msg">※お名前をご記入下さい。| Please fill in your name.</p>
                 <?php endif; ?>
                 <?php if ($error['name'] === 'invaild') : ?>
-                  <p class="error_msg">※お名前は50字以内で入力して下さい</p>
+                  <p class="error_msg">※使用できない文字が含まれています。| Includes characters that can't be used.</p>
+                <?php endif; ?>
+                <?php if ($error['name'] === 'exceed') : ?>
+                  <p class="error_msg">※50字以内で入力して下さい。| Please enter it within 50 characters.</p>
                 <?php endif; ?>
               <?php endif; ?>
             </td>
@@ -141,13 +187,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <tr>
             <th>メール | E-mail<span class="required">必須 | Required</span></th>
             <td>
-              <input size="30" type="text" class="wide" name="email" placeholder="ex).  example@gmail.com" value="<?php echo htmlspecialchars($post['email']); ?>" required />
+              <input size="30" type="text" class="wide" name="email" placeholder="ex).  example@gmail.com" value="<?php echo htmlspecialchars($post['email']); ?>" />
               <?php if (!empty($error['email'])) : ?>
                 <?php if ($error['email'] === 'blank') : ?>
-                  <p class="error_msg">※メールアドレスをご記入下さい</p>
+                  <p class="error_msg">※メールアドレスをご記入下さい。| Please fill in your E-mail.</p>
                 <?php endif; ?>
                 <?php if ($error['email'] === 'invaild') : ?>
-                  <p class="error_msg">※正しい形式ではありません</p>
+                  <p class="error_msg">※正しい形式ではありません。| It's not the correct format.</p>
                 <?php endif; ?>
               <?php endif; ?>
             </td>
@@ -156,10 +202,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <th>電話番号 | Phone<span class="any">任意 | Any</sapn>
             </th>
             <td>
-              <input size="30" type="text" class="wide" name="phone" placeholder="ex).  01234567890   ※半角数字のみ" value="<?php echo htmlspecialchars($post['phone']); ?>" />
+              <input size="30" type="text" class="wide" name="phone" placeholder="ex).  01234567890   ※半角数字のみ | Only half -width numbers" value="<?php echo htmlspecialchars($post['phone']); ?>" />
               <?php if (!empty($error['phone'])) : ?>
                 <?php if ($error['phone'] === 'invaild') : ?>
-                  <p class="error_msg">※電話番号は半角数字をご記入下さい</p>
+                  <p class="error_msg">※半角数字のみご記入下さい。| Please fill in only half-width numbers</p>
+                <?php endif; ?>
+                <?php if ($error['phone'] === 'exceed') : ?>
+                  <p class="error_msg">※20字以内で入力して下さい。| Please enter it within 20 characters.</p>
                 <?php endif; ?>
               <?php endif; ?>
             </td>
@@ -167,13 +216,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <tr>
             <th>お問い合わせ内容 | Message<br><br><span class="required last">必須 | Required</span></th>
             <td>
-              <textarea name="message" cols="50" rows="5" placeholder="お見積もりは無料で承ります。まずはお気軽にお問い合わせくださいませ / I accept quotes for free. Please feel free to contact us first." required><?php echo htmlspecialchars($post['message']); ?></textarea>
+              <textarea name="message" cols="50" rows="5" placeholder="お見積もりは無料で承ります。まずはお気軽にお問い合わせくださいませ。| I accept estimation for free. Please feel free to contact us first." required><?php echo htmlspecialchars($post['message']); ?></textarea>
               <?php if (!empty($error['message'])) : ?>
                 <?php if ($error['message'] === 'blank') : ?>
-                  <p class="error_msg">※お問い合わせ内容をご記入下さい</p>
+                  <p class="error_msg">※お問い合わせ内容をご記入下さい。| Please fill in the inquiry.</p>
                 <?php endif; ?>
                 <?php if ($error['message'] === 'invaild') : ?>
-                  <p class="error_msg">※５００字以内で入力して下さい</p>
+                  <p class="error_msg">※使用できない文字が含まれています。| Includes characters that can't be used.</p>
+                <?php endif; ?>
+                <?php if ($error['message'] === 'exceed') : ?>
+                  <p class="error_msg">※500字以内で入力して下さい。| Please enter it within 500 characters.</p>
                 <?php endif; ?>
               <?php endif; ?>
             </td>
@@ -183,8 +235,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p class="confirm-btn">
           <span><input type="submit" name="confirm" value="確認画面へ | To Confirm" /></span>
         </p>
-        <br>
-        <br>
+        <div class="btn-to-top">
+          <a href="./index.html" class="return"><span>トップへ戻る | Return to Top</span></a>
+        </div>
 
       </form>
     </div>

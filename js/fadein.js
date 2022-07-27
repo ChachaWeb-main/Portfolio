@@ -26,7 +26,12 @@ function fadeInDisplay() {
 fadeInDisplay();
 // 実行
 $(function() {
+  // スクロール時
   $(window).scroll(function () {
+    fadeInDisplay();
+  });
+  // ページ読み込み時
+  $(window).on('load', function() {
     fadeInDisplay();
   });
 });

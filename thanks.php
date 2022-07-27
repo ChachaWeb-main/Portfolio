@@ -32,13 +32,13 @@
   【 電話番号 | Phone Number 】
   {$post['phone']}
 
-  【 お問い合わせ内容 | Content 】
+  【 お問い合わせ内容 | Contents of inquiry 】
   {$post['message']}
 
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Chacha WEB Create
-  佐々木 大輔 (チャチャ)
-  Daisuke Sasaki (Chacha)
+    佐々木 大輔 (チャチャ)
+    Daisuke Sasaki (Chacha)
   EOM;
   # 送信元 = 自身
   $headers = "From: chacha.forba.634@gmail.com";
