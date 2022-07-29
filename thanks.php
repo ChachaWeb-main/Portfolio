@@ -14,7 +14,7 @@
   # 送信先アドレス = 相手方
   $to = $post['email'];
   # メール件名
-  $subject = $post['name']. "様 ". " お問い合わせありがとうございます。\n\r" . "Dear. ". $post['name']. "  Thank you for your inquiry." ;
+  $subject = $post['name']. " 様 ". " お問い合わせありがとうございます。" . "Dear. ". $post['name']. " , Thank you for your inquiry." ;
   # メッセージ本文を視覚的に見やすく格納（ヒアドキュメント）
   $message = <<< EOM
   お問い合わせありがとうございます。
@@ -24,16 +24,16 @@
   I accepted with the following contents.
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   【 お名前 | Your Name 】
-  {$post['name']}
+      {$post['name']}
 
   【 メール | E-mail 】
-  {$post['email']}
+      {$post['email']}
 
   【 電話番号 | Phone Number 】
-  {$post['phone']}
+      {$post['phone']}
 
   【 お問い合わせ内容 | Contents of inquiry 】
-  {$post['message']}
+      {$post['message']}
 
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Chacha WEB Create

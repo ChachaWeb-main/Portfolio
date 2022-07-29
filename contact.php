@@ -35,7 +35,7 @@
       # 50文字以上だった場合
       $error['name'] = 'exceed';
     } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9　 ]+$/", $post['name'])) {
-      # ひらがな・カナ・漢字・英数・全半空白
+      # ひらがな・カナ・漢字・英数字・数字・全半空白
     // } elseif (preg_match("/\s+/", $post['name'])) {
     //   # 空白
     } else {
@@ -65,8 +65,8 @@
       # 500文字以上だった場合
       $error['message'] = 'exceed';
     }
-    // } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9　 ]+$/u", $post['message'])) {
-    //   # 正規表現に合致する場合(ひらがな・カナ・漢字・半英数字)
+    // } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9　 ,.、。]+$/u", $post['message'])) {
+    //   # 正規表現に合致する場合(ひらがな・カナ・漢字・半英数字・全半空白・,.、。)
     //   # エラーなし
     // } else {
     //   $error['message'] = 'invaild';

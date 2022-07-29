@@ -25,12 +25,12 @@
 
 <body>
   <!-- サイトアクセス時ローディングアニメーション -->
-  <div class="fadeIn">
+  <!-- <div class="fadeIn">
     <div id="loading-wrapper">
       <div id="loading-text">Loading</div>
       <div id="loading-content"></div>
     </div>
-  </div>
+  </div> -->
   <div id="home" class="big-bg">
     <!-- header -->
     <header id="header" class="header-wrap">
@@ -216,45 +216,53 @@
         </div>
         <!-- service-wrap -->
         <div class="service-wrap">
-          <ul class="service-list fadein-under">
-            <li class="service-item">
-              <div class="service-img">
-                <img src="./img/icons/html-tag.png" alt="コーディングアイコン">
-              </div>
-              <p class="service-title"><span>コーディング</span></p>
-              <p class="service-content">
-                HTML&CSS、Bootstrapを用いた静的ウェブサイトを制作いたします。<br>
-                タブレットやスマホ、各端末でも見やすいレスポンシブなデザイン、<br>
-                また、お客様からのご要望があれば、JavaScript・jQueryを用いて当サイトのような動きのあるサイト制作にも対応いたします。
-              </p>
-            </li>
-            <li class="service-item">
-              <div class="service-img">
-                <img src="./img/icons/wordpress-logo.png" alt="WordPressアイコン">
-              </div>
-              <p class="service-title"><span>WordPressサイト制作</span></p>
-              <p class="service-content">
-                WordPressを使用し、ホームページやブログ、お知らせなど、お客様自身で手軽に更新・管理できるウェブサイトを制作いたします。<br>
-                既存のテーマでの構築、又はイチからオリジナルテーマを作成しサイト構築も可能です。
-              </p>
-            </li>
-            <li class="service-item">
-              <div class="service-img">
-                <img src="./img/icons/webSite.png" alt="WebSiteアイコン">
-              </div>
-              <p class="service-title"><span>機能追加・サイト改修</span></p>
-              <p class="service-content">
-                お持ちのWebサイトに、お問い合わせフォーム等の新たな機能追加、アニメーションで動きをつけたり等の修正を行います。
-              </p>
-            </li>
-          </ul>
-          <div class="price-btn-wrap show-modal">
-            <span class="price-btn more fadein-under">
-              <span class="circle" aria-hidden="true">
-                <span class="icon arrow"></span>
+          <div class="fadein-under">
+            <ul class="service-list">
+              <li class="service-item">
+                <div class="service-img">
+                  <img src="./img/icons/html-tag.png" alt="コーディングアイコン">
+                </div>
+                <p class="service-title"><span>コーディング</span></p>
+                <p class="service-content">
+                  HTML&CSS・Bootstrapを用いた、LPや静的ウェブサイトを制作いたします。<br>
+                  タブレットやスマホ、各端末でも見やすいレスポンシブなデザイン、<br>
+                  また、お客様からのご要望があれば、JavaScript・jQueryを用いて当サイトのような動きのあるサイト制作にも対応いたします。
+                </p>
+                <br>
+                <p class="servicre-deadline">納期：<span>基本的に１週間〜</span><br>※ 内容・ボリュームによって変動 ※</p>
+              </li>
+              <li class="service-item">
+                <div class="service-img">
+                  <img src="./img/icons/wordpress-logo.png" alt="WordPressアイコン">
+                </div>
+                <p class="service-title"><span>WordPressサイト制作</span></p>
+                <p class="service-content">
+                  WordPressを使用し、ホームページやブログ、お知らせなど、お客様自身で手軽に更新・管理できるウェブサイトを制作いたします。<br>
+                  既存のテーマでの構築、又はイチからオリジナルテーマを作成しサイト構築も可能です。
+                </p>
+                <br>
+                <p class="servicre-deadline">納期：<span>基本的に1ヶ月〜</span><br>※ 内容・ボリュームによって変動 ※</p>
+              </li>
+              <li class="service-item">
+                <div class="service-img">
+                  <img src="./img/icons/webSite.png" alt="WebSiteアイコン">
+                </div>
+                <p class="service-title"><span>機能追加・サイト改修</span></p>
+                <p class="service-content">
+                  お持ちのWebサイトに、お問い合わせフォーム等の新たな機能追加、アニメーションで動きをつけたり等の修正を行います。
+                </p>
+                <br>
+                <p class="servicre-deadline">納期：<span>基本的に数日〜</span><br>※ 内容・ボリュームによって変動 ※</p>
+              </li>
+            </ul>
+            <div class="price-btn-wrap show-modal">
+              <span class="price-btn more">
+                <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                </span>
+                <a><span class="price-show">価格を見る</span></a>
               </span>
-              <a><span class="price-show">価格を見る</span></a>
-            </span>
+            </div>
           </div>
           <!-- マスク-->
           <div class="mask" id="price-modal">
@@ -271,15 +279,15 @@
               <div class="price-table">
                 <table>
                   <tr>
-                    <th>HTML&CSSコーディング</th>
+                    <th>HTML&CSSコーディング(LP)</th>
                     <td>¥15,000 〜 </td>
                   </tr>
                   <tr>
-                    <th>レスポンシブ対応</th>
+                    <th>レスポンシブ対応 (タブレット・スマホサイズ)</th>
                     <td> ＋ ¥5,000 〜 </td>
                   </tr>
                   <tr>
-                    <th>アニメーション追加</th>
+                    <th>アニメーション実装 (サイトに動きをつける)</th>
                     <td> ＋ ¥5,000 〜 </td>
                   </tr>
                   <tr>
@@ -297,7 +305,7 @@
                 </table>
               </div>
               <br>
-              <p class="price-cont">上記は参考価格となり、サイトの規模によっても変動いたします。<br>詳しいお見積もりは、お問い合わせフォームよりご相談くださいませ。</p>
+              <p class="price-cont">上記は参考価格です。ご依頼の内容やボリュームによって価格変動いたします。<br>詳しいお見積もり、その他ご不明点はお気軽にご相談くださいませ。</p>
             </div>
           </div>
         </div>

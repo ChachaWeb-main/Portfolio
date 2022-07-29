@@ -602,9 +602,10 @@ li {
     margin: 0 auto;
   }
   .service-item {
+    position: relative;
     width: 100%;
     margin: 0px 15px 30px 15px;
-    padding: 30px 20px;
+    padding: 20px 20px 55px 20px;
     background-color: #fefefe;
     border-top: solid 10px #00bfff;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.32);
@@ -633,6 +634,15 @@ li {
   }
   .service-content {
     font-size: 1.15rem;
+  }
+  .servicre-deadline {
+    position: absolute;
+    bottom: 10px;
+    color: red;
+    text-shadow: 3px 3px 1px rgb(230, 229, 229);
+  }
+  .servicre-deadline span {
+    color: #432;
   }
   .price-btn-wrap {
     text-align: center;
@@ -1184,7 +1194,8 @@ a.return:hover {
 }
 .confirm-content .form-item {
   margin-bottom: 10px;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
+  color: #00bfff;
 }
 /* 最初の.form-item以外 */
 .confirm-content .form-item:not(:first-child) {
