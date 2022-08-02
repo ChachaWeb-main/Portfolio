@@ -358,7 +358,7 @@
       display: block;
       width: 100%;
       font-size: 1.2rem;
-      padding: 10px 0 8px 0;
+      padding: 10px 0 5px 0;
     }
     @media screen and (max-width: 620px) {
       .price-table table th {
@@ -371,10 +371,10 @@
         left: 5%;
       }
       .price-table table th {
-        font-size: 0.85em;
+        font-size: 0.8rem;
       }
       .price-table table td {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
       }
     }
     p.price-cont {
@@ -471,11 +471,11 @@
     @media screen and (max-width: 425px) {
       span.contact-btn {
         padding: 7px 10px;
-        margin: 0 10px 50px 15px;
+        margin: 0 10px 50px 10px;
       }
       .sns-link-icon .twitter-icon {
         padding: 10px;
-        margin-left: 10px;
+        margin: 0 5px 0 10px;
       }
     }
     /* =================== contact.php =================== */
@@ -489,6 +489,7 @@
     .contact-wrap form .contact-table tr td {
       width: 80%;
       margin: 0 auto;
+      padding: 10px 0 35px 0;
     }
     th span {
       padding: 4px 5px;

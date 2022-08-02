@@ -1,22 +1,24 @@
 <?php
-  # contact.phpのセッション変数を受け取る
+  # セッション変数を受け取る
   session_start();
 
-  # 直リンクアクセスであれば、戻す!
+  # 直アクセスであった場合、入力画面に戻す!
   if (!isset($_SESSION['form'])) {
     header('Location: contact.php');
   } else {
+    # 入力画面からのアクセスであればセッションデータを取り出す＝確認画面を表示
     $post = $_SESSION['form'];
   }
 
   # メールの日本語設定
   mb_language("Japanese");
   mb_internal_encoding("UTF-8");
-  # 自分へのメール通知設定
+  # 送信ボタンが押された時
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    # ===== 自分へのメール通知設定 =====
     $to = 'chacha.forba.634@gmail.com';
     $from = $post['email'];
-    $subject = 'Cahcah Web Createに '. $post['name']. " 様より". ' お問い合わせが届きました';
+    $subject = 'Cahcah Web Create に '. $post['name']. " 様より,". ' お問い合わせが届きました';
     $body = <<<EOT
       名前： {$post['name']}
       メールアドレス： {$post['email']}
@@ -24,9 +26,11 @@
       内容：
       {$post['message']}
       EOT;
-    # メール送信設定
+    # ===== メール送信設定 =====
+    // var_dump($to, $subject, $body, $form);
+    // exit();
     mb_send_mail($to, $subject, $body, "From: {$from}");
-    # お礼画面 thanks.phpへ
+    # お礼画面 thanks.phpへ移動
     header('Location: ./thanks.php');
     exit();
   }
@@ -62,9 +66,6 @@
       <p class="confirm-text-en">Is it okay to contact me with the following ?<br>If there is no problem, click the "Send" button. </p>
       <div class="confirm-wrap">
         <div class="confirm-content">
-        <!-- トークン値の確認 -->
-        <?php echo 'SESSTION, 保存されたトークン：'; echo $_SESSION['token']; echo '<br>'; ?>
-        <?php echo 'POST, 送られてきたトークン：'; echo $post['token']; ?>
           <div class="form-item">&diams; 名前 | Name</div>
           <span class="output"><?php echo htmlspecialchars($post['name']); ?></span>
           <div class="form-item">&diams; メールアドレス | E-mail</div>

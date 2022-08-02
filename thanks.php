@@ -1,20 +1,18 @@
 <?php 
   session_start();
 
-  # 直リンクアクセスであれば、戻す!
   if (!isset($_SESSION['form'])) {
       header('Location: contact.php');
   } else {
       $post = $_SESSION['form'];
   }
 
-  // # メールの日本語設定
   mb_language("Japanese");
   mb_internal_encoding("UTF-8");
   # 送信先アドレス = 相手方
   $to = $post['email'];
   # メール件名
-  $subject = $post['name']. " 様 ". " お問い合わせありがとうございます。" . "Dear. ". $post['name']. " , Thank you for your inquiry." ;
+  $subject = $post['name']. " 様,". " お問い合わせありがとうございます。" . "Dear. ". $post['name']. " , Thank you for your inquiry." ;
   # メッセージ本文を視覚的に見やすく格納（ヒアドキュメント）
   $message = <<< EOM
   お問い合わせありがとうございます。
@@ -43,8 +41,9 @@
   # 送信元 = 自身
   $headers = "From: chacha.forba.634@gmail.com";
 
-  // var_dump($to, $subject, $message, $headers);
   # メール送信設定
+  // var_dump($to, $subject, $message, $headers);
+  // exit();
   mb_send_mail($to, $subject, $message, $headers);
 
   # 最後にセッション(入力データ)を消去

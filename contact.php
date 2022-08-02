@@ -1,11 +1,11 @@
 <?php
-  #セッション変数使えるように
-  session_start();
+  # セッション変数使えるように (WEBはそのページの値を次の画面に渡さない＝セッションが切れるため、ページまたいでも値を保持するように)
+  session_start(); 
 
-  # ===== CSRF対策 トークン =====
+  # ===== CSRF対策 トークン比較 =====
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $isTokenValid = false;
-    // $_POST['token']と$_SESSION['token']が空ではなく、値が一致する時のみ$isTokenValidをtrueにする
+    # $_POST['token']と$_SESSION['token']が空ではなく、値が一致する時のみ$isTokenValidをtrueにする
     if (!empty($_POST['token']) && !empty($_SESSION['token'])){
         if ($_POST['token'] === $_SESSION['token']){
             $isTokenValid = true;
@@ -15,8 +15,8 @@
         # トークンが有効の時 ＝ トークン値が一致する時は処理が進む
     }
     if ($isTokenValid === false){
-        // トークンが無効の時
-        echo "不正な処理が行われました";
+        # トークンが無効の時
+        echo "<h1 style='color:red;'>不正な処理が行われました！</h1>";
         // header('Location: ./index.html');
         exit();
     }
@@ -25,10 +25,13 @@
   $token = bin2hex(random_bytes(32));
   $_SESSION['token'] = $token;
 
+  # ===== バリデーション =====
   $error = [];
+  # フォームの送信時＝POSTで呼びだられた時のみにエラーチェックする
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    # POSTの値をフィルタ(危険な文字をなくす)で安全性を高める
+    # formから直接の値($_POST)を扱うのはセキュリティリスクが高いため、filter_input_array → POSTの値をフィルタリングして安全性を高める(危険な文字をなくす)
     $post = filter_input_array(INPUT_POST, $_POST);
+    # =====「名前」
     if (empty($post['name'])) {
       $error['name'] = 'blank';
     } elseif (mb_strlen($post['name']) > 50) {
@@ -36,20 +39,18 @@
       $error['name'] = 'exceed';
     } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9　 ]+$/", $post['name'])) {
       # ひらがな・カナ・漢字・英数字・数字・全半空白
-    // } elseif (preg_match("/\s+/", $post['name'])) {
-    //   # 空白
+      # エラーなし
     } else {
       $error['name'] = 'invaild';
     }
-
+    # =====「メール」
     if (empty($post['email'])) {
       $error['email'] = 'blank';
     } elseif (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
       $error['email'] = 'invaild';
     }
-
-    #入力任意、正規表現に合致した場合にエラーが出るように
-    if (preg_match("/\D+\n\r/", $post['phone'])) {
+    # =====「電話番号」
+    if (preg_match("/[^0-9 ]/", $post['phone'])) {
       # 半角数字以外の場合
       $error['phone'] = 'invaild';
     } elseif (mb_strlen($post['phone']) > 20) {
@@ -59,27 +60,41 @@
       # エラーなし
     }
 
+    // if (empty($post['message'])) {
+    //   $error['message'] = 'blank';
+    // } elseif (mb_strlen($post['message']) > 500) {
+    //   # 500文字以上だった場合
+    //   $error['message'] = 'exceed';
+    // } else {
+    //   # エラーなし
+    // }
+
+    # =====「問い合わせ内容」
     if (empty($post['message'])) {
       $error['message'] = 'blank';
     } elseif (mb_strlen($post['message']) > 500) {
       # 500文字以上だった場合
       $error['message'] = 'exceed';
+    } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9　 ,.、。]+$/u", $post['message'])) {
+      # 正規表現に合致する場合(ひらがな・カナ・漢字・半英数字・全半空白・記号,.、。)
+      # エラーなし
+    } elseif (preg_match("/\r\n/", $post['message'])) {
+      # 改行があった場合
+      # エラーなし
+    } else {
+      $error['message'] = 'invaild';
     }
-    // } elseif (preg_match("/^[ぁ-んァ-ヶ一ー-龠a-zA-Z0-9　 ,.、。]+$/u", $post['message'])) {
-    //   # 正規表現に合致する場合(ひらがな・カナ・漢字・半英数字・全半空白・,.、。)
-    //   # エラーなし
-    // } else {
-    //   $error['message'] = 'invaild';
-    // }
 
-    # 上記で$errorの配列数カウントが０であれば ＝ 上記で設定したエラーに一つも当てはまらない
+    # 上記で$errorの配列数カウントが０であれば ＝ 上記で設定したエラーに一つも当てはまらなければ確認画面confiem.phpへ
     if (count($error) === 0) {
+      # postの内容をセッションに代入
       $_SESSION['form'] = $post;
-      # ===== 確認画面に移動 ======
+      # 確認画面 contact.phpへ移動
       header('Location: ./confirm.php');
       exit();
     }
   } else {
+    # セッションデータがあるならデータを再現 (入力画面でリロードしたり、確認画面から修正で入力画面に戻った際etc) 
     if (isset($_SESSION['form'])) {
       $post = $_SESSION['form'];
     }
@@ -169,6 +184,7 @@
           <tr>
             <th>名前 | Name<span class="required">必須 | Required</span></th>
             <td>
+              <!-- 入力内容を送信時に再現 → value属性 -->
               <input size="20" type="text" class="wide" name="name" placeholder="ex).  山田太郎 | Taro Yamada" value="<?php echo htmlspecialchars($post['name']); ?>" autofocus/>
               <!-- Notice: Undefined index の防止 -->
               <?php if (!empty($error['name'])) : ?>
@@ -199,8 +215,7 @@
             </td>
           </tr>
           <tr>
-            <th>電話番号 | Phone<span class="any">任意 | Any</sapn>
-            </th>
+            <th>電話番号 | Phone<span class="any">任意 | Any</sapn></th>
             <td>
               <input size="30" type="text" class="wide" name="phone" placeholder="ex).  01234567890   ※半角数字のみ | Only half -width numbers" value="<?php echo htmlspecialchars($post['phone']); ?>" />
               <?php if (!empty($error['phone'])) : ?>
@@ -216,6 +231,7 @@
           <tr>
             <th>お問い合わせ内容 | Message<br><br><span class="required last">必須 | Required</span></th>
             <td>
+              <!-- value属性ないためタグ間に入力値 -->
               <textarea name="message" cols="50" rows="5" placeholder="お見積もりは無料で承ります。まずはお気軽にお問い合わせくださいませ。| I accept estimation for free. Please feel free to contact us first." required><?php echo htmlspecialchars($post['message']); ?></textarea>
               <?php if (!empty($error['message'])) : ?>
                 <?php if ($error['message'] === 'blank') : ?>

@@ -99,16 +99,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  list-style: none;
 }
 html {
   font-size: 100%;
+  min-height: var(--sp_height);
 }
 body {
   font-family: 'Noto Sans JP', sans-serif;
   color: #432;
-  /* background-color: #ccf1ff; */
-  /* padding-top: 55px;  ヘッダー固定した時に後ろに要素が隠れないように */
+  min-height: var(--sp_height);
 }
 img {
   max-width: 100%;
@@ -145,19 +144,19 @@ li {
 .section-title:not(.price-section)::after {  /* 疑似要素でタイトル下に下線を引く */
   content: "";
   background-color: #333;
-  width: 50px;
+  width: 43px;
   height: 4px;
   display: block;
   position: absolute;
   bottom: 10px;
   left: 0;
-  right: 50px;
+  right: 45px;
   margin: 0 auto;
 }
 .section-title .en {
   font-family: "Lobster", cursive;
   font-size: 2.5rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   margin-bottom: 5px;
   text-shadow:
     0 1px rgb(220, 217, 217),
@@ -174,7 +173,6 @@ li {
 }
 .section-title .jp {
   font-size: 1.2rem;
-  letter-spacing: 0.1rem;
   padding-left: 150px;
 }
 /* ===== jQuery - 下からふわっとfadeIn ===== */
@@ -184,7 +182,8 @@ li {
   transform: translateY(100px);
   transition: opacity 2s, visibility 2s, transform 1s;
 }
-.fadein-add {  /* フェードイン時に入るクラス */
+/* フェードイン時に入るクラス */
+.fadein-add {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
@@ -284,6 +283,8 @@ li {
   /* ===== メイン背景画像 ===== */
   .big-bg {
     min-height: 100vh; /* 100vhとすることで画面の表示領域の高さいっぱいに画像を広げる */
+    /* min-height: var(--sp_height); */
+    height: calc(var(--vh, 1vh) * 100);
   }
   #mainvisual .fade li img {
     position: absolute;
@@ -314,7 +315,6 @@ li {
     bottom: 0;
     left: 0;
     right: 0;
-    box-shadow: inset 0px 0px 10px 0 #fff; /* 内側に白ぼかし */
     overflow: hidden;
   }
   @keyframes fade {
@@ -404,7 +404,7 @@ li {
     margin-right: 15px;
   }
   .language-switch a {
-    color: #87CEEB;
+    color: #00bFFF;
     transition: 0.3s;
   }
   .language-switch a:hover {
@@ -474,7 +474,11 @@ li {
   }
 
   /* 各セクションの横幅を固定 */
-  #about, #service, #works, #contact {
+  #about {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  #skills, #service, #works, #contact {
     max-width: 1300px;
     margin: 0 auto;
   }
@@ -550,10 +554,6 @@ li {
   .section-container.skills {
     background-color: #fafafa;
   }
-  #skills {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
   .icons-flex {
     /* border: solid 5px red; */
     display: flex;
@@ -573,7 +573,7 @@ li {
     width: 38%;
     color: #432;
     font-size: 1.35rem;
-    font-family: "Lobster", cursive;
+    font-family: "Lobster", cursive, sans-serif;
     color: #fff;
     text-shadow: 1px 1px 3px #eee;
     background-color: #87CEEB;
@@ -629,7 +629,7 @@ li {
     font-size: 1.45rem;
   }
   .service-title-en {
-    font-family: "Lobster", cursive;
+    font-family: "Lobster", cursive, sans-serif;
     font-size: 1.5rem;
   }
   .service-content {
@@ -708,7 +708,7 @@ li {
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 0.55rem 0;
+    padding: 8px 0;
     margin: 0 0 0 45px;
     color: #282936;
     font-size: 1.2rem;
@@ -767,7 +767,7 @@ li {
     color: #87CEEB;
   }
   .price-section {
-    margin-top: 4%;
+    margin-top: 3%;
   }
   .price-table {
     max-width: 1080px;
@@ -801,13 +801,13 @@ li {
     height: 1px;
     position: absolute;
     top: calc(50% - 20px);
-    right: -20px;
+    right: -18px;
     border-left: 20px solid #52c2d0;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
   }
   .price-table table td {
-    width: 30%;
+    width: 25%;
     text-align: center;
     background-color: #eee;
     font-size: 1.35rem;
@@ -1332,7 +1332,7 @@ button:active {
   text-align: center;
 }
 #footer span {
-  font-family: "Lobster", cursive;
+  font-family: "Lobster", cursive, sans-serif;
   font-size: 1rem;
 }
   /* ----------------------------------------------- スクロール＆ページトップ */
@@ -1383,7 +1383,7 @@ button:active {
     text-align: center;
     text-transform: uppercase; 
     text-decoration: none;
-    font-family: "Lobster", cursive;
+    font-family: "Lobster", cursive, sans-serif;
     background: url("../img/coffee-beans_640.png") no-repeat center;
     background-size: contain;
   }
