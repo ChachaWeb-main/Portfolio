@@ -232,7 +232,7 @@
             <th>お問い合わせ内容 | Message<br><br><span class="required last">必須 | Required</span></th>
             <td>
               <!-- value属性ないためタグ間に入力値 -->
-              <textarea name="message" cols="50" rows="5" placeholder="お見積もりは無料で承ります。まずはお気軽にお問い合わせくださいませ。| I accept estimation for free. Please feel free to contact us first." required><?php echo htmlspecialchars($post['message']); ?></textarea>
+              <textarea name="message" cols="50" rows="5" placeholder="お見積もりは無料で承ります。まずはお気軽にお問い合わせくださいませ。| I accept estimation for free. Please feel free to contact me first." required><?php echo htmlspecialchars($post['message']); ?></textarea>
               <?php if (!empty($error['message'])) : ?>
                 <?php if ($error['message'] === 'blank') : ?>
                   <p class="error_msg">※お問い合わせ内容をご記入下さい。| Please fill in the inquiry.</p>
@@ -263,8 +263,8 @@
 
   <footer id="footer" class="footer-wrap">
     <p id="page-top"><a href="#"><span>Page Top</span></a></p>
-    <a href="index.html" class="site-logo-footer"><img src="./img/title-logo.svg" width="120px" alt="サイトタイトルロゴ"></a>
-    <p class="copyright">&copy;2022 <span>Chacha WEB Create</span></p>
+    <a href="index.html" class="site-logo-footer"><img src="./img/title-logo.svg" width="120" alt="サイトタイトルロゴ"></a>
+    <p class="copyright">&copy; <span>Chacha WEB Create</span>&nbsp; 2022</p>
   </footer>
 
   <!-- jQuery -->
